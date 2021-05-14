@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
   end
 
   create_table "products", force: :cascade do |t|
-
     t.integer "genre_id"
     t.string "image_id"
     t.text "introduction"
@@ -74,7 +73,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
     t.integer "price"
 
     t.string "product_name"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
