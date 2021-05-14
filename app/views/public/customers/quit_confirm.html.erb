@@ -8,7 +8,6 @@
       退会する場合は,「退会する」をクリックしてください。
     </div>
 
-    <%= link_to "退会しない", customers_path, class: 'glyphicon glyphicon-home btn btn-primary' %>
-    <%= link_to "退会する", out_customers_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "glyphicon glyphicon-tint btn btn-danger" %>
-
+    <%= link_to "退会しない", customer_show_path, class: 'glyphicon glyphicon-home btn btn-primary' %>
+    <%= link_to "退会する", customers_quit_path, data: {confirm: "本当に退会してもよろしいですか？"}, class: "glyphicon glyphicon-tint btn btn-danger" %>
 </div>
