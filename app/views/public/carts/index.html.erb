@@ -2,7 +2,6 @@
       <h5>ショッピングカート</h5>
 
 
-
       <%= link_to 'カートを空にする', carts_destroy_all_path, method: :delete %>
 
       <table>
@@ -18,7 +17,7 @@
         <tbody>
         <% @sum = 0 %>
         <% @carts.each do |cart| %>
-        <!--% if cart.customer.id == current_customer.id %>-->
+        <% if cart.customer.id == current_customer.id %>
           <tr>
             <td>
               <p><%= cart.product.product_name %></p>
@@ -42,7 +41,7 @@
           </tr>
           <% @sum += @total %>
         <% end %>
-       <!--% end %>-->
+       <% end %>
        </tbody>
       </table>
 
