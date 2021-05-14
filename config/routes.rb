@@ -33,7 +33,8 @@ Rails.application.routes.draw do
     delete 'carts/destroy_all' => 'carts#destroy_all'
     delete 'carts/:id' => 'carts#destroy', as: 'destroy_cart'
 
-    resource :customers, only: [:edit, :update]
+    put 'my_page' => 'customers#update', as: 'customer'
+    get 'my_page/edit' => 'customers#edit', as: 'edit_customers'
     get 'customers/my_page' => 'customers#show', as: 'customer_show'
     get 'customers/quit_confirm' => 'customers#quit_confirm'
     get 'customers/quit' => 'customers#quit'

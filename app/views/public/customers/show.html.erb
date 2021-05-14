@@ -2,39 +2,39 @@
   <div class="col-xs-offset-1 col-xs-8">
   <h2>マイページ</h2>
   <p>登録情報</p>
-		<%= link_to " 編集する", "edit_customers_path", class: "btn btn-success" %>
+		<%= link_to " 編集する", edit_customers_path, class: "btn btn-success" %>
 
 		<table class="table table-bordered table-condensed" >
-		  <tr>
+		    <tr>
 				<td class="info col-xs-2">氏名</td>
-				<!--<td class="text-left">full_name(@customer)</td>-->
+				<td class="text-left"><%= full_name(@customer) %></td>
 			</tr>
 			<tr>
 				<td class="info">カナ</td>
-				<!--<td class="text-left">kana_full_name(@customer)</td>-->
+				<td class="text-left"><%= kana_full_name(@customer) %></td>
 			</tr>
 			<tr>
 				<td class="info">郵便番号</td>
-				<!--<td class="text-left">@customer.postal_code</td>-->
+				<td class="text-left"><%= @customer.postal_code %></td>
 			</tr>
 			<tr>
 				<td class="info">住所</td>
-				<!--<td class="text-left">@customer.adress</td>-->
+				<td class="text-left"><%= @customer.address %></td>
 			</tr>
 			<tr>
 				<td class="info">電話番号</td>
-				<!--<td class="text-left">@customer.tell</td>-->
+				<td class="text-left"><%= @customer.tell %></td>
 			</tr>
 			<tr>
 				<td class="info">メールアドレス</td>
-				<!--<td class="text-left">#@customer.email</td>-->
+				<td class="text-left"><%= @customer.email %></td>
 			</tr>
 		</table>
 		
 		<p>配送先</p>
-		<%= link_to "一覧を見る", "#", class: "btn btn-info" %>
+		<%= link_to "一覧を見る", addresses_path, class: "btn btn-info" %>
 		<p>注文履歴</p>
-		<%= link_to "一覧を見る", "#", class: "btn btn-info" %>
+		<%= link_to "一覧を見る", orders_path, class: "btn btn-info" %>
 		
   </div>
 </div>
