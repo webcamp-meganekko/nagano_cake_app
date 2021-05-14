@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2021_05_14_013508) do
 
   create_table "addresses", force: :cascade do |t|
-
     t.integer "customer_id"
     t.string "receve_name"
     t.string "postal_code"
@@ -47,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
     t.datetime "remember_created_at"
     t.string "first_name"
     t.string "last_name"
-    t.string "first_name_kana"
+    t.string "irst_name_kana"
     t.string "last_name_kana"
     t.string "postal_code"
     t.string "address"
@@ -75,6 +74,12 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
   end
 
   create_table "products", force: :cascade do |t|
+    t.integer "genre_id"
+    t.string "image_id"
+    t.text "introduction"
+    t.boolean "is_sale"
+    t.integer "price"
+    t.string "products_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

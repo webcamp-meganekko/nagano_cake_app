@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-8">
+  <h2>マイページ</h2>
+  <p>登録情報</p>
+		<%= link_to " 編集する", "#", class: "btn btn-success" %> <!--customer_edit_path(current_user)-->
+
+		<table class="table table-bordered table-condensed" >
+		  <tr>
+				<td class="info col-xs-2">氏名</td>
+				<!--<td class="text-left">full_name(@customer)</td>-->
+			</tr>
+			<tr>
+				<td class="info">カナ</td>
+				<!--<td class="text-left">kana_full_name(@customer)</td>-->
+			</tr>
+			<tr>
+				<td class="info">郵便番号</td>
+				<!--<td class="text-left">@customer.postal_code</td>-->
+			</tr>
+			<tr>
+				<td class="info">住所</td>
+				<!--<td class="text-left">@customer.adress</td>-->
+			</tr>
+			<tr>
+				<td class="info">電話番号</td>
+				<!--<td class="text-left">@customer.tell</td>-->
+			</tr>
+			<tr>
+				<td class="info">メールアドレス</td>
+				<!--<td class="text-left">#@customer.email</td>-->
+			</tr>
+		</table>
+		
+  </div>
+</div>
