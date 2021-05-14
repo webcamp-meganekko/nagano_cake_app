@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_062515) do
     t.boolean "is_sale"
     t.integer "price"
     t.string "product_name"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
