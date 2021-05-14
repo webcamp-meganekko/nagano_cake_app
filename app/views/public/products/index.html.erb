@@ -9,7 +9,7 @@
 
     <% @products.each do |product| %>
       
-          <%= link_to (attachment_image_tag product, :image, :fill, 220, 220, format: 'jpeg'), product_path(product.id) %>
+          <%= link_to (attachment_image_tag product, :image), product_path(product.id) %>
        
             <h5><%= product.product_name %></h5>
             <!--<p>￥%= product.tax_included_price.floor %></p>-->

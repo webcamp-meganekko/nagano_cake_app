@@ -2,18 +2,18 @@
   <nav>
     <!--logoを聞く-->
     <ul>
-      <% if user_signed_in? %>
-        ようこそ、<%= current_user.name %>さん！
-        <li><%= link_to 'マイページ', customer_show %></li>
+      <!--% if user_signed_in? %>-->
+        <!--ようこそ、%= current_user.name %>さん！-->
+        <li>%= link_to 'マイページ', customer_show %></li>
         <li><%= link_to '商品一覧', products_path %></li>
         <li><%= link_to 'カート', carts_path %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-      <% else %>
+        <li>%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <!--% else %>-->
         <li><%= link_to 'About', root_path %></li>
         <li><%= link_to '商品一覧', products_path %></li>
-        <li><%= link_to '新規登録', new_user_registration_path %></li>
-        <li><%= link_to 'ログイン', new_user_session_path %></li>
-      <% end %>
+        <li>%= link_to '新規登録', new_user_registration_path %></li>
+        <li>%= link_to 'ログイン', new_user_session_path %></li>
+      <!--% end %>-->
     </ul>
   </nav>
 </header>
