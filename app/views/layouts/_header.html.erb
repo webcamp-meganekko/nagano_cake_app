@@ -1,22 +1,26 @@
 <header>
-  <nav>
-    <!--ロゴは後で確認-->
-    <%= link_to 'Nagano cake', '/' %>
-    <ul>
-
-      <% if customer_signed_in? %>
-        ようこそ、<%= current_user.name %>さん！
-        <li><%= link_to 'マイページ', customer_show %></li>
-        <li><%= link_to '商品一覧', products_path %></li>
-        <li><%= link_to 'カート', carts_path %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to 'About', about_path %></li>
-        <li><%= link_to '商品一覧', products_path %></li>
-        <li><%= link_to '新規登録', new_customer_registration_path %></li>
-        <li><%= link_to 'ログイン', new_customer_session_path %></li>
-      <% end %>
-
-    </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+    <a class="navbar-brand" href="/"><span>NaganoCake</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
+          ようこそ、<%= current_customer.first_name %>さん！
+          <li><%= link_to 'マイページ', customer_show_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to '商品一覧', products_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to 'カート', carts_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'fas fa-home nav-link text-light' %></li>
+        <% else %>
+          <li><%= link_to 'About', about_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to '商品一覧', products_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to '新規登録', new_customer_registration_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to 'ログイン', new_customer_session_path, class: 'fas fa-home nav-link text-light' %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
   </nav>
 </header>
