@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_05_14_013508) do
 
   create_table "addresses", force: :cascade do |t|
+
     t.integer "customer_id"
     t.string "receve_name"
     t.string "postal_code"
@@ -44,6 +45,14 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
+    t.string "postal_code"
+    t.string "address"
+    t.string "tell"
+    t.boolean "is_valid", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
