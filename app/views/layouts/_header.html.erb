@@ -1,19 +1,22 @@
 <header>
   <nav>
-    <!--logoを聞く-->
+    <!--ロゴは後で確認-->
+    <%= link_to 'Nagano cake', '/' %>
     <ul>
-      <% if user_signed_in? %>
+
+      <% if customer_signed_in? %>
         ようこそ、<%= current_user.name %>さん！
         <li><%= link_to 'マイページ', customer_show %></li>
         <li><%= link_to '商品一覧', products_path %></li>
         <li><%= link_to 'カート', carts_path %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li><%= link_to 'About', root_path %></li>
+        <li><%= link_to 'About', about_path %></li>
         <li><%= link_to '商品一覧', products_path %></li>
-        <li><%= link_to '新規登録', new_user_registration_path %></li>
-        <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <li><%= link_to '新規登録', new_customer_registration_path %></li>
+        <li><%= link_to 'ログイン', new_customer_session_path %></li>
       <% end %>
+
     </ul>
   </nav>
 </header>

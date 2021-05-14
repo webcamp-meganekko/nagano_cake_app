@@ -1,15 +1,18 @@
 
     <h4>商品詳細</h4>
 
-      <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg' %>
+      <%= attachment_image_tag @product, :image %>
 
       <h4><%= @product.product_name %></h4>
       <p><%= @product.introduction %></p>
+      <td>¥ <%= @product.tax_included_price.floor %></td>
 
-      <% if customer_signed_in? %>
-       <%= form_with(model: @cart, local: true, method: :post, url: cart_path ) do |f| %>
+      <!--% if customer_signed_in? %>-->
+
+       <%= form_with(model: @cart, local: true, method: :post, url: carts_path ) do |f| %>
+
          <%= f.select :quantity, {'1': 1, '2': 2, '3': 3}, { include_blank: '選択してください'}%>
          <%= f.hidden_field :product_id, value: @product.id %>
          <%= f.submit "カートに入れる"%>
        <% end %>
-      <% end %>
+      <!--% end %>-->

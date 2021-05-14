@@ -1,8 +1,10 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
   
   def show #@customer = current_user
   end
   
+
   def edit #@customer = current_user
   end
   
@@ -17,6 +19,12 @@ class Public::CustomersController < ApplicationController
   end
   
   def quit_confirm
+
+
+  private
+
+  def customer_params
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :tell, :is_valid)
   end
   
 end
