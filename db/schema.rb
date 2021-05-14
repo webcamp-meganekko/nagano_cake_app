@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
     t.datetime "remember_created_at"
     t.string "first_name"
     t.string "last_name"
-    t.string "irst_name_kana"
+    t.string "first_name_kana"
     t.string "last_name_kana"
     t.string "postal_code"
     t.string "address"
