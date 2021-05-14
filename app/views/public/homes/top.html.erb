@@ -4,9 +4,15 @@
 会員でない⽅も商品の閲覧はできますが、<br>
 購⼊には会員登録が必要になります。<br>
 
-<!--新規商品-->
+<!--ジャンル検索機能の追加-->
+
 商品一覧
 <% @products.first(4).each do |product| %>
-
-
+    <%= link_to product_path(product.id) do %>
+        <%= attachment_image_tag product, :image, :fill, 220, 220, format: 'jpeg' %>
+    <% end %>
+    <%= product.product_name %>
+    ¥<%= product.price %>
+<% end %>
+<br>
 <%= link_to '全ての商品を⾒る >', products_path %>
