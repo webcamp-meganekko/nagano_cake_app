@@ -2,7 +2,7 @@ class Product < ApplicationRecord
 
   # belongs_to :genre
   has_many :carts, dependent: :destroy
-  has_many :order_products, dependent: :destroy
+  # has_many :order_products, dependent: :destroy
 
   attachment :image
 
@@ -11,6 +11,7 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :is_sale, presence: true
   validates :product_name, presence: true
+
 
   def is_sale_to_string
     if is_sale == true

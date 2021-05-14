@@ -3,6 +3,7 @@
     <!--ロゴは後で確認-->
     <%= link_to 'Nagano cake', '/' %>
     <ul>
+
       <% if customer_signed_in? %>
         ようこそ、<%= current_user.name %>さん！
         <li><%= link_to 'マイページ', customer_show %></li>
@@ -15,6 +16,7 @@
         <li><%= link_to '新規登録', new_customer_registration_path %></li>
         <li><%= link_to 'ログイン', new_customer_session_path %></li>
       <% end %>
+
     </ul>
   </nav>
 </header>
