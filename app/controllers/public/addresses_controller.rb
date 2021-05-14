@@ -2,16 +2,13 @@ class Public::AddressesController < ApplicationController
   
   def index
     @addresses = Address.all
+    @address = Address.new
   end
   
   def create
     @address = Address.new(address_params)
-    if @address.save
-      redirect_to addresses_path, notice: "配送先を登録しました。"
-    else
-      @addresses = Address.all
-      render 'index'
-    end
+    @address.save
+    redirect_to addresses_path
   end
   
   def edit
@@ -32,6 +29,6 @@ class Public::AddressesController < ApplicationController
   
   private
   def address_params
-    params.require(:address).permit(:receve_name, :postal_code, :address)
+    params.require(:address).permit(:receve_name, :postal_code, :street_address)
   end
 end

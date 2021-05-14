@@ -3,19 +3,17 @@
       <h1>商品一覧</h1>
       <!--ジャンル名検索機能作成で(ジャンル名)一覧に変える-->
       <!--<h1>%= @genre %>一覧</h1>-->
-      
-      
+
+
       <h5>(全<%= @product_count %>件) </h5>
 
     <% @products.each do |product| %>
-      
+
           <%= link_to (attachment_image_tag product, :image), product_path(product.id) %>
        
             <h5><%= product.product_name %></h5>
-            <!--<p>￥%= product.tax_included_price.floor %></p>-->
-            <p>￥<%= product.price %></p>
-  
+            <p>￥<%= product.tax_included_price.floor %></p>
+
     <% end %>
-  
+
       <%= paginate @products %>
-   

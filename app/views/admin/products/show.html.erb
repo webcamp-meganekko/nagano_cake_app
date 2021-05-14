@@ -1,0 +1,11 @@
+
+    <h4>商品詳細</h4>
+
+      <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg' %>
+
+      <h4><%= @product.product_name %></h4>
+      <p><%= @product.introduction %></p>
+      <td><%= @product.tax_included_price.floor %>　円</td>
+      
+     <td><%= link_to "編集する",  edit_admin_product_path(@product.id) %></td>
+

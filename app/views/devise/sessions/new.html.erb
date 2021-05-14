@@ -1,0 +1,22 @@
+<h2>ログイン</h2>
+
+会員の方はこちらからログイン
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+    メールアドレス <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+  </div>
+
+  <div class="field">
+    パスワード　<%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+
+会員登録がお済でない方<br>
+<%= link_to "こちら", new_customer_registration_path %>　
+から新規登録を⾏ってください。
