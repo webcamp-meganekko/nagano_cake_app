@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_013508) do
+ActiveRecord::Schema.define(version: 2021_05_14_062515) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
     t.string "receve_name"
     t.string "postal_code"
-    t.string "address"
+    t.string "street_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "genre_name"
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
   end
 
   create_table "products", force: :cascade do |t|
+
     t.integer "genre_id"
     t.string "image_id"
     t.text "introduction"
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
     t.integer "price"
 
     t.string "product_name"
+    
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
