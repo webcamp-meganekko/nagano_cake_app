@@ -68,11 +68,10 @@ gem "refile-mini_magick"
 
 gem 'pry-byebug'
 
-gem 'bootstrap', '~> 4.5'
+# gem 'bootstrap', '~> 4.5'
 gem "bootstrap-sass", '~> 3.4.1'
 gem 'jquery-rails'
 gem 'jp_prefecture'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'kaminari', '~> 0.17.0'
 gem 'enum_help'
-
