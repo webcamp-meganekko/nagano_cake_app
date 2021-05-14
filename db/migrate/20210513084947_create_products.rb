@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.boolean :is_sale
       t.integer :price
 
-      t.string :products_name
+      t.string :product_name
 
       t.timestamps
     end
