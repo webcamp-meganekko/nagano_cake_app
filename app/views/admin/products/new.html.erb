@@ -17,7 +17,7 @@
         <div><%= f.text_area :introduction, placeholder: "ここに説明文" %></div>
 
       　<p>ジャンル</p>
-          %= f.collection_select :genre_id, Genre.all %>
+          %= f.collection_select :genre, Genre.all %>
 
 
       　<p>税抜価格</p>
@@ -26,9 +26,9 @@
 
       　<p>販売ステータス</p>
       　<%= f.radio_button :is_sale, :true %>
-      　<%= f.label :is_sale, "販売中", {value: :true, style: "display: inline-block;"} %>
+      　<%= f.label :is_sale, "販売中", {value: :true} %>
       　<%= f.radio_button :is_sale, :false %>
-      　<%= f.label :is_sale, "販売停止中", {value: :false, style: "display: inline-block;"} %>
+      　<%= f.label :is_sale, "販売停止中", {value: :false} %>
 
 
       <%= f.submit '新規登録' %>

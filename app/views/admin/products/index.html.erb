@@ -1,0 +1,24 @@
+
+      <h5>商品一覧</h5>
+      <table>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= link_to product.product_name, admin_product_path(product.id) %></td>
+          <td><%= product.tax_included_price.floor %></td>
+          <!--<td>%= product.genre.name %></td>-->
+          <% if product.is_sale == true %>
+            <td><%= product.is_sale_to_string %></td>
+          <% else %>
+            <td><%= product.is_sale_to_string %></td>
+          <% end %>
+        </tr>
+      <% end %>
+</table>

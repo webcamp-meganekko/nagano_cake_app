@@ -16,7 +16,8 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    # redirect_to admin_product_path(@products.id)
+    # redirect_to admin_product_path(@product.id)
+    redirect_to admin_products_path
   end
 
   def show
@@ -37,7 +38,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:products).permit(:image, :product_name, :introduction, :price, :is_sale, :genre, )
+    params.require(:product).permit(:image, :product_name, :introduction, :price, :is_sale, :genre )
   end
 
 end
