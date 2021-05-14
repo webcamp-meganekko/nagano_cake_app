@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12">
+    
+    <h2>登録情報編集</h2>
+    
+    <%= form_with(model:@customer, url:customer_path, local: true) do |f| %>
+     
+      <div class="field">
+        <%= <%= f.label :"氏名" %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+      </div>
+      
+      <div class="field">
+        <%= <%= f.label :"氏名" %>
+        <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name" %>
+        <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name" %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :"郵便番号" %>
+        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :"電話番号" %>
+        <%= f.text_field :tell, autofocus: true, autocomplete: "tell" %>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
+        <%= link_to '退会する', quit_customers_path, class: "btn btn-danger"%>
+      </div>
+    
+    <% end %>
