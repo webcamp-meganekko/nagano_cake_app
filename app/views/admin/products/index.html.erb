@@ -1,27 +1,47 @@
-
-      <h5>商品一覧</h5>
-         <td><%= link_to "add product",  new_admin_product_path %></td>
-      <table>
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <h4>商品一覧</h4>
+       <td><%= link_to "add product",  new_admin_product_path %></td>
+      <table class="table">
+      <thead>
         <tr>
           <th>商品ID</th>
           <th>商品名</th>
           <th>価格</th>
           <th>ジャンル</th>
           <th>ステータス</th>
-        </tr>
+         </tr>
+      </thead>
+      <tbody>
 
       <% @products.each do |product| %>
         <tr>
-          <td><%= product.id %></td>
-          <td><%= link_to product.product_name, admin_product_path(product.id) %></td>
-          <td><%= product.tax_included_price.floor %>　円</td>
-          <td><%= product.genre.genre_name %></td>
+          <td>
+            <%= product.id %>
+          </td>
+          <td>
+            <%= link_to product.product_name, admin_product_path(product.id) %>
+          </td>
+          <td>
+            <%= product.tax_included_price.floor %>　円
+          </td>
+          <td>
+            %= product.genre.genre_name %>
+            </td>
 
           <% if product.is_sale == true %>
-            <td><%= product.is_sale_to_string %></td>
+            <td  class="text-success">
+              <%= product.is_sale_to_string %>
+            </td>
           <% else %>
-            <td><%= product.is_sale_to_string %></td>
+            <td  class="text-secondary">
+              <%= product.is_sale_to_string %>
+            </td>
           <% end %>
         </tr>
       <% end %>
-</table>
+      </tbody>
+    </table>
+  </div>
+</div>
+
