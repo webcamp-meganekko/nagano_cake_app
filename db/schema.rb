@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_013508) do
     t.text "introduction"
     t.boolean "is_sale"
     t.integer "price"
+
     t.string "product_name"
 
     t.datetime "created_at", null: false
