@@ -15,7 +15,7 @@
           <td><%= product.id %></td>
           <td><%= link_to product.product_name, admin_product_path(product.id) %></td>
           <td><%= product.tax_included_price.floor %>　円</td>
-          <td>%= product.genre.genre_name %></td>
+          <td><%= product.genre.genre_name %></td>
 
           <% if product.is_sale == true %>
             <td><%= product.is_sale_to_string %></td>

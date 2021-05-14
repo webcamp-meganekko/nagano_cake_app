@@ -26,7 +26,7 @@ class Public::CartsController < ApplicationController
   end
 
   def destroy_all
-    # current_customer.carts.destroy_all
+    current_customer.carts.destroy_all
     carts.destroy_all
     redirect_back(fallback_location: root_path)
   end
