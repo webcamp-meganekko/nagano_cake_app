@@ -8,19 +8,19 @@
     <div class="form-group row">
         <%= f.label :postal_code, '郵便番号（ハイフンなし）',  class: 'col-sm-3 col-form-label' %>
       <div class="col-sm-3">
-        <%= f.text_field :postal_code, class: 'form-control address_postal_code' %>
+        <%= f.text_field :postal_code, class: 'form-control address_postal_code', placeholder: '0000000' %>
       </div>
     </div>
     <div class="form-group row">
         <%= f.label :street_address, '住所', class: 'col-sm-3 col-form-label' %>
       <div class="col-sm-4">
-        <%= f.text_field :street_address, class: 'form-control address_street_address' %>
+        <%= f.text_field :street_address, class: 'form-control address_street_address', placeholder: '東京都渋谷区代々木神園0-0' %>
       </div>
     </div>
     <div class="form-group row">
         <%= f.label :receve_name, '宛名', class: 'col-sm-3 col-form-label' %>
       <div class="col-sm-3">
-        <%= f.text_field :receve_name, class: 'form-control address_receve_name' %>
+        <%= f.text_field :receve_name, class: 'form-control address_receve_name', placeholder: '令和道子' %>
       </div>
       <div class="col-sm-1">
       </div>
