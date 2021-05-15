@@ -1,47 +1,77 @@
-<div class="row">
+<div class="row m-4">
   <div class="col">
-    <h4><%= full_name(@customer) %>さんの会員情報編集</h4>
+    <h5 class="d-inline bg-gray pr-3 pl-3"><%= full_name(@customer) %>さんの会員情報編集</h5>
   </div>
 </div>
-<div class="row">
-  <div class="col">会員ID</div>
+<div class="row mb-3">
+  <div class="col-sm-3">会員ID</div>
   <div class="col"><%= @customer.id %></div>
 </div>
 <%= form_with model: @customer, url: admin_customer_path, local:true do |f| %>
-  <div class="form-group">
-    <%= f.label :last_name, '氏名' %>
-    <%= f.text_field :last_name, class: 'form-control' %>
-    <%= f.text_field :first_name, class: 'form-control' %>
+  <div class="form-group row">
+      <%= f.label :first_name, '氏名', class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-3">
+      <%= f.text_field :first_name, class: 'form-control first_name' %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :last_name, class: 'form-control last_name' %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :last_name_kana, 'フリガナ' %>
-    <%= f.text_field :last_name_kana, class: 'form-control' %>
-    <%= f.text_field :first_name_kana, class: 'form-control' %>
+  <div class="form-group row">
+      <%= f.label :first_name, '氏名', class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-3">
+      <%= f.text_field :first_name, class: 'form-control first_name' %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :last_name, class: 'form-control last_name' %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :postal_code, '郵便番号' %>
-    <%= f.text_field :postal_code, class: 'form-control' %>
+  <div class="form-group row">
+      <%= f.label :first_name_kana, 'フリガナ', class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-3">
+      <%= f.text_field :first_name_kana, class: 'form-control first_name_kana' %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :last_name_kana, class: 'form-control last_name_kana' %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :address, '住所' %>
-    <%= f.text_field :address, class: 'form-control' %>
+  <div class="form-group row">
+      <%= f.label :postal_code, '郵便番号', class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-3">
+      <%= f.text_field :postal_code, class: 'form-control postal_code' %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :tell, '電話番号' %>
-    <%= f.text_field :tell, class: 'form-control' %>
+  <div class="form-group row">
+      <%= f.label :address, '住所', class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :address, class: 'form-control address' %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :email, 'メールアドレス' %>
-    <%= f.text_field :email, class: 'form-control' %>
+  <div class="form-group row">
+      <%= f.label :tell, '電話番号', class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-3">
+      <%= f.text_field :tell, class: 'form-control tell' %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :is_valid, '会員ステータス' %>
-    <%= f.radio_button :is_valid, :true %>
-    <%= f.label :is_valid, '有効' %>
-    <%= f.radio_button :is_valid, :false %>
-    <%= f.label :is_valid, '無効' %>
+  <div class="form-group row">
+      <%= f.label :email, 'メールアドレス', class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-3">
+      <%= f.text_field :email, class: 'form-control email' %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.submit '変更を保存', class: 'form-control btn btn-success' %>
+  <div class="form-group row">
+      <%= f.label :is_valid, '会員ステータス', class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-3">
+      <%= f.radio_button :is_valid, :true %>
+      <%= f.label :is_valid, '有効' %>
+      <%= f.radio_button :is_valid, :false %>
+      <%= f.label :is_valid, '無効' %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+      <%= f.submit '変更を保存', class: 'form-control btn btn-success btn-sm' %>
+    </div>
   </div>
 <% end %>

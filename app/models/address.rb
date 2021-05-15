@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  # belongs_to :customer
+  belongs_to :customer
   
   VALID_POSTCODE_REGEX = /\A\d{7}\z/
   validates :receve_name, presence: true
