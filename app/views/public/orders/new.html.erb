@@ -15,6 +15,11 @@
   </div>
   <div class="form-group">
     <div class="row">
+      <%= f.label :address, 'お届け先' %>
     </div>
+      <%= f.radio_button :address, current_customer.address, checked: true %>
+      <%= f.label :address, 'ご自身の住所' %><br>
+      <%= '〒' + current_customer.postal_code + " " + current_customer.address %><br>
+      <%= full_name(current_customer) %>
 
 <% end %>
