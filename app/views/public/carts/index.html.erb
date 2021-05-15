@@ -29,6 +29,7 @@
         <% @carts.each do |cart| %>
 
         <% if cart.customer_id == current_customer.id %>
+
           <tr>
             <td>
               <p><%= cart.product.product_name %></p>
@@ -51,6 +52,7 @@
             <td>
               <div>
                 <%= link_to '削除する', destroy_cart_path(cart.id), class: 'btn btn-sm btn-danger', method: :delete %>
+
               </div>
             </td>
           </tr>
