@@ -1,11 +1,45 @@
 
-    <h4>商品詳細</h4>
-
-      <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg' %>
-
-      <h4><%= @product.product_name %></h4>
-      <p><%= @product.introduction %></p>
-      <td><%= @product.tax_included_price.floor %>　円</td>
+    
       
-     <td><%= link_to "編集する",  edit_admin_product_path(@product.id) %></td>
+<div class="row">
+  
+    <h1>商品詳細</h1>
+  
+</div>
+<div class="row">
+  <div class="col">
+      <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg' %>
+  </div>
+    <div class="col">
+          
+        <div class="row">
+          <div class="col">商品名</div>
+          <div class="col"><%= @product.product_name %></div>
+        </div>
+        <div class="row">
+          <div class="col">商品説明</div>
+          <div class="col"><%= @product.introduction %></div>
+        </div>
+        <div class="row">
+          <div class="col">ジャンル</div>
+          <div class="col">%= @product.genre.genre_name %></div>
+        </div>
+        <div class="row">
+          <div class="col">価格</div>
+          <div class="col"><%= @product.tax_included_price.floor %>　円</div>
+        </div>
+        <div class="row">
+          <div class="col">販売ステータス</div>
+          <div class="col">
+            <% if @product.is_sale == true %>
+            <p class="text-success">販売中</p>
+            <% else %>
+            <p class="text-secondary">販売停止中</p>
+            <% end %>
+          </div>
+        </div>
+    </div>
+</div>
 
+          <div class="btn btn-success text-white"><%= link_to "編集する",  edit_admin_product_path(@product.id) %></div>
+        

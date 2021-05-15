@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
   attachment :image
 
-  # # validates :genre_id, presence: true
+  # validates :genre_id, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
   validates :is_sale, presence: true

@@ -14,7 +14,7 @@ class Public::CartsController < ApplicationController
   end
 
   def update
-    @cart = CartProduct.find(params[:cart][:id])
+    @cart = Cart.find(params[:cart][:id])
     @cart.update(quantity: params[:cart][:quantity])
     redirect_to carts_path
   end
@@ -26,7 +26,7 @@ class Public::CartsController < ApplicationController
   end
 
   def destroy_all
-    # current_customer.carts.destroy_all
+    current_customer.carts.destroy_all
     carts.destroy_all
     redirect_back(fallback_location: root_path)
   end

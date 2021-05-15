@@ -22,17 +22,21 @@ class Public::CustomersController < ApplicationController
   
   def quit_confirm
   end
-  
+
   def quit
     current_customer.update(is_valid: false)
     sign_out(current_customer)
   end
 
 
-  private
 
+  private
   def customer_params
     params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :tell)
   end
+
   
 end
+
+end
+
