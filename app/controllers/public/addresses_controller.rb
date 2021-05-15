@@ -3,6 +3,7 @@ class Public::AddressesController < ApplicationController
   def index
     @addresses = Address.all
     @address = Address.new
+    @customer = current_customer
   end
   
   def create
