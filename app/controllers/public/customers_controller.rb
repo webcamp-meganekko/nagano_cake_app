@@ -36,7 +36,6 @@ class Public::CustomersController < ApplicationController
   end
 
 
-end
-
+  
 end
 
