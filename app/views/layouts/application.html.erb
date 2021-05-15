@@ -10,9 +10,11 @@
   </head>
 
   <body>
-    
-    <%= render "layouts/header" %>
-  
+    <% if admin_signed_in? %>
+      <%= render "layouts/adomin_heder" %>
+    <% else %>
+      <%= render "layouts/header" %>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
