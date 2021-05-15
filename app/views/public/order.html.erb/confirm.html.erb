@@ -1,0 +1,73 @@
+
+  <div class="row">
+    <div class="col-md-6 offset-md-1">
+      <h1>注⽂情報確認</h1>
+    </div>
+  </div>
+
+  <div class="row">
+   <div class="col-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-left">商品名</th>
+            <th class="text-left">単価(税込)</th>
+            <th class="text-left">数量</th>
+            <th class="text-left">小計</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @cart_products.each do |cart| %>
+          <tr>
+            <td>
+              <p><%= cart.product.product_name %></p>
+            </td>
+            <td>
+              <p><%= cart.product.tax_included_price.floor %></p>
+            </td>
+            <td>
+              <p><%= cart.quantity %></p>
+            </td>
+            <td>
+              <p><%= (cart.product.tax_included_price).to_i.floor * cart.product_quantity %></p>
+            </td>
+          </tr>
+       <% end %>
+       </tbody>
+      </table>
+    </div>
+
+     <% @sum = 0 %>
+     <div class="col">
+        <table class="table">
+          <thead>
+            <tr><th>送料</th><td><%= @order.postage %></td></tr>
+            <tr><th>商品合計</th><td><%= @total %></td></tr>
+            <tr><th>請求金額</th><td><%= @sum = @total + @order.postage %></td></tr>
+          </thead>
+           <tbody>
+           </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+     <div class="col">
+      <table class="table">
+        <thead>
+
+          <tr>
+            <th>支払い方法</th><td><%= @order.payment_method %></td>
+          </tr>
+          <tr>
+            <th>お届け先</th>
+            <td>〒<%= @order.postal_code %><%= @order.address %><%= @order.receve_name %></td>
+          </tr>
+
+        </thead>
+      </table>
+     </div>
+    </div>
+
+    
+    </div>
