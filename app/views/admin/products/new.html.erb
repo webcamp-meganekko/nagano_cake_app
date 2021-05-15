@@ -6,7 +6,7 @@
   </div>
 
              <%= form_with model: [:admin, @product], local:true do |f| %>
-   <div class="row">
+   <div class="row-10">
      <div class="col-md-8 offset-md-3 mt-4 pl-5">
        <div class="form-group form-inline">
          <p class="mr-4">商品画像</p>
@@ -40,10 +40,15 @@
           　<%= f.label :is_sale, "販売中", {value: :true, style: "display: inline-block;"} %>
           　<%= f.radio_button :is_sale, :false %>
           　<%= f.label :is_sale, "販売停止中", {value: :false, style: "display: inline-block;"} %>
-     </div>
+
+       </div>
+     
+        <div class="row">
+          <p class="col text-center">
+            <%= f.submit '変更を保存', class:"btn btn-sm btn-success" %>
+          </p>
+        </div>
+        <% end %>
+
    </div>
 </div>
-      <%= f.submit '変更を保存', class:"btn btn-sm btn-success" %>
-  <% end %>
-
-
