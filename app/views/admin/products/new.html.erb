@@ -12,12 +12,12 @@
          <p class="mr-4">商品画像</p>
          <div class="ml-5"><%= f.attachment_field :image %></div>
        </div>
-    
+
        <div class="form-group form-inline">
        　<p class="mr-4">商品名</p>
          <div class="ml-5"><%= f.text_field :product_name, placeholder: "商品名", size: "30", class: "form-control" %></div>
        </div>
-　
+
 
        <div class="form-group form-inline">
        　<p class="mr-4">商品説明</p>
@@ -26,23 +26,22 @@
 
        <div class="form-group form-inline">
        　<p class="mr-4">ジャンル</p>
-         <div class="ml-5"> %= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "--選択してください--", size: "30", class: "form-control" %></div>
+         <div class="ml-5"><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "--選択してください--", size: "30", class: "form-control" %></div>
        </div>
-      
+
        <div class="form-group form-inline">
        　<p class="mr-4">税抜価格</p>
          <p class="ml-5"><%= f.text_field :price, placeholder: "1000", size: "30", class: "form-control" %> 円</p>
        </div>
-     
+
      <div class="form-group form-inline">
        　<p class="mr-4">販売ステータス</p>
           　<%= f.radio_button :is_sale, :true %>
           　<%= f.label :is_sale, "販売中", {value: :true, style: "display: inline-block;"} %>
           　<%= f.radio_button :is_sale, :false %>
           　<%= f.label :is_sale, "販売停止中", {value: :false, style: "display: inline-block;"} %>
-
        </div>
-     
+
         <div class="row">
           <p class="col text-center">
             <%= f.submit '変更を保存', class:"btn btn-sm btn-success" %>
