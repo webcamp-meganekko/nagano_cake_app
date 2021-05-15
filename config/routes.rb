@@ -49,7 +49,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show, :new, :create, :edit, :update]
     resources :orders, only: [:show, :update] 
     resources :order_products, only: [:update]
-    get '/' => 'orders#top', as: 'admin_top'
+    get '/' => 'orders#top', as: 'top'
   end
 
 end
