@@ -16,3 +16,29 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+.main-visual {
+  position:  relative;
+  width: 40%;
+  height: 300px;
+  text-align:  center;
+  background-image: url(img/main-visual-image.jpg);
+  opacity: 20;
+  background-size: cover;
+  background-position: center;
+  margin:  auto;
+}
+
+.main-visual-content {
+  position:  absolute;
+  width: 70%;
+  height: 180px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-top: 60px;
+}
