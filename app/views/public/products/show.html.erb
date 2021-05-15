@@ -1,7 +1,7 @@
 
     <h4>商品詳細</h4>
 
-      <%= attachment_image_tag @product, :image %>
+      <%= attachment_image_tag @product, :image, format: 'jpeg', size: "200x200" %>
 
       <h4><%= @product.product_name %></h4>
       <p><%= @product.introduction %></p>
