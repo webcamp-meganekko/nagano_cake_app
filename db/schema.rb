@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_062515) do
     t.integer "genre_id"
     t.string "image_id"
     t.text "introduction"
-    t.boolean "is_sale"
+    t.boolean "is_sale", default: true
     t.integer "price"
     t.string "product_name"
     t.datetime "created_at", null: false

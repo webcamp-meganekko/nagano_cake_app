@@ -26,7 +26,7 @@
 
        <div class="form-group form-inline">
        　<p class="mr-4">ジャンル</p>
-         <div class="ml-5"><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "--選択してください--", size: "30", class: "form-control" %></div>
+         <div class="ml-5"><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "--選択してください--", size: "30", class: "form-control", required: "required" %></div>
        </div>
 
        <div class="form-group form-inline">
