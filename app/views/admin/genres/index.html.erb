@@ -1,23 +1,25 @@
-<div class="row">
-  <h1>ジャンル一覧・追加</h1>
+<div class="row m-4">
   <div class="col">
-    <%= form_with model: @genre, url: admin_genres_path,local:true do |f| %>
-    <div class="form-group">
-      <%= f.label :genre_name%>
-      <%= f.text_field :genre_name, class: 'form-control-plaintext genre_name', placeholder: 'ジャンル名' %>
-    </div>
-    <div class="form-group">
-      <%= f.submit '新規登録', class: 'form-control-plaintext btn btn-success' %>
-    </div>
-    <% end %>
+    <h5 class="d-inline bg-gray pr-3 pl-3">ジャンル一覧・追加</h5>
   </div>
 </div>
+  <%= form_with model: @genre, url: admin_genres_path,local:true do |f| %>
+  <div class="form-group row">
+      <%= f.label :genre_name, 'ジャンル名',  class: 'col-sm-3 col-form-label' %>
+    <div class="col-sm-3">
+      <%= f.text_field :genre_name, class: 'form-control genre_name', placeholder: 'ジャンル名' %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.submit '新規登録', class: 'form-control btn btn-success' %>
+    </div>
+  </div>
+  <% end %>
 <div class="row">
-  <div class="col-5">
+  <div class="col-sm-5 mt-3">
     <table class="table">
       <thead>
-        <tr>
-          <th class="bg-secondary">ジャンル名</th>
+        <tr class="bg-gray">
+          <th>ジャンル名</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -27,8 +29,8 @@
             <td>
               <%= genre.genre_name %>
             </td>
-            <td>
-              <%= link_to '編集する', edit_admin_genre_path(genre), class: 'btn btn-success' %>
+            <td class="d-flex justify-content-center">
+              <%= link_to '編集する', edit_admin_genre_path(genre), class: 'btn btn-success btn-sm' %>
             </td>
           </tr>
         <% end %>
