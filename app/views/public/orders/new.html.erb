@@ -1,0 +1,20 @@
+<div class="row m-4">
+  <div class="col">
+    <h5 class="d-inline bg-gray pr-3 pl-3">注文情報入力</h5>
+  </div>
+</div>
+<%= form_with model: @order,local:true do |f| %>
+  <div class="form-group">
+    <div class="row">
+      <%= f.label :payment_method, '支払い方法' %>
+    </div>
+      <%= f.radio_button :payment_method, 0, checked: true %>
+      <%= f.label :payment_method, 'クレジットカード' %><br>
+      <%= f.radio_button :payment_method, 1 %>
+      <%= f.label :payment_method, '銀行振込' %>
+  </div>
+  <div class="form-group">
+    <div class="row">
+    </div>
+
+<% end %>

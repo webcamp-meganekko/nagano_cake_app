@@ -48,6 +48,5 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :update] 
     resources :order_products, only: [:update]
   end
-
 end
 

@@ -31,3 +31,5 @@
 /config/master.key
 
 .DS_Store
+
+config/initializers/application_controller_renderer.rb
