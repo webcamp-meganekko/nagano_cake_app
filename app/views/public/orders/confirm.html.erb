@@ -16,18 +16,18 @@
       </thead>
       <tbody>
         <% @sum = 0 %>
-        <% current_customer.cart.each do |cart| %>
+        <% @carts.each do |cart| %>
           <tr class="">
             <td>
               <%= attachment_image_tag cart.product, :image, :size => '50x50',fallback: "no_image.jpg" %>
               <span> </span>
-              <%= cart.product.name %>
+              <%= cart.product.product_name %>
             </td>
-            <td class="align-middle"><%= (cart.product.price * 1.1).floor %></td>
+            <td class="align-middle"><%= (cart.product.price * 1.08).floor %></td>
             <td class="align-middle"><%= cart.quantity %></td>
-            <td class="align-middle"><%= (cart.product.price * 1.1).floor * cart.quantity %></td>
+            <td class="align-middle"><%= (cart.product.price * 1.08).floor * cart.quantity %></td>
           </tr>
-          <% @sum += (cart.product.price * 1.1).floor * cart.quantity %>
+          <% @sum += (cart.product.price * 1.08).floor * cart.quantity %>
         <% end %>
       </tbody>
     </table>
