@@ -1,17 +1,17 @@
 
-    
-      
+
+
 <div class="row">
-  
+
     <h1>商品詳細</h1>
-  
+
 </div>
 <div class="row">
   <div class="col">
       <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg' %>
   </div>
     <div class="col">
-          
+
         <div class="row">
           <div class="col">商品名</div>
           <div class="col"><%= @product.product_name %></div>
@@ -22,7 +22,7 @@
         </div>
         <div class="row">
           <div class="col">ジャンル</div>
-          <div class="col">%= @product.genre.genre_name %></div>
+          <div class="col"><%= @product.genre.genre_name %></div>
         </div>
         <div class="row">
           <div class="col">価格</div>
@@ -41,5 +41,4 @@
     </div>
 </div>
 
-          <div class="btn btn-success text-white"><%= link_to "編集する",  edit_admin_product_path(@product.id) %></div>
-        
+          <div class="btn btn-success mt-2"><%= link_to "編集する",  edit_admin_product_path(@product.id), class: "text-white" %></div>

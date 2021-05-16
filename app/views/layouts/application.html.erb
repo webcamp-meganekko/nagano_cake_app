@@ -10,8 +10,15 @@
   </head>
 
   <body>
-    
-    <%= render "layouts/header" %>
+
+    <% if admin_signed_in? %>
+      <%= render "layouts/adomin_heder" %>
+    <% else %>
+      <%= render "layouts/header" %>
+    <% end %>
+  
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
   
     <div class="container">
       <%= yield %>

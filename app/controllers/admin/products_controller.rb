@@ -1,10 +1,10 @@
 
 class Admin::ProductsController < ApplicationController
 
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def index
-    @products = Product.all
+     @products = Product.page(params[:page]).per(10).order(:id)
   end
 
   def new
@@ -40,7 +40,7 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
 
-    params.require(:product).permit(:image, :product_name, :introduction, :price, :is_sale, :genre )
+    params.require(:product).permit(:image, :product_name, :introduction, :price, :is_sale, :genre_id )
 
   end
 
