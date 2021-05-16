@@ -1,13 +1,19 @@
-<div class="quit_confirm">
-  <strong>本当に退会しますか？</strong>
+<div class = "row mt-20">
+  <div class="mx-auto col-12 col-sm-10 col-lg-8 col-xl-6">
+    <strong>本当に退会しますか？</strong>
+  
+      <div class="quit-msg">
+        退会すると会員情報登録や<br>
+        これまでの購入履歴が閲覧できなくなります。<br>
+        <br>
+        退会する場合は,「退会する」をクリックしてください。
+      </div>
+   </div>
+</div>
 
-    <div class="quit-msg">
-      退会すると会員情報登録や<br>
-      これまでの購入履歴が閲覧できなくなります。<br>
-      <br>
-      退会する場合は,「退会する」をクリックしてください。
-    </div>
-
+<div class="row">
+  <div class="mx-auto col-12 col-sm-10 col-lg-8 col-xl-6">
     <%= link_to "退会しない", customer_show_path, class: 'glyphicon glyphicon-home btn btn-primary' %>
     <%= link_to "退会する", customers_quit_path, data: {confirm: "本当に退会してもよろしいですか？"}, class: "glyphicon glyphicon-tint btn btn-danger" %>
+  </div>
 </div>
