@@ -2,7 +2,8 @@
     <h4>商品詳細</h4>
 
 
-    <%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg' %>
+      <%= attachment_image_tag @product, :image, format: 'jpeg', size: "200x200" %>
+
       <h4><%= @product.product_name %></h4>
       <p><%= @product.introduction %></p>
       <td>¥ <%= @product.tax_included_price.floor %></td>

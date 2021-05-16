@@ -10,7 +10,9 @@
     <% @products.each do |product| %>
       <div class="card border-0">
         <div class="card-img-top">
-          <%= link_to (attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' ), product_path(product.id) %>
+
+          <%= link_to (attachment_image_tag product, :image, format: 'jpeg', size: "200x200"), product_path(product.id) %>
+
         </div>
         <div class="card-body">
           <div class="font-weight-bold">
