@@ -40,7 +40,11 @@ Rails.application.routes.draw do
   end
 
   # ========= 管理者(admin)のルーティング ================
-  devise_for :admins
+    devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
   
     
   namespace :admin do
