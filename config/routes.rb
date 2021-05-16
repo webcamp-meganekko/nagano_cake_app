@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     get 'my_page/edit' => 'customers#edit', as: 'edit_customers'
     get 'customers/my_page' => 'customers#show', as: 'customer_show'
     get 'customers/quit_confirm' => 'customers#quit_confirm'
-    get 'customers/quit' => 'customers#quit'
+    patch 'customers/quit' => 'customers#quit'
   end
 
   # ========= 管理者(admin)のルーティング ================
