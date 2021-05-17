@@ -28,12 +28,11 @@ class Public::CustomersController < ApplicationController
     sign_out(current_customer)
   end
 
-
-
   private
-  def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :tell)
-  end
+  
+    def customer_params
+      params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :tell)
+    end
 
 end
 
