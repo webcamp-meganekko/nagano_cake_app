@@ -40,10 +40,22 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def search
+    @products = Product.page(params[:page]).per(10).order(:id)
+    @word = params[:word]
+    @search_products = Product.search(@word)
+    
+    if @search_products.empty?
+      @search_products = Genre.search(@word)
+      if @search_products.empty?
+        @search_products = Product.all
+      end
+    end
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:image, :product_name, :introduction, :price, :is_sale, :genre_id )
   end
-
 end

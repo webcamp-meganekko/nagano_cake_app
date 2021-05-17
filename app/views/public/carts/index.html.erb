@@ -35,7 +35,7 @@
               <p><%= cart.product.product_name %></p>
             </td>
             <td>
-              <p><%= cart.product.tax_included_price.floor %>　円</p>
+              <p><%= cart.product.tax_included_price%></p>
             </td>
 
              <td>
@@ -47,7 +47,8 @@
             </td>
 
             <td>
-              <p><%= @total=(cart.product.tax_included_price).to_i.floor * cart.quantity %></p>
+              <p><%= (@total=(cart.product.price * 1.08).to_i.floor * cart.quantity).to_s(:delimited) %></p>
+
             </td>
             <td>
               <div>
@@ -74,7 +75,7 @@
         <tbody>
           <tr>
             <td class="align-middle p-2"><p class="font-weight-bold mb-0">合計金額</p></td>
-            <td class="align-middle p-2"><p class="font-weight-bold mb-0"><%= @sum %></p></td>
+            <td class="align-middle p-2"><p class="font-weight-bold mb-0"><%= @sum.to_s(:delimited) %></p></td>
           </tr>
         </tbody>
       </table>
@@ -82,7 +83,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-8 offset-md-3 mt-5">
+    <div class="col-md-8 offset-md-3 mt-5 mb-4">
       <%= link_to '情報入力に進む', new_order_path, class: 'btn btn-sm btn-success' %>
     </div>
   </div>
