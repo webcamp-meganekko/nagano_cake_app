@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
   
   def top
-    @order_products = OrderProduct.all
+    @orders = Order.all
   end
   
 end

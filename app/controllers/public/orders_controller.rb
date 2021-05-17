@@ -1,6 +1,7 @@
 class Public::OrdersController < ApplicationController
   before_action :cart_is_empty, only: [:new, :confirm]
   
+  
   # カートの中身が空かどうかチェックするメソッド
   def cart_is_empty
     if current_customer.carts.empty?
@@ -17,10 +18,11 @@ class Public::OrdersController < ApplicationController
   
   def index
     @orders = current_customer.orders.all
-    @order_products = OrderProduct.page(params[:page]).per(PER)
   end
 
   def show
+    @sum = 0
+    @deliverycharge = 800 # 配送料
     @order = current_customer.orders.find(params[:id])
     @order_products = OrderProduct.where(order_id: @order.id)
   end
@@ -31,6 +33,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @sum = 0
+    @deliverycharge = 800 # 配送料
     @order = Order.new(order_params)
     @carts = current_customer.carts
     @order.payment_method = params[:order][:payment_method]
