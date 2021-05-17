@@ -25,5 +25,4 @@ class Product < ApplicationRecord
     tax = 1.08
     price * tax
   end
-
 end
