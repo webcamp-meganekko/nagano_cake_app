@@ -1,0 +1,49 @@
+<div class="row m-4">
+  <div class="col">
+    <h5 class="d-inline bg-gray pr-3 pl-3">注文履歴詳細</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">購入者</div>
+  <%= link_to full_name(@order.customer), admin_customer_path(@order.customer), class: 'col-sm-10' %>
+  <div class="col-sm-2">注文日</div>
+  <div class="col-sm-10"><%= full_address(@order) %></div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-10"><%= full_name(@order.customer) %></div>
+  <div class="col-sm-2">支払い方法</div>
+  <div class="col-sm-10"><%= @order.payment_method %></div>
+  <div class="col-sm-2">注文ステータス</div>
+  <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
+    <div class="d-flex flex-row">
+      <%= f.select :order_status, Order.order_statuses.keys.to_a, {}, class: 'form-control ml-3' %>
+      <%= f.submit '更新', class: 'btn btn-success btn-sm ml-3' %>
+    </div>
+  <% end %>
+</div>
+<div class="row pt-3">
+  <div class="col-8">
+    <table class="table table-inverse table-bordered">
+      <tr class="bg-light">
+        <th style="width: 30%">商品</th>
+        <th style="width: 20%">単価（税込）</th>
+        <th style="width: 10%">数量</th>
+        <th style="width: 10%">小計</th>
+        <th style="width: 30%">製作ステータス</th>
+      </tr>
+      <% @order_products.each do |order_product| %>
+      <tr>
+        <td><%= order_product.product.product_name %></td>
+        <td><%= order_product.tax_included_price.floor.to_s(:delimited) %></td>
+        <td><%= order_product.quantity %></td>
+        <td><%= (order_product.price * order_product.quantity * 1.08).floor.to_s(:delimited)%></td>
+        <%= form_with model: order_product, url: admin_order_product_path(order_product), method: :patch, local: true do |f| %>
+        <td class="d-flex flex-row">
+          <%= f.select :making_status, OrderProduct.making_statuses.keys.to_a, {}, class: 'form-control' %>
+          <%= f.submit '更新', class: 'btn btn-success btn-sm ml-3' %>
+        </td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
