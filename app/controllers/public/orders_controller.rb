@@ -18,7 +18,6 @@ class Public::OrdersController < ApplicationController
   
   def index
     @orders = current_customer.orders.all
-    @order_products = OrderProduct.page(params[:page]).per(PER)
   end
 
   def show
