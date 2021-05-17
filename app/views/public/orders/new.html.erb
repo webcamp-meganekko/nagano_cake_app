@@ -4,6 +4,7 @@
   </div>
 </div>
 <%= form_with model: @order, url: orders_confirm_path, method: :post, local:true do |f| %>
+
   <div class="form-group">
     <div class="row">
       <%= f.label :payment_method, '支払い方法' %>

@@ -1,4 +1,5 @@
 class Admin::CustomersController < ApplicationController
+  before_action :authenticate_admin!
   
   PER = 10
   
@@ -16,16 +17,12 @@ class Admin::CustomersController < ApplicationController
   
   def update
     @customer = Customer.find(params[:id])
-    @customer = Customer.update(customer_params)
-    flash[:notice] = "会員情報を変更しました。"
-    redirect_to admin_customers_path
-  end
-  
-  def destroy
-    @customer = Customer.find(params[:id])
-    @customer.destroy
-    flash[:notice] = "会員を削除しました。"
-    redirect_to admin_customers_path
+    if @customer.update(customer_params)
+      flash[:notice] = "会員情報を変更しました。"
+      redirect_to admin_customers_path
+    else
+      render 'edit'
+    end
   end
   
   private
