@@ -12,11 +12,15 @@
         <div class="row my-2">
           <p class="col"><%= @product.introduction %></p>
         </div>
-
-
-        <div class="row my-2 ml-0">
-          <td>¥ <%= @product.tax_included_price %> (税込)</td>
+        
+        <div class="row my-2">
+          <div class="col ml-3">
+            <div class="row">税込価格</div>
+            <div class="row">(税抜価格)</div>
+          </div>
+          <div class="col my-auto pl-0"><%= @product.tax_included_price %> (<%= @product.price.to_s(:delimited) %>) 円</div>
         </div>
+
 
           <div class="row mt-4">
 

@@ -3,9 +3,6 @@ class Public::ProductsController < ApplicationController
   def index
     @products = Product.page(params[:page]).per(8).order(:id)
     @product_count = Product.count
-    # @genre = Genre.find(params[:id])
-    # p @genre
-    # # @products_genre = Product.where(params[:genre_id])
   end
 
   def show
