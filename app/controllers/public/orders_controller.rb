@@ -11,6 +11,10 @@ class Public::OrdersController < ApplicationController
   
   PER = 10
   
+  def top
+    @order_products = current_customer.orders
+  end
+  
   def index
     @orders = current_customer.orders.all
     @order_products = OrderProduct.page(params[:page]).per(PER)
@@ -32,6 +36,7 @@ class Public::OrdersController < ApplicationController
     @order.payment_method = params[:order][:payment_method]
     
     if params[:order][:address_option] == "0"
+      
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.receve_name = current_customer.last_name + current_customer.first_name
