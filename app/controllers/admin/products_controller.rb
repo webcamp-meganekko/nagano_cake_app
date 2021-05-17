@@ -36,6 +36,19 @@ class Admin::ProductsController < ApplicationController
     redirect_to admin_product_path(@product.id)
   end
 
+  def search
+    @products = Product.page(params[:page]).per(10).order(:id)
+    @word = params[:word]
+
+    if @word =~  /^[0-9]+$/
+      @search_products = Product.search(@word)
+      @search_genres = Genre.search(@word)
+    else
+      @search_genres = Genre.search(@word)
+      @search_products = Product.search(@word)
+    end
+  end
+
   private
 
   def product_params
