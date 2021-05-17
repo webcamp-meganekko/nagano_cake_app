@@ -1,5 +1,3 @@
-
-
 <div class="row mt-5 offset-md-2">
     <div class="col-md-5 text-center mb-4">
       <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg' %>
@@ -15,7 +13,7 @@
 
 
         <div class="row my-2 ml-0">
-          <td>¥ <%= @product.tax_included_price %> (税込)</td>
+          <td>¥ <%= @product.tax_included_price.floor %> (税込)</td>
         </div>
 
           <div class="row mt-4">
