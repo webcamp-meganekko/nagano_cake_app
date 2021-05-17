@@ -46,12 +46,11 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.customer_id = current_customer
+    @order.customer_id = current_customer.id
     @order.save
     @carts = current_customer.carts.all
       @carts.each do |cart|
         @order_products = @order.order_products.new
-        @order_products.order_id = @order.id
         @order_products.product_id = cart.product.id
         @order_products.price = cart.product.price
         @order_products.quantity = cart.quantity
