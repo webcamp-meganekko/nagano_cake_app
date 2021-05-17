@@ -9,11 +9,16 @@ class Public::OrdersController < ApplicationController
     end
   end
   
+  PER = 10
+  
   def index
-    @order_products = current_customer.orders
+    @orders = current_customer.orders.all
+    @order_products = OrderProduct.page(params[:page]).per(PER)
   end
 
   def show
+    @order = current_customer.orders.find(params[:id])
+    @order_products = OrderProduct.where(order_id: @order.id)
   end
 
   def new

@@ -15,22 +15,22 @@
 
         <tr class="">
           <td class="text-center", style="width: 25%">注文日</td>
-          <td style="width: 75%"></td>
+          <td style="width: 75%"><%= @order.created_at %></td>
         </tr>
 
         <tr class="">
             <td class="text-center", style="width: 25%">配送先</td>
-          <td style="width: 75%"></td>
+          <td style="width: 75%"><%= @order.address %></td>
         </tr>
 
         <tr class="">
             <td class="text-center", style="width: 25%">支払方法</td>
-          <td style="width: 75%"></td>
+          <td style="width: 75%"><%= @order.payment_method %></td>
         </tr>
 
         <tr class="">
           <td class="text-center", style="width: 25%">ステータス</td>
-          <td style="width: 75%"></td>
+          <td style="width: 75%"><%= @order.order_status %></td>
         </tr>
 
       </table>
@@ -45,15 +45,15 @@
 
         <tr class="">
            <td class="text-center", style="width: 30%">商品合計</td>
-          <td style="width: 70%"></td>
+          <td style="width: 70%"><//%= @order_product.price %></td>
         </tr>
         <tr class="">
           <td class="text-center", style="width: 70%">配送料</td>
-          <td style="width: 30%"></td>
+          <td style="width: 30%">800</td>
         </tr>
         <tr class="">
           <td class="text-center font-weight-bold", style="width: 70%">ご請求額</td>
-          <td style="width: 30%"></td>
+          <td style="width: 30%"><%= @order.total_price %></td>
         </tr>
 
       </table>
@@ -74,13 +74,17 @@
           <th class="text-center", style="width: 15%">個数</th>
           <th class="text-center", style="width: 15%">小計</th>
         </tr>
+          <% @order_products.each do |order_product| %>
         <tr>
-          <td></td>
+          <td><%= order_product.product.product_name %></td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
+          <% end %>
 
        </table>
       </div>
     </div>
+    
+    <%= link_to '戻る', orders_path %>
