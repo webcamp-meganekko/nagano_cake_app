@@ -15,15 +15,10 @@ class Public::ProductsController < ApplicationController
 
   def search
     @products = Product.page(params[:page]).per(8).order(:id)
-    # @product_count = Product.count
-    @genre = params[:genre_id]
-    @products_genre = Product.where(@genre)
-    @genre_name = @products_genre
-
-
-    p@product
-
-
+    @genre = Genre.find(params[:genre_id])
+    @products_genre = Product.where(genre_id: @genre)
+    @genre_name = @genre.genre_name
+    
   end
 
   def product_params
