@@ -1,10 +1,28 @@
 class Public::OrdersController < ApplicationController
+  before_action :cart_is_empty, only: [:new, :confirm]
+  
+  # カートの中身が空かどうかチェックするメソッド
+  def cart_is_empty
+    if current_customer.carts.empty?
+      flash[:notice] = "カートに商品がありません。"
+      redirect_to carts_path
+    end
+  end
+  
+  PER = 10
   
   def top
     @order_products = current_customer.orders
   end
+  
+  def index
+    @orders = current_customer.orders.all
+    @order_products = OrderProduct.page(params[:page]).per(PER)
+  end
 
   def show
+    @order = current_customer.orders.find(params[:id])
+    @order_products = OrderProduct.where(order_id: @order.id)
   end
 
   def new
@@ -17,7 +35,7 @@ class Public::OrdersController < ApplicationController
     @carts = current_customer.carts
     @order.payment_method = params[:order][:payment_method]
     
-    if params[:order][:address_option] == "0" && params[:order][:address_id].empty? &&
+    if params[:order][:address_option] == "0"
       
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
@@ -38,7 +56,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.customer_id = current_customer
+    @order.customer_id = current_customer.id
     @order.save
     @carts = current_customer.carts.all
       @carts.each do |cart|
@@ -57,7 +75,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:postal_code, :total_price, :payment_method,
+    params.require(:order).permit(:postal_code, :total_price, :payment_method, :postage,
                                   :address, :receve_name, :order_status, :customer_id)
   end
 end
