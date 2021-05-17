@@ -39,13 +39,13 @@ class Admin::ProductsController < ApplicationController
   def search
     @products = Product.page(params[:page]).per(10).order(:id)
     @word = params[:word]
-
-    if @word =~  /^[0-9]+$/
-      @search_products = Product.search(@word)
-      @search_genres = Genre.search(@word)
-    else
-      @search_genres = Genre.search(@word)
-      @search_products = Product.search(@word)
+    @search_products = Product.search(@word)
+    
+    if @search_products.empty?
+      @search_products = Genre.search(@word)
+      if @search_products.empty?
+        @search_products = Product.all
+      end
     end
   end
 
@@ -56,5 +56,4 @@ class Admin::ProductsController < ApplicationController
     params.require(:product).permit(:image, :product_name, :introduction, :price, :is_sale, :genre_id )
 
   end
-
 end
