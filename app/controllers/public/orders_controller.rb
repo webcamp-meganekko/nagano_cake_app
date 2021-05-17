@@ -1,4 +1,13 @@
 class Public::OrdersController < ApplicationController
+  before_action :cart_is_empty, only: [:new, :confirm]
+  
+  # カートの中身が空かどうかチェックするメソッド
+  def cart_is_empty
+    if current_customer.carts.empty?
+      flash[:notice] = "カートに商品がありません。"
+      redirect_to carts_path
+    end
+  end
   
   def index
     @order_products = current_customer.orders
@@ -42,6 +51,7 @@ class Public::OrdersController < ApplicationController
     @carts = current_customer.carts.all
       @carts.each do |cart|
         @order_products = @order.order_products.new
+        @order_products.order_id = @order.id
         @order_products.product_id = cart.product.id
         @order_products.price = cart.product.price
         @order_products.quantity = cart.quantity
@@ -56,7 +66,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:postal_code, :total_price, :payment_method,
+    params.require(:order).permit(:postal_code, :total_price, :payment_method, :postage,
                                   :address, :receve_name, :order_status, :customer_id)
   end
 end
