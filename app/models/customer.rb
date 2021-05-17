@@ -24,7 +24,7 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :tell, presence: true, format: { with: /\A\d{10,11}\z/ }
   # アカウント作成時の電話番号はハイフンなしの10桁もしくは11桁のみ登録可能とするバリデーション
-  before_save   :downcase_email
+  before_save :downcase_email
 
 
   # 退会後のログインを禁止(deviseメソッド)
