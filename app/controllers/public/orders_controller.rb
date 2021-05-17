@@ -1,6 +1,6 @@
 class Public::OrdersController < ApplicationController
   
-  def index
+  def top
     @order_products = current_customer.orders
   end
 
@@ -17,7 +17,8 @@ class Public::OrdersController < ApplicationController
     @carts = current_customer.carts
     @order.payment_method = params[:order][:payment_method]
     
-    if params[:order][:address_option] == "0"
+    if params[:order][:address_option] == "0" && params[:order][:address_id].empty? &&
+      
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.receve_name = current_customer.last_name + current_customer.first_name
