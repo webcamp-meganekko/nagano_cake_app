@@ -15,25 +15,28 @@
         </tr>
       </thead>
       <tbody>
-        <% @order_products.each do |order_product| %>
+        <% @orders.each do |order| %>
           <tr>
             <td>
-              <%= link_to order_product.created_at, admin_order_path(order_product) %>
+              <%= link_to order.created_at, admin_order_path(order) %>
             </td>
             <td>
-              <%= full_name(order_product.orders) %>
+              <%= order.customer.last_name + order.customer.first_name %>
             </td>
             <td>
-              <%= order_product.quantity %>
+              <%=  %>
             </td>
             <td>
-              <% if order_product.orders.order_status == true %>
-              
-              <!-- 今日の終わりここまで -->
-              
-              <p class="text-success">有効</p>
-              <% else %>
-              <p class="text-secondary">退会</p>
+              <% if order.order_status == 0 %>
+                入金待ち
+              <% elsif order.order_status == 1 %>
+                入金確認
+              <% elsif order.order_status == 2 %>
+                製作中
+              <% elsif order.order_status == 3 %>
+                発送準備中
+              <% elsif order.order_status == 4 %>
+                発送済み
               <% end %>
             </td>
           </tr>
@@ -44,6 +47,6 @@
 </div>
 <div class="row">
   <div class="col-sm-4 m-auto">
-    <%= paginate @customers %>
+    <%=  %>
   </div>
 </div>
