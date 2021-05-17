@@ -2,7 +2,7 @@ class Product < ApplicationRecord
 
   belongs_to :genre
   has_many :carts, dependent: :destroy
-  # has_many :order_products, dependent: :destroy
+  has_many :order_products, dependent: :destroy
 
   attachment :image
 
@@ -23,7 +23,14 @@ class Product < ApplicationRecord
 
   def tax_included_price
     tax = 1.08
-    price * tax
+    (price * tax).floor.to_s(:delimited)
   end
 
+  def self.search(word)
+    if word =~  /^[0-9]+$/
+      @search_products = Product.where("id LIKE?","%#{word}%")
+    else
+      @search_products = Product.where("product_name LIKE?","%#{word}%")
+    end
+  end
 end
