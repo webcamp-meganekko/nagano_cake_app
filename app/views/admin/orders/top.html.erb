@@ -18,26 +18,16 @@
         <% @orders.each do |order| %>
           <tr>
             <td>
-              <%= link_to order.created_at, admin_order_path(order) %>
+              <%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order) %>
             </td>
             <td>
               <%= order.customer.last_name + order.customer.first_name %>
             </td>
             <td>
-              <%=  %>
+              <%= order.order_products.sum(:quantity) %>
             </td>
             <td>
-              <% if order.order_status == 0 %>
-                入金待ち
-              <% elsif order.order_status == 1 %>
-                入金確認
-              <% elsif order.order_status == 2 %>
-                製作中
-              <% elsif order.order_status == 3 %>
-                発送準備中
-              <% elsif order.order_status == 4 %>
-                発送済み
-              <% end %>
+              <%= order.order_status %>
             </td>
           </tr>
         <% end %>
@@ -47,6 +37,6 @@
 </div>
 <div class="row">
   <div class="col-sm-4 m-auto">
-    <%=  %>
+    <%= paginate @orders %>
   </div>
 </div>
