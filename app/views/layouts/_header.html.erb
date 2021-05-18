@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
-            ようこそ、<%= current_customer.first_name %>さん！
+            <li class="text-light">ようこそ、<%= current_customer.first_name %>さん！</li>
             <li><%= link_to ' マイページ', customer_show_path, class: 'fas fa-home nav-link text-light' %></li>
             <li><%= link_to ' 商品一覧', products_path, class: 'fas fa-th nav-link text-light' %></li>
             <li><%= link_to ' カート', carts_path, class: 'fas fa-shopping-cart nav-link text-light' %>

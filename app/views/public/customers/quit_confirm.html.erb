@@ -16,7 +16,7 @@
   
   <div class="row">
     <div class="col-lg-12">
-      <%= link_to "退会しない", customer_path, class: "btn btn-primary table__button" %>
+      <%= link_to "退会しない", customer_show_path, class: "btn btn-primary table__button" %>
       <%= link_to "退会する", customers_quit_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger table__button" %>
     </div>
   </div>

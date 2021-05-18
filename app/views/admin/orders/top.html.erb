@@ -1,1 +1,42 @@
-管理者トップページ（注文詳細ページ）
+<div class="row m-4">
+  <div class="col">
+    <h5 class="d-inline bg-gray pr-3 pl-3">注文履歴一覧</h5>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-10 m-auto">
+    <table class="table">
+      <thead>
+        <tr class="bg-gray">
+          <th style="width: 20%">購入日時</th>
+          <th style="width: 25%">購入者</th>
+          <th style="width: 25%">注文個数</th>
+          <th style="width: 25%">注文ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td>
+              <%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order) %>
+            </td>
+            <td>
+              <%= order.customer.last_name + order.customer.first_name %>
+            </td>
+            <td>
+              <%= order.order_products.sum(:quantity) %>
+            </td>
+            <td>
+              <%= order.order_status %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 m-auto">
+    <%= paginate @orders %>
+  </div>
+</div>

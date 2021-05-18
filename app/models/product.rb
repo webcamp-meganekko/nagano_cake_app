@@ -22,6 +22,7 @@ class Product < ApplicationRecord
 
   def tax_included_price
     tax = 1.08
+
     (price * tax).floor.to_s(:delimited)
   end
 
@@ -35,5 +36,6 @@ class Product < ApplicationRecord
     else
       @search_products = Product.where("product_name LIKE?","%#{word}%")
     end
+
   end
 end
