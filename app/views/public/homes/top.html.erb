@@ -1,4 +1,5 @@
 <div class="row">
+
   <div class="w-50 mx-auto mt-5">
   <%= image_tag 'main-visual-image.jpg', size:'600x400' %>
   
@@ -21,9 +22,7 @@
     <% @products.first(4).each do |product| %>
       <div class="card border-0">
         <div class="card-img-top">
-      
         <%= link_to (attachment_image_tag product, :image, format: 'jpeg', size: "200x200", class: 'shadow p-3 mb-5 bg-white rounded'), product_path(product.id) %>
-      
         </div>
           <div class="card-body">
             <div class="font-weight-bold">
@@ -36,6 +35,7 @@
         </div>
       <% end %>
   </div>
+
   <div class='mx-auto w-75 text-right mb-5'>
     <%= link_to '全ての商品を⾒る >', products_path, class: "text-right ml-3" %>
   </div>

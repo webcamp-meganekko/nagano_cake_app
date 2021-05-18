@@ -27,7 +27,9 @@
             <h5><%= product.product_name %></h5>
           </div>
           <div>
-            <p>￥<%= product.tax_included_price.floor %></p>
+            <p>￥<%= product.tax_included_price %>
+            (<%= product.price.to_s(:delimited) %>)
+
           </div>
         </div>
       </div>
