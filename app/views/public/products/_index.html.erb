@@ -26,7 +26,7 @@
               <p>品切れ中</p>
             <% else %>
               <p>￥<%= product.tax_included_price %>
-            (<%= product.price.to_s(:delimited) %>)</p>
+            (¥<%= product.price.to_s(:delimited) %>)</p>
             <% end %>
           </div>
         </div>
