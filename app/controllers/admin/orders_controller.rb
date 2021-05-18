@@ -1,7 +1,13 @@
 class Admin::OrdersController < ApplicationController
   
   def top
-    @orders = Order.page(params[:page]).per(10)
+    if params[:id]
+      @orders = Order.where(customer_id: params[:id]).page(params[:page]).per(10)
+      ## customer
+    else
+      @orders = Order.page(params[:page]).per(10)
+      ## order
+    end
   end
   
   def show
