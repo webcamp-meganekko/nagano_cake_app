@@ -8,9 +8,13 @@ class Public::CartsController < ApplicationController
   end
 
   def create
-    @cart = Cart.new(cart_params)
-    @cart.save
-    redirect_to carts_path
+    @cart = current_customer.carts.new(cart_params)
+    if@cart.save
+      redirect_to carts_path
+    else
+      redirect_to product_path(params[:cart][:product_id])
+      flash[:notice] = "個数を選択してください"
+    end
   end
 
   def update
@@ -38,4 +42,3 @@ class Public::CartsController < ApplicationController
   end
 
 end
-
