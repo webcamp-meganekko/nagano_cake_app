@@ -21,13 +21,12 @@ class Public::AddressesController < ApplicationController
   end
   
   def update
-    address = Address.find(params[:id])
-    if address.update(address_params)
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
       flash[:notice] = "配送先を更新しました。"
       redirect_to addresses_path
     else
-      @address = Address.find(params[:id])
-      redirect_to edit_address_path(@address)
+      render 'edit'
     end
   end
   
