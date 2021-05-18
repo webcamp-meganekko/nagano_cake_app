@@ -12,10 +12,9 @@ class Public::ProductsController < ApplicationController
 
   def search
     @products = Product.page(params[:page]).per(8).order(:id)
-    @genre = Genre.find(params[:genre_id])
+    @genre = Genre.find_by(id: params[:genre_id])
     @products_genre = Product.where(genre_id: @genre)
-    @genre_name = @genre.genre_name
-    
+    @genre_name = @genre.genre_name if @genre
   end
 
   def product_params

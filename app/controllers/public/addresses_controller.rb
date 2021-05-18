@@ -1,7 +1,8 @@
 class Public::AddressesController < ApplicationController
+  before_action :baria_customer, only:[ :edit, :destroy, :update]
   
   def index
-    @addresses = Address.all
+    @addresses = current_customer.addresses.all #ログインユーザーのアドレスのみ
     @address = Address.new
   end
   
@@ -11,7 +12,7 @@ class Public::AddressesController < ApplicationController
       flash[:notice] = "配送先を登録しました。"
       redirect_to addresses_path
     else
-      @addresses = Address.all
+      @addresses = current_customer.addresses.all
       render 'index'
     end
   end
@@ -41,4 +42,12 @@ class Public::AddressesController < ApplicationController
   def address_params
     params.require(:address).permit(:customer_id, :receve_name, :postal_code, :street_address)
   end
+  
+  #ログイン中のカスタマーのアドレスのみ変更を許可
+  def baria_customer
+    unless Address.find(params[:id]).customer == current_customer
+      redirect_to customer_show_path
+    end
+  end
+  
 end

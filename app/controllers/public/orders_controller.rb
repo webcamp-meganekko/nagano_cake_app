@@ -39,22 +39,37 @@ class Public::OrdersController < ApplicationController
     @carts = current_customer.carts
     @order.payment_method = params[:order][:payment_method]
     
-    if params[:order][:address_option] == "0"
-      
+    if params[:order][:address_option] == "0" 
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.receve_name = current_customer.last_name + current_customer.first_name
 
     elsif params[:order][:address_option] == "1"
-      @order_address = Address.find(params[:order][:address_id])
-      @order.postal_code = @order_address.postal_code
-      @order.address = @order_address.street_address
-      @order.receve_name = @order_address.receve_name
+      if params[:order][:address_id].empty?
+        flash[:notice] = "登録済み住所を選択してください"
+        redirect_back(fallback_location: root_path)
+      else
+        @order_address = Address.find(params[:order][:address_id])
+        @order.postal_code = @order_address.postal_code
+        @order.address = @order_address.street_address
+        @order.receve_name = @order_address.receve_name
+      end
 
     elsif params[:order][:address_option] == "2"
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.receve_name = params[:order][:receve_name]
+    #カスタマーの住所登録と入力内容の確認
+      @address = current_customer.addresses.build
+      @address.postal_code = params[:order][:postal_code]
+      @address.street_address = params[:order][:address]
+      @address.receve_name = params[:order][:address]
+      if @address.save
+        flash[:notice] = "新しい住所が登録されました"
+      else
+        flash[:alert] = "正しい住所を入力してください"
+        redirect_back(fallback_location: root_path)
+      end
     end
   end
 

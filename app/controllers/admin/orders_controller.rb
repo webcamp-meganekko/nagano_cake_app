@@ -1,18 +1,22 @@
 class Admin::OrdersController < ApplicationController
   
   def top
-    # 個人ごとの注文履歴一覧
-    if params[:id]
-      @orders = Order.where(customer_id: params[:id]).page(params[:page]).per(10)
+    @customer = params[:customer_id]
+    if @customer
+      @orders = Order.where(customer_id: @customer).page(params[:page]).per(10)
     else
-    # 全注文履歴一覧
-      @orders = Order.page(params[:page]).per(10)
+     @orders = Order.page(params[:page]).per(10)
     end
   end
   
   def show
-    @order = Order.find(params[:id])
-    @order_products = OrderProduct.where(order_id: @order.id)
+    @order = Order.find_by(id: params[:id])
+    if @order
+      @order_products = OrderProduct.where(order_id: @order.id)
+    else
+      flash[:notice] = "注文履歴がありません"
+      redirect_to admin_customer_path(params[:id])
+    end
   end
   
   def update
@@ -27,6 +31,7 @@ class Admin::OrdersController < ApplicationController
   end
   
   private
+  
   def order_params
     params.require(:order).permit(:order_status)
   end
