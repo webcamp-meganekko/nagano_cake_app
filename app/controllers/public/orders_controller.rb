@@ -64,8 +64,8 @@ class Public::OrdersController < ApplicationController
     @order.save
     @carts = current_customer.carts.all
       @carts.each do |cart|
-        @order_products = @order.order_products.new
-        @order_products.product_id = cart.product.id
+        @order_products = @order.order_products.new  # @order_products = Order_prduct.new
+        @order_products.product_id = cart.product.id # @order_prodcuts.order_id = @order
         @order_products.price = cart.product.price
         @order_products.quantity = cart.quantity
         @order_products.save

@@ -5,8 +5,9 @@ class Admin::OrdersController < ApplicationController
   end
   
   def show
-    @order = Order.find(params[:id])
-    @order_products = OrderProduct.where(order_id: @order.id)
+    @order = Order.find_by(id: params[:id])
+    return  @order_products = OrderProduct.where(order_id: @order.id) if @order
+    flash[:notice] = "注文履歴がありません"
   end
   
   def update
