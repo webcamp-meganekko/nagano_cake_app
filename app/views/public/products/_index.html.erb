@@ -13,7 +13,8 @@
       <div class="card border-0">
         <div class="card-img-top">
           <%= link_to product_path(product.id) do %>
-          <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' %>
+          <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg"%>
+    
           <% end %>
         </div>
         <div class="card-body">
