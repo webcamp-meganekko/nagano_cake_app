@@ -1,5 +1,4 @@
 class Admin::OrdersController < ApplicationController
-  before_action :check_order, only:[:show,:update,]
   
   def top
     @orders = Order.page(params[:page]).per(10)
@@ -7,7 +6,8 @@ class Admin::OrdersController < ApplicationController
   
   def show
     @order = Order.find_by(id: params[:id])
-    @order_products = OrderProduct.where(order_id: @order.id) if @order
+    return  @order_products = OrderProduct.where(order_id: @order.id) if @order
+    flash[:notice] = "注文履歴がありません"
   end
   
   def update
@@ -20,12 +20,4 @@ class Admin::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:order_status)
   end
-  
-  def check_order
-    if Order.find_by(customer_id: params[:id]).nil?
-      flash[:notice] = "注文情報がありません"
-      redirect_to admin_customer_path(params[:id])
-    end
-  end
-  
 end
