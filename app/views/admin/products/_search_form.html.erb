@@ -1,0 +1,4 @@
+<!-- 検索フォーム -->
+  <%= form_with url: admin_search_path, local: true, method: :get do |f|%>
+    <%= f.text_field :word, placeholder: "search", class: 'col-sm-2 form-control' %>
+  <% end %>
