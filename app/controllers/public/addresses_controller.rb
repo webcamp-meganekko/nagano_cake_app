@@ -27,7 +27,7 @@ class Public::AddressesController < ApplicationController
       flash[:notice] = "配送先を更新しました。"
       redirect_to addresses_path
     else
-      render ("/public/addresses/edit")
+      render 'edit'
     end
   end
   

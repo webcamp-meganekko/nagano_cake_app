@@ -13,12 +13,7 @@
   <div class="col-sm-2">支払い方法</div>
   <div class="col-sm-10"><%= @order.payment_method %></div>
   <div class="col-sm-2">注文ステータス</div>
-  <%= form_with model: @order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
-    <div class="d-flex flex-row">
-      <%= f.select :order_status, Order.order_statuses.keys.to_a, {}, class: 'form-control ml-3' %>
-      <%= f.submit '更新', class: 'btn btn-success btn-sm ml-3' %>
-    </div>
-  <% end %>
+  <%= render partial: 'admin/orders/form_order', locals: { order: @order} %>
 </div>
 <div class="row pt-3">
   <div class="col-8">

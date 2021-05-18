@@ -1,0 +1,6 @@
+<%= form_with model: order, url: admin_order_path(order), method: :patch, local: true do |f| %>
+    <div class="d-flex flex-row">
+      <%= f.select :order_status, Order.order_statuses.keys.to_a, {}, class: 'form-control ml-3' %>
+      <%= f.submit '更新', class: 'btn btn-success btn-sm ml-3' %>
+    </div>
+  <% end %>
