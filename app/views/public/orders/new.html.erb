@@ -9,9 +9,9 @@
     <div class="row">
       <%= f.label :payment_method, '支払い方法' %>
     </div>
-      <%= f.radio_button :payment_method, :クレジットカード, checked: true %>
+      <%= f.radio_button :payment_method, 0, checked: true %>
       <%= f.label :payment_method, 'クレジットカード' %><br>
-      <%= f.radio_button :payment_method, :銀行振込 %>
+      <%= f.radio_button :payment_method,  %>
       <%= f.label :payment_method, '銀行振込' %>
   </div>
   <div class="form-group">
