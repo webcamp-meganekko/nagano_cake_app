@@ -11,8 +11,8 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    customer = current_customer
-    if customer.update(customer_params)
+    @customer = current_customer
+    if @customer.update(customer_params)
        flash[:success] = "登録情報を変更しました"
        redirect_to customer_show_path
     else

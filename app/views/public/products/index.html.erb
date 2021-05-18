@@ -4,38 +4,10 @@
       <h5 class="d-inline bg-gray pr-3 pl-3">商品一覧</h5>
       <h5 class="mb-2  ml-3">(全<%= @product_count %>件) </h5>
     </div>
-    <div class="col">
-      <%= form_with url: search_path, local: true, method: :get do |f|%>
-        <span class="ml-5">
-          <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "--ジャンル検索--",
-                                  size: "30", class: "form-control", required: "required" %>
-        </span>
-    　　<%= f.submit "検索" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="row row-cols-4 mt-5">
-    <% @products.each do |product| %>
-      <div class="card border-0">
-        <div class="card-img-top">
-          <%= link_to product_path(product.id) do %>
-          <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' %>
-          <% end %>
-        </div>
-        <div class="card-body">
-          <div class="font-weight-bold">
-            <h5><%= product.product_name %></h5>
-          </div>
-          <div>
-            <p>￥<%= product.tax_included_price %>
-            (<%= product.price.to_s(:delimited) %>)
 
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="row">
+    <%= render partial: "index", locals: {products: @products}  %>
+
+    <div class="row">
     <div class="col-md-4 offset-md-5 pl-5 mt-3">
       <%= paginate @products %>
     </div>
