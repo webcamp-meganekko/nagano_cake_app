@@ -1,6 +1,7 @@
 <div class="row mt-5 offset-md-2">
     <div class="col-md-5 text-center mb-4">
-      <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg' %>
+      <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg', size: "300x300" , fallback: "main-visual-image.jpg"%>
+
     </div>
     <div class="col-md-5 ml-5 text-left">
 
