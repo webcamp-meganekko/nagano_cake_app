@@ -7,16 +7,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon.ico', :rel => 'icon' %>
   </head>
 
   <body>
+
     <% if admin_signed_in? %>
       <%= render "layouts/adomin_heder" %>
     <% else %>
       <%= render "layouts/header" %>
     <% end %>
+  
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  
     <div class="container">
       <%= yield %>
     </div>
+    <%= render "layouts/footer" %>
   </body>
 </html>

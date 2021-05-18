@@ -1,18 +1,43 @@
-
-ようこそ、ながのCAKEへ！<br>
-このサイトは、ケーキ販売のECサイトになります。<br>
-会員でない⽅も商品の閲覧はできますが、<br>
-購⼊には会員登録が必要になります。<br>
-
+<div class="row">
+  <div class="col-sm-10">
+    <%= image_tag 'top-img.jpg', class: 'img-fluid' %>
+  </div>
+  <!--ようこそ、ながのCAKEへ！<br>-->
+  <!--このサイトは、ケーキ販売のECサイトになります。<br>-->
+  <!--会員でない方も商品の閲覧はできますが、<br>-->
+  <!--購入には会員登録が必要になります。-->
+  <div class="col-sm-2 h-100">
+    <h2>Nagano<br>Cake...</h2>
+  </div>
+</div>
 <!--ジャンル検索機能の追加-->
 
-商品一覧
-<% @products.first(4).each do |product| %>
-    <%= link_to product_path(product.id) do %>
-        <%= attachment_image_tag product, :image, :fill, 220, 220, format: 'jpeg' %>
-    <% end %>
-    <%= product.product_name %>
-    ¥<%= product.price %>
-<% end %>
-<br>
-<%= link_to '全ての商品を⾒る >', products_path %>
+  <div class="row mx-auto w-75">
+    <div class="col mb-2 mt-5 text-center">
+      <h2 class="border-bottom d-inline-block">New</h2>
+    </div>
+  </div>
+
+  <div class="row row-cols-4 mt-5">
+    <% @products.first(4).each do |product| %>
+      <div class="card border-0">
+        <div class="card-img-topr">
+      
+        <%= link_to (attachment_image_tag product, :image, format: 'jpeg', size: "200x200", class: 'shadow mb-5 bg-white rounded'), product_path(product.id) %>
+      
+        </div>
+          <div class="card-body">
+            <div class="font-weight-bold">
+              <h5><%= product.product_name %></h5>
+            </div>
+            <div>
+              <p>￥<%= product.tax_included_price %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class='mx-auto w-75 text-right mb-5'>
+    <%= link_to 'See all products >', products_path, class: "text-right ml-3" %>
+  </div>
+</div>

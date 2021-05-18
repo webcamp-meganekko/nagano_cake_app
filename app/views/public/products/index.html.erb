@@ -1,32 +1,14 @@
 
   <div class="row">
-    <div class="col-md-4 offset-md-2 mt-5 d-flex">
-      <h1 class="mb-0">商品一覧</h1>
-     
-      <h5 class="mb-0 pt-3 ml-3">(全<%= @product_count %>件) </h5>
+    <div class="col md-5 mb-2 d-flex">
+      <h5 class="d-inline bg-gray pr-3 pl-3">商品一覧</h5>
+      <h5 class="mb-2  ml-3">(全<%= @product_count %>件) </h5>
     </div>
-  </div>
 
-  <div class="row row-cols-4 mt-5 offset-md-2">
-    <% @products.each do |product| %>
-      <div class="card border-0">
-        <div class="card-img-top">
-          <%= link_to (attachment_image_tag product, :image, format: 'jpeg', size: "200x200"), product_path(product.id) %>
-        </div>
-        <div class="card-body">
-          <div class="font-weight-bold">
-            <h5><%= product.product_name %></h5>
-          </div>
-          <div>
-            <p>￥<%= product.tax_included_price.floor %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+    <%= render partial: "index", locals: {products: @products}  %>
 
-  <div class="row">
-    <div class="col-md-4 offset-md-6 pl-5 mt-3">
+    <div class="row">
+    <div class="col-md-4 offset-md-5 pl-5 mt-3">
       <%= paginate @products %>
     </div>
   </div>

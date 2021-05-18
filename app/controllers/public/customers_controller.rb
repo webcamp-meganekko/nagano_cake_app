@@ -16,7 +16,7 @@ class Public::CustomersController < ApplicationController
        flash[:success] = "登録情報を変更しました"
        redirect_to customer_show_path
     else
-       render :edit
+       render 'edit'
     end
   end
 
@@ -28,12 +28,11 @@ class Public::CustomersController < ApplicationController
     sign_out(current_customer)
   end
 
-
-
   private
-  def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :tell)
-  end
+  
+    def customer_params
+      params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :postal_code, :address, :tell)
+    end
 
 end
 

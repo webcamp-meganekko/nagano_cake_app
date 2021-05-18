@@ -1,13 +1,22 @@
-<div class="quit_confirm">
-  <strong>本当に退会しますか？</strong>
+<h3 class="ml-4 mb-5">本当に退会しますか？</h3>
 
-    <div class="quit-msg">
-      退会すると会員情報登録や<br>
-      これまでの購入履歴が閲覧できなくなります。<br>
-      <br>
-      退会する場合は,「退会する」をクリックしてください。
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-xs-12 messages">
+        <p class="col-lg-6 offset-md-3 mb-5 text-center">
+          退会すると、会員登録情報や
+          </br>
+          これまでの購入履歴が閲覧できなくなります。
+          </br>
+          退会する場合は、「退会する」をクリックしてください。
+        </p>
+      </div>
     </div>
-
-    <%= link_to "退会しない", customer_show_path, class: 'glyphicon glyphicon-home btn btn-primary' %>
-    <%= link_to "退会する", customers_quit_path, data: {confirm: "本当に退会してもよろしいですか？"}, class: "glyphicon glyphicon-tint btn btn-danger" %>
-</div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <%= link_to "退会しない", customer_show_path, class: "btn btn-primary table__button" %>
+      <%= link_to "退会する", customers_quit_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger table__button" %>
+    </div>
+  </div>
