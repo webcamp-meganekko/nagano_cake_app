@@ -1,36 +1,41 @@
 <div class="row mt-5 offset-md-2">
     <div class="col-md-5 text-center mb-4">
       <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg', size: "300x300" , fallback: "main-visual-image.jpg"%>
-
     </div>
     <div class="col-md-5 ml-5 text-left">
 
-        <div class="row my-2">
-          <h4 class="col font-weight-bold"><%= @product.product_name %></h4>
-        </div>
-        <div class="row my-2">
-          <p class="col"><%= @product.introduction %></p>
-        </div>
+      <div class="row my-2">
+        <h4 class="col font-weight-bold"><%= @product.product_name %></h4>
+      </div>
+      <div class="row my-2">
+        <p class="col"><%= @product.introduction %></p>
+      </div>
 
-        <div class="row my-2">
-          <div class="col ml-3">
+      <div class="row my-2">
+        <div class="col ml-3">
+          <% if @product.is_sale == false %>
+            <div class="row">品切れ中</div>
+          <% else %>
             <div class="row">税込価格</div>
             <div class="row">(税抜価格)</div>
-          </div>
-          <div class="col my-auto pl-0"><%= @product.tax_included_price %> (<%= @product.price.to_s(:delimited) %>) 円</div>
-        </div>
-
-          <div class="row mt-4">
-             <% if customer_signed_in? %>
-                <%= form_with(model: @cart, local: true, method: :post, url: carts_path ) do |f| %>
-                <span class= "col mr-4"><%= f.select :quantity, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"]], { include_blank: '個数選択'}%></span>
-                <%= f.hidden_field :product_id, value: @product.id %>
-                <%= f.hidden_field :customer_id, value: current_customer.id %>
-                <span class= "col"><%= f.submit "カートに入れる" , class: "text-white btn btn-success"%></span>
-                <% end %>
-              <% end %>
-
             </div>
+          <div class="col my-auto pl-0"><%= @product.tax_included_price %> (<%= @product.price.to_s(:delimited) %>) 円</div>
+          <% end %>
+      </div>
+
+        <div class="row mt-4">
+          <% if @product.is_sale == true %>
+            <% if customer_signed_in? %>
+              <%= form_with(model: @cart, local: true, method: :post, url: carts_path ) do |f| %>
+              <span class= "col mr-4"><%= f.select :quantity, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"]], { include_blank: '個数選択'}%></span>
+              <%= f.hidden_field :product_id, value: @product.id %>
+              <%= f.hidden_field :customer_id, value: current_customer.id %>
+              <span class= "col"><%= f.submit "カートに入れる" , class: "text-white btn btn-success"%></span>
+              <% end %>
+            <% end %>
+          <% end %>
+
+        </div>
       </div>
     </div>
   </div>
