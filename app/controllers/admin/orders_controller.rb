@@ -10,6 +10,7 @@ class Admin::OrdersController < ApplicationController
   end
   
   def show
+    @deliverycharge = 800 # 配送料
     @order = Order.find_by(id: params[:id])
     if @order
       @order_products = OrderProduct.where(order_id: @order.id)

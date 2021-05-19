@@ -32,7 +32,7 @@
         <td><%= order_product.product.product_name %></td>
         <td><%= order_product.tax_included_price.floor.to_s(:delimited) %></td>
         <td><%= order_product.quantity %></td>
-        <td><%= (order_product.price * order_product.quantity * 1.08).floor.to_s(:delimited)%></td>
+        <td><%= (order_product.price * order_product.quantity * 1.08).floor.to_s(:delimited) %></td>
         <%= form_with model: order_product, url: admin_order_product_path(order_product), method: :patch, local: true do |f| %>
         <td class="d-flex flex-row">
           <%= f.select :making_status, OrderProduct.making_statuses.keys.to_a, {}, class: 'form-control' %>
@@ -42,5 +42,15 @@
       </tr>
       <% end %>
     </table>
+  </div>
+  <div class="col-2 text-right">
+    <p>商品合計</p>
+    <p>送料</p>
+    <p>請求金額合計</p>
+  </div>
+  <div class="col-1 text-right">
+    <p><%= @order.total_price.to_s(:delimited) %>円</p>
+    <p><%= @deliverycharge %>円</p>
+    <p><%= (@order.total_price + @deliverycharge).to_s(:delimited) %>円</p>
   </div>
 </div>
