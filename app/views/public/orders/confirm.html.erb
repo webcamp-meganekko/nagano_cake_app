@@ -22,9 +22,9 @@
               <span> </span>
               <%= cart.product.product_name %>
             </td>
-            <td class="align-middle"><%= (cart.product.price * 1.08).floor %></td>
+            <td class="align-middle"><%= (cart.product.price * 1.08).floor.to_s(:delimited) %></td>
             <td class="align-middle"><%= cart.quantity %></td>
-            <td class="align-middle"><%= (cart.product.price * 1.08).floor * cart.quantity %></td>
+            <td class="align-middle"><%= (cart.product.price * cart.quantity * 1.08 ).floor.to_s(:delimited) %></td>
           </tr>
           <% @sum += (cart.product.price * 1.08).floor * cart.quantity %>
         <% end %>
@@ -40,11 +40,11 @@
         </tr>
         <tr class="">
           <td class="bg-light">商品合計</td>
-          <td><%= @sum %></td>
+          <td><%= @sum.to_s(:delimited) %></td>
         </tr>
         <tr class="">
           <td class="bg-light">請求金額</td>
-          <td><%= @sum + @deliverycharge %></td>
+          <td><%= (@sum + @deliverycharge).to_s(:delimited) %></td>
         </tr>
       </tbody>
     </table>
