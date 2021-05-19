@@ -1,7 +1,7 @@
 <div class="row offset-md-2">
-    <div class="col card border border-0">
+    <div class="card border border-0">
       <%= image_tag 'image_huti.png', class: 'img-fluid card-img-overlay p-0', size: "400x150" %>
-    <div class="md-5 text-center mb-4 mt-5 card-img">
+    <div class="md-5 text-center mb-4 mt-6 card-img">
       <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg', size: "300x300" , class: 'shadow mb-5 bg-white rounded', fallback: "main-visual-image.jpg"%>
     </div>
     </div>
@@ -35,7 +35,11 @@
                 </span>
               <%= f.hidden_field :product_id, value: @product.id %>
               <%= f.hidden_field :customer_id, value: current_customer.id %>
-              <span class= "col"><%= f.submit "カートに入れる" , class: "text-white btn btn-success"%></span>
+              <%= button_tag :method => :get, :class => "btn" do %>
+              <span class= "col btnripple">
+                <%= image_tag "add_cart.png", class: 'img-fluid border border-0',size: "80x50"  %>
+              </span>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>

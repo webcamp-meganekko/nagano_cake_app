@@ -55,6 +55,10 @@
       <% end %>
   </div>
   <div class='mx-auto w-75 text-right mb-5'>
-    <%= link_to 'See all products >', products_path, class: "text-right ml-3" %>
+    <%= link_to products_path, class: "text-right ml-3" do%>
+    <div class="btnripple">
+    <%= image_tag 'see_all_products.png', class: 'img-fluid ', size: "120x150" %>
+    </div>
+    <% end %>
   </div>
 </div>

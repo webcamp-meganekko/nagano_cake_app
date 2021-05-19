@@ -13,19 +13,30 @@
   </head>
 
   <body>
+    <div id="splash">
+      <div id="splash-logo">loadind...</div>
+    </div>
+    <div class="splashbg"></div>
+    <div id="container">
+
+
 
     <% if admin_signed_in? %>
       <%= render "layouts/adomin_heder" %>
     <% else %>
       <%= render "layouts/header" %>
     <% end %>
-  
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-  
+
     <div class="container">
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script url="app/assets/javascripts/public/application.js"></script>
   </body>
 </html>
