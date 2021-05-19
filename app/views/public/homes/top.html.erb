@@ -33,12 +33,12 @@
     </div>
   </div>
 
-  <div class="row row-cols-4 mt-5">
+  <div class="row row-cols-4 mt-4">
     <% @products.first(4).each do |product| %>
       <div class="card border-0">
         <div class="card-img-topr">
       
-        <%= link_to (attachment_image_tag product, :image, format: 'jpeg', size: "200x200", class: 'product-img shadow mb-5 bg-white rounded'), product_path(product.id) %>
+        <%= link_to (attachment_image_tag product, :image, format: 'jpeg', size: '180x180', class: 'item-img product-img shadow mb-5 bg-white rounded'), product_path(product.id) %>
       
         </div>
           <div class="card-body">
