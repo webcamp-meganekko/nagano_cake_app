@@ -9,4 +9,14 @@ class OrderProduct < ApplicationRecord
     price * tax
   end
   
+  #注文ステータスの
+  def change_order_status
+    products = self.order.order_products
+    if self.making_status == "製作中"
+      self.order.update(order_status: "製作中")
+    elsif products.pluck(:making_status).all?{ |status| status == "製作完了"}
+      self.order.update(order_status: "発送準備中")
+    end
+  end
+  
 end

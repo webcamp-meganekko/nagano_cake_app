@@ -2,6 +2,7 @@ class Admin::OrderProductsController < ApplicationController
   
   def update
     @order_product = OrderProduct.find(params[:id])
+
     @order = @order_product.order
     if @order_product.update(order_product_params)
       if @order_product.making_status == "製作中"
@@ -17,10 +18,9 @@ class Admin::OrderProductsController < ApplicationController
     #   flash[:notice] = "製作ステータスを変更しました。"
       redirect_to admin_order_path(@order)
     else
-      redirect_to admin_order_path(@order)
+      render 'show'
     end
   end
-  
 
   
   private
