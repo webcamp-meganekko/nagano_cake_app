@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :admins
   devise_for :customers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+
     # path: '',
     # path_names: {
     #   sign_up: '',
@@ -27,26 +26,36 @@ Rails.application.routes.draw do
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
 
-    resources :orders, only: [:index, :show, :new]
+    resources :orders, only: [:index, :show, :new, :create]
 
     resources :carts, only: [:index, :create, :update]
     delete 'carts/destroy_all' => 'carts#destroy_all'
     delete 'carts/:id' => 'carts#destroy', as: 'destroy_cart'
 
-    resource :customers, only: [:edit, :update]
+    put 'my_page' => 'customers#update', as: 'customer'
+    get 'my_page/edit' => 'customers#edit', as: 'edit_customers'
     get 'customers/my_page' => 'customers#show', as: 'customer_show'
     get 'customers/quit_confirm' => 'customers#quit_confirm'
-    get 'customers/quit' => 'customers#quit'
+    patch 'customers/quit' => 'customers#quit'
+    get 'search' => 'products#search'
   end
 
   # ========= 管理者(admin)のルーティング ================
+    devise_for :admins, controllers: {
+    sessions:      'admins/sessions',
+    passwords:     'admins/passwords',
+    registrations: 'admins/registrations'
+  }
+
+
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :products, only: [:index, :show, :new, :create, :edit, :update]
-    resources :orders, only: [:show, :update] 
+    resources :orders, only: [:show, :update]
     resources :order_products, only: [:update]
+    get '/' => 'orders#top', as: 'top'
+    get 'search' => 'products#search'
   end
-
 end
 

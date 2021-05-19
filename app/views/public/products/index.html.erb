@@ -1,0 +1,14 @@
+
+  <div class="row">
+    <div class="col md-5 mb-2 d-flex">
+      <h5 class="d-inline bg-gray pr-3 pl-3">商品一覧</h5>
+      <h5 class="mb-2  ml-3">(全<%= @product_count %>件) </h5>
+    </div>
+
+    <%= render partial: "index", locals: {products: @products}  %>
+
+    <div class="row">
+    <div class="col-md-4 offset-md-5 pl-5 mt-3">
+      <%= paginate @products %>
+    </div>
+  </div>

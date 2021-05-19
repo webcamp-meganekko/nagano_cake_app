@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="mt-4 mb-4 bg-light d-inline-block">
+    <h4 class="px-2 pt-2">注文情報確認</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-9">
+    <table class="table table-hover table-inverse table-bordered">
+      <thead class="bg-light">
+        <tr class="">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @carts.each do |cart| %>
+          <tr class="">
+            <td>
+              <%= attachment_image_tag cart.product, :image, :size => '50x50',fallback: "main-visual-image.jpg" %>
+              <span> </span>
+              <%= cart.product.product_name %>
+            </td>
+            <td class="align-middle"><%= (cart.product.price * 1.08).floor %></td>
+            <td class="align-middle"><%= cart.quantity %></td>
+            <td class="align-middle"><%= (cart.product.price * 1.08).floor * cart.quantity %></td>
+          </tr>
+          <% @sum += (cart.product.price * 1.08).floor * cart.quantity %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-3 d-flex">
+    <table class="table table-sm table-bordered align-self-end">
+      <tbody>
+        <tr class="">
+          <td class="bg-light">送料</td>
+          <td><%= @deliverycharge %></td>
+        </tr>
+        <tr class="">
+          <td class="bg-light">商品合計</td>
+          <td><%= @sum %></td>
+        </tr>
+        <tr class="">
+          <td class="bg-light">請求金額</td>
+          <td><%= @sum + @deliverycharge %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="offset-2 col-6">
+    <div class="row mt-3">
+      <strong class="">　支払い方法　</strong>
+      <span class=""><%= @order.payment_method %></span>
+    </div>
+    <div class="row mt-3">
+      <strong class="">　お届け先　</strong>
+      <span class="">〒<%= @order.postal_code %>  <%= @order.address %>  <%= @order.receve_name %></span>
+    </div>
+  </div>
+    <div class="col-3">
+      <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+        <%= f.hidden_field :postal_code %>
+        <%= f.hidden_field :address %>
+        <%= f.hidden_field :receve_name %>
+        <%= f.hidden_field :payment_method %>
+        <%= f.hidden_field :total_price, :value => (@sum + @deliverycharge) %>
+        <%= f.hidden_field :postage, :value => @deliverycharge %>
+        <!--%= link_to "注文情報入力へ戻る", order_path, data: {"turbolinks" => false}, class: "btn btn-info col-xs-3 back" %>-->
+        　　<!--<i class="fas fa-shipping-fast fa-2x"></i>-->
+        <%= f.submit "注文を確定する", class: "btn btn-success ml-auto" %>
+      <% end %>
+    </div>
+</div>

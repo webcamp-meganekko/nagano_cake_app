@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-sm-10">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <!-- スライドさせる画像の設定 -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag 'top-1-img.jpg', class: 'd-block w-100' %>
+        </div><!-- /.carousel-item -->
+        <div class="carousel-item">
+          <%= image_tag 'top-2-img.jpg', class: 'd-block w-100' %>
+        </div><!-- /.carousel-item -->
+        <div class="carousel-item">
+          <%= image_tag 'top-3-img.jpg', class: 'd-block w-100' %>
+        </div><!-- /.carousel-item -->
+      </div><!-- /.carousel-inner -->
+    </div>
+    <!--<//%= image_tag 'top-img.jpg', class: 'img-fluid' %>-->
+  </div>
+  
+  <!--ようこそ、ながのCAKEへ！<br>-->
+  <!--このサイトは、ケーキ販売のECサイトになります。<br>-->
+  <!--会員でない方も商品の閲覧はできますが、<br>-->
+  <!--購入には会員登録が必要になります。-->
+  <div class="col-sm-2 h-100" style="font-family: 'Lora', serif;">
+    <h2>Nagano<br>Cake...</h2>
+  </div>
+</div>
+<!--ジャンル検索機能の追加-->
+
+  <div class="row mx-auto w-75">
+    <div class="col mb-2 mt-5 text-center">
+      <h2 class="border-bottom d-inline-block">New</h2>
+    </div>
+  </div>
+
+  <div class="row row-cols-4 mt-4">
+    <% @products.first(4).each do |product| %>
+      <div class="card border-0">
+        <div class="card-img-topr">
+          <%= link_to product_path(product.id) do %>
+            <%= image_tag 'image_huti2.png', class: 'img-fluid card-img-overlay p-0', size: "220x220" %>
+            <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'shadow mb-5 bg-white rounded' %>
+          <% end %>
+        </div>
+        
+          <div class="card-body">
+            <div class="font-weight-bold">
+              <h5><%= product.product_name %></h5>
+            </div>
+            <div>
+              <p>￥<%= product.tax_included_price %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class='mx-auto w-75 text-right mb-5'>
+    <%= link_to 'See all products >', products_path, class: "text-right ml-3" %>
+  </div>
+</div>
