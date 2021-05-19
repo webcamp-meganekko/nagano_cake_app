@@ -37,12 +37,10 @@
     <% @products.first(4).each do |product| %>
       <div class="card border-0">
         <div class="card-img-topr">
-          <%= link_to product_path(product.id) do %>
-            <%= image_tag 'image_huti2.png', class: 'img-fluid card-img-overlay p-0', size: "220x220" %>
-            <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'shadow mb-5 bg-white rounded' %>
-          <% end %>
+      
+        <%= link_to (attachment_image_tag product, :image, format: 'jpeg', size: '180x180',fallback: "main-visual-image.jpg" , class: 'item-img product-img shadow mb-5 bg-white rounded'), product_path(product.id) %>
+      
         </div>
-        
           <div class="card-body">
             <div class="font-weight-bold">
               <h5><%= product.product_name %></h5>

@@ -39,9 +39,12 @@
               <% end %>
             <% end %>
           <% end %>
-
         </div>
-      </div>
+        
+        <div class="row mt-2">
+        reviews：<%= link_to @product.reviews.count, product_reviews_path(product_id: @product.id) %>
+        </div>
+        
     </div>
   </div>
 
