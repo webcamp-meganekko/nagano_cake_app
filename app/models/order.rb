@@ -13,4 +13,14 @@ class Order < ApplicationRecord
    tax = 1.08
    price * tax
   end
+  
+  #製作ステータスの
+  def change_making_status
+    if self.order_status == "入金待ち"
+      self.order_products.update_all(making_status: :着手不可)
+    elsif self.order_status == "入金確認"
+      self.order_products.update_all(making_status: :製作待ち)
+    end
+  end
+  
 end

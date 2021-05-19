@@ -10,6 +10,7 @@ class Admin::OrdersController < ApplicationController
   end
   
   def show
+    @deliverycharge = 800 # 配送料
     @order = Order.find_by(id: params[:id])
     if @order
       @order_products = OrderProduct.where(order_id: @order.id)
@@ -21,8 +22,16 @@ class Admin::OrdersController < ApplicationController
   
   def update
     @order = Order.find(params[:id])
-    @order_products = OrderProduct.where(order_id: @order.id)
+    @order_products = @order.order_products
     if @order.update(order_params)
+      if @order.order_status == "入金確認"
+        making = @order.order_products
+        flash[:notice] = "注文ステータスを変更しました。"
+        making.update_all(making_status: :製作待ち)
+      end
+        
+      @order.order_status  = 1
+
       flash[:notice] = "注文ステータスを変更しました。"
       redirect_to admin_order_path(@order)
     else
