@@ -22,29 +22,15 @@ class Admin::OrdersController < ApplicationController
   
   def update
     @order = Order.find(params[:id])
-
     @order_products = @order.order_products
     if @order.update(order_params)
-      if @order.order_status == "入金確認"
-        making = @order.order_products
-        making.update_all(making_status: :製作待ち)
-      end
-        
-      @order.order_status  = 1
-
+      @order.change_making_status
       flash[:notice] = "注文ステータスを変更しました。"
       redirect_to admin_order_path(@order)
     else
-      redirect_to admin_order_path(@order)
+      render 'show'
     end
   end
-  
-      # if params[:order][:order_status] = "入金確認"
-      # making = @order.order_products
-      # making.update_all(making_status: :製作待ち)
-      # end
-  #making = @order.order_products.pulck(:making_status)
-  #making.fill["製作待ち"]
   
   private
   
