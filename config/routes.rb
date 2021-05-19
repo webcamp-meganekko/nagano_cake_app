@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
 
-    resources :products, only: [:index, :show]
+    resources :products, only: [:index, :show] do
+      resources :reviews, only: [:create, :destroy, :index]
+    end
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
 
     post 'orders/confirm' => 'orders#confirm'
