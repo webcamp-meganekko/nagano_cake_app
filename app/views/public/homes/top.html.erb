@@ -3,13 +3,13 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <!-- スライドさせる画像の設定 -->
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item active" data-interval="3500">
           <%= image_tag 'top-1-img.jpg', class: 'd-block w-100' %>
         </div><!-- /.carousel-item -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-interval="3500">
           <%= image_tag 'top-2-img.jpg', class: 'd-block w-100' %>
         </div><!-- /.carousel-item -->
-        <div class="carousel-item">
+        <div class="carousel-item" data-interval="3500">
           <%= image_tag 'top-3-img.jpg', class: 'd-block w-100' %>
         </div><!-- /.carousel-item -->
       </div><!-- /.carousel-inner -->
@@ -36,10 +36,10 @@
   <div class="row row-cols-4 mt-4">
     <% @products.first(4).each do |product| %>
       <div class="card border-0">
-        <div class="card-img-topr">
+        <div class="card-img-topr product-img">
           <%= link_to product_path(product.id) do %>
             <%= image_tag 'image_huti2.png', class: 'img-fluid card-img-overlay p-0', size: "220x220" %>
-            <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'shadow mb-5 bg-white rounded' %>
+            <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'item-img shadow mb-5 bg-white rounded' %>
           <% end %>
         </div>
         
