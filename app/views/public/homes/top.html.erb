@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-sm-10">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
     <!-- スライドさせる画像の設定 -->
       <div class="carousel-inner">
         <div class="carousel-item active" data-interval="3500">
@@ -13,6 +18,14 @@
           <%= image_tag 'top-3-img.jpg', class: 'd-block w-100' %>
         </div><!-- /.carousel-item -->
       </div><!-- /.carousel-inner -->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
     <!--<//%= image_tag 'top-img.jpg', class: 'img-fluid' %>-->
   </div>
@@ -36,19 +49,13 @@
   <div class="row row-cols-4 mt-4">
     <% @products.first(4).each do |product| %>
       <div class="card border-0">
-
         <div class="card-img-topr product-img">
           <%= link_to product_path(product.id) do %>
             <%= image_tag 'image_huti2.png', class: 'img-fluid card-img-overlay p-0', size: "220x220" %>
             <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'item-img shadow mb-5 bg-white rounded' %>
           <% end %>
-
-        <div class="card-img-topr">
-      
-        <%= link_to (attachment_image_tag product, :image, format: 'jpeg', size: '180x180',fallback: "main-visual-image.jpg" , class: 'item-img product-img shadow mb-5 bg-white rounded'), product_path(product.id) %>
-      
-
         </div>
+        
           <div class="card-body">
             <div class="font-weight-bold">
               <h5><%= product.product_name %></h5>
