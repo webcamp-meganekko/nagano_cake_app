@@ -27,6 +27,7 @@ class Admin::OrdersController < ApplicationController
     if @order.update(order_params)
       if @order.order_status == "入金確認"
         making = @order.order_products
+        flash[:notice] = "注文ステータスを変更しました。"
         making.update_all(making_status: :製作待ち)
       end
         
