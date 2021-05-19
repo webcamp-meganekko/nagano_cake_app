@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :carts, dependent: :destroy
   has_many :products, through: :carts
+  has_many :reviews, dependent: :destroy
  
   validates :first_name,  presence: true
   validates :last_name, presence: true
