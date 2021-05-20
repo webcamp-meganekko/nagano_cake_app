@@ -21,12 +21,14 @@
     </div>
   
     <div class="actions row col-12 pt-3 ml-3">
-      <%= f.submit "ログイン", class: "btn btn-primary col-3" %>
+      <%= button_tag :method => :get, :class => "btn" do %>
+      <span class= "col btnripple">
+        <%= image_tag "log_in.png", class: 'img-fluid border border-0',size: "70x50"  %>
+      </span>
+      <% end %>
     </div>
   <% end %>
-  
 </div>
-
 
   <div class="row">
     <div class="col mt-5 mb-4">
@@ -34,10 +36,10 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="float-left col-12 pt-3 ml-5">
-      <%= link_to "こちら", new_customer_registration_path %>　から新規登録を⾏ってください。
-    </div>
-  </div>
-
-
+<div class="pt-2 px-5 mb-5">
+      <%= link_to  new_customer_registration_path do %>
+        <div class="btnripple">
+        <%= image_tag 'here.png', class: 'img-fluid', size: "50x40" %>
+        </div><% end %>
+      <span>から新規登録を⾏ってください</span>
+   </div>
