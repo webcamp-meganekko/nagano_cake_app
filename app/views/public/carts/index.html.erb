@@ -29,18 +29,18 @@
       <% @sum = 0 %>
       <% @carts.each do |cart| %>
         <% if cart.customer_id == current_customer.id %>
-          <tr>
+          <tr class="page-title">
             <td>
-              <%= cart.product.product_name %>
+              <h3><%= cart.product.product_name %></h3>
             </td>
             <td>
-              ¥<%= cart.product.tax_included_price %>
+              <h5>¥<%= cart.product.tax_included_price %></h5>
             </td>
             <td>
               <%= render 'public/carts/form', cart: cart %>
             </td>
             <td>
-              <p>¥<%= (@total=(cart.product.price * 1.08).to_i.floor * cart.quantity).to_s(:delimited) %></p>
+              <h5>¥<%= (@total=(cart.product.price * 1.08).to_i.floor * cart.quantity).to_s(:delimited) %></h5>
             </td>
             <td>
               <%= link_to  destroy_cart_path(cart.id), method: :delete do %>
@@ -72,7 +72,7 @@
       <tbody>
         <tr>
           <td class="align-middle p-2"><p class="font-weight-bold mb-0">合計金額</p></td>
-          <td class="align-middle p-2"><p class="font-weight-bold mb-0">¥<%= @sum.to_s(:delimited) %></p></td>
+          <td class="align-middle p-2"><h5 class="page-title mb-0">¥<%= @sum.to_s(:delimited) %></h5></td>
         </tr>
       </tbody>
     </table>
