@@ -1,3 +1,43 @@
 // Place all the styles related to the public/custamers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ページ全体 */
+#mypage {
+  border-radius: 11px;
+  background: #f6f6f6;
+  box-shadow:  5px 5px 10px #c7c7c7,
+               -5px -5px 10px #ffffff;
+}
+
+/* 凸テキスト */
+.convex-title {
+  border-radius: 16px;
+  background: #f6f6f6;
+  box-shadow:  5px 5px 10px #c7c7c7,
+               -5px -5px 10px #ffffff;
+}
+
+/* 凸ボタン */
+.convex {
+  border-radius: 50%;
+  background: #f6f6f6;
+  box-shadow:  5px 5px 9px #c7c7c7,
+               -5px -5px 9px #ffffff;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// /* 凹テキスト */
+// .concave {
+//   border-radius: 13px;
+//   background: #f6f6f6;
+//   box-shadow: inset 5px 5px 10px #c7c7c7,
+//               inset -5px -5px 10px #ffffff;
+//   text-decoration: none;
+//   &:hover {
+//     text-decoration: none;
+//   }
+// }

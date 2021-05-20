@@ -1,45 +1,35 @@
-<div class="title my-3">
-  <h5 class="d-inline bg-gray pr-3 pl-3 page-title">My page</h5>
-</div>
-
-<div class="row">
-  <div class="col-md-8">
-    <table class="table table-bordered" style="margin-top: 20px;">
-  	  <div class="mb-3 d-flex">
-	      <h5 class="ml-2 mb-2 font-weight-bold">登録情報</h5>
-		    <%= link_to  edit_customers_path, class: "ml-5 px-3" do %>
-		      <div class="btnripple">
-            <%= image_tag "edit.png", class: 'img-fluid border border-0',size: "50x30"  %>
-          </div>
-         <% end %>
-		  </div>
-
-      <tr>
-				<td class="table-secondary" style="width: 30%">氏名</td>
-				<td class="text-left"><%= full_name(@customer) %></td>
-			</tr>
-			<tr>
-				<td class="table-secondary">カナ</td>
-				<td class="text-left"><%= kana_full_name(@customer) %></td>
-			</tr>
-			<tr>
-				<td class="table-secondary">郵便番号</td>
-				<td class="text-left"><%= @customer.postal_code %></td>
-			</tr>
-			<tr>
-				<td class="table-secondary">住所</td>
-				<td class="text-left"><%= @customer.address %></td>
-			</tr>
-			<tr>
-				<td class="table-secondary">電話番号</td>
-				<td class="text-left"><%= @customer.tell %></td>
-			</tr>
-			<tr>
-				<td class="table-secondary">メールアドレス</td>
-				<td class="text-left"><%= @customer.email %></td>
-			</tr>
-		</table>
-
+<div class="row mb-5" id="mypage">
+  <div class="col-sm-12">
+  	<div class="row">
+  		<div class="col-sm-2 text-center my-4"><h5 class="convex-title py-2 page-title">My Page</h5></div>
+  	  <div class="col-sm-8"></div>
+  	  <div class="col-sm-1 my-4"><%= link_to ' ', edit_customers_path, class: "fas fa-cog fa-2x text-muted p-2 convex" %></div>
+  	</div>
+  	<div class="row justify-content-center">
+  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Name</p></div>
+	  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;<%= full_name(@customer) %></p></div>
+  	</div>
+  	<div class="row justify-content-center">
+  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Furigana</p></div>
+  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;<%= kana_full_name(@customer) %></p></div>
+  	</div>
+  	<div class="row justify-content-center">
+  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Postal Code</p></div>
+  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;〒<%= @customer.postal_code %></p></div>
+  	</div>
+  	<div class="row">
+  		<div class="col-sm-3"></div>
+  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Address</p></div>
+  		<div class="col-sm-6"><p class="concave py-2">&emsp;&emsp;<%= @customer.address %></p></div>
+  	</div>
+  	<div class="row justify-content-center">
+  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Tell</p></div>
+  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;<%= @customer.tell %></p></div>
+  	</div>
+  	<div class="row justify-content-center">
+  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Email</p></div>
+  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;<%= @customer.email %></p></div>
+  	</div>
     <div class="mt-4 mb-3 d-flex">
       <span class="ml-2 mr-3">配達先</span>
       <%= link_to  addresses_path, class: "ml-5" do %>
