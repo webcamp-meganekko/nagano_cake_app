@@ -5,7 +5,7 @@
       <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg', size: "300x300" , class: 'shadow mb-5 bg-white rounded', fallback: "main-visual-image.jpg"%>
     </div>
     </div>
-    <div class="col-md-5 mt-5 ml-5 text-left">
+    <div class="col-md-5 mt-3 ml-5 text-left">
       <div class="row my-2">
         <h4 class="col font-weight-bold"><%= @product.product_name %></h4>
       </div>
@@ -25,7 +25,7 @@
           <% end %>
       </div>
 
-        <div class="row mt-4">
+        <div class="row mt-2">
           <% if @product.is_sale == true %>
             <% if customer_signed_in? %>
               <%= form_with(model: @cart, local: true, method: :post, url: carts_path ) do |f| %>
@@ -36,18 +36,22 @@
               <%= f.hidden_field :customer_id, value: current_customer.id %>
               <%= button_tag :method => :get, :class => "btn" do %>
               <span class= "col btnripple">
-                <%= image_tag "add_cart.png", class: 'img-fluid border border-0',size: "80x50"  %>
+                <%= image_tag "add_cart.png", class: 'img-fluid border border-0',size: "60x40"  %>
               </span>
                 <% end %>
               <% end %>
             <% end %>
           <% end %>
         </div>
-        
-        <div class="row mt-2">
-        reviews：<%= link_to @product.reviews.count, product_reviews_path(product_id: @product.id) %>
+
+        <div class="row mt-2 ml-1">
+        <%= link_to product_reviews_path(product_id: @product.id) do%>
+          <div class="btnripple">
+          <%= image_tag 'reviews.png', class: 'img-fluid', size: "80x40" %>
+          <span><%= @product.reviews.count %></span>
+          </div>
+        <% end %>
         </div>
-        
     </div>
   </div>
 
