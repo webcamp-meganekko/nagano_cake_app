@@ -19,14 +19,14 @@
       <%= f.label :address_option, 'お届け先' %>
     </div>
       <%= f.radio_button :address_option, 0, checked: true %>
-      <%= f.label :address_option, 'ご自身の住所' %>
+      <%= f.label :address_option, 'ご自身の住所', value: 0 %>
       <br>
       &emsp;<%= '〒' + current_customer.postal_code + " " + current_customer.address %><br>
       &emsp;<%= full_name(current_customer) %><br>
       
       <% if @addresses != [] %>
         <%= f.radio_button :address_option, 1 %>
-        <%= f.label :address_option, '登録済住所から選択' %>
+        <%= f.label :address_option, '登録済住所から選択', value: 1 %>
         <br>
         <%= f.select :address_id, current_customer.addresses.map{|address| ["〒" + address.postal_code + "  " + address.street_address + "  " + address.receve_name , address.id]},
                                                                   {prompt: "選択してください"}, class: "form-control col-sm-6" %>
@@ -35,7 +35,7 @@
     <div class="row">
       <div class="col">
         <%= f.radio_button :address_option, 2 %>
-        <%= f.label :address_option, '新しいお届け先' %>
+        <%= f.label :address_option, '新しいお届け先', value: 2 %>
       </div>
     </div>
     <div class="row mb-2">

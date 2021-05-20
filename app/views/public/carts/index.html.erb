@@ -1,9 +1,9 @@
 
 
- <div class="row">
-    <div class="col-md-6">
-      <h5 class="d-inline-flex bg-light px-3 py-1 font-weight-bold mb-4 page-title">Cart</h5>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <h5 class="d-inline-flex bg-light px-3 py-1 font-weight-bold mb-4 page-title">Cart</h5>
+  </div>
 
   <div  class="col-md-2 ml-4 mt-5 py-1"><%= link_to  carts_destroy_all_path,  method: :delete do %>
     <div class="btnripple">
@@ -29,18 +29,18 @@
       <% @sum = 0 %>
       <% @carts.each do |cart| %>
         <% if cart.customer_id == current_customer.id %>
-          <tr>
+          <tr class="page-title">
             <td>
-              <%= cart.product.product_name %>
+              <h3><%= cart.product.product_name %></h3>
             </td>
             <td>
-              ¥<%= cart.product.tax_included_price %>
+              <h5>¥<%= cart.product.tax_included_price %></h5>
             </td>
             <td>
               <%= render 'public/carts/form', cart: cart %>
             </td>
             <td>
-              <p>¥<%= (@total=(cart.product.price * 1.08).to_i.floor * cart.quantity).to_s(:delimited) %></p>
+              <h5>¥<%= (@total=(cart.product.price * 1.08).to_i.floor * cart.quantity).to_s(:delimited) %></h5>
             </td>
             <td>
               <%= link_to  destroy_cart_path(cart.id), method: :delete do %>
@@ -66,24 +66,25 @@
       </div>
       <% end %>
     </div>
+  </div>
 
-    <div class="col-md-3 pl-5 offset-md-2 mb-2">
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <td class="align-middle p-2"><p class="font-weight-bold mb-0">合計金額</p></td>
-            <td class="align-middle p-2"><p class="font-weight-bold mb-0">¥<%= @sum.to_s(:delimited) %></p></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="row">
-        <div class=" col-md-8 offset-md-3 mt-3 mb-4">
-          <%= link_to  new_order_path do %>
-          <p class="btnripple">
-          <%= image_tag 'delivery_info.png', class: 'img-fluid', size: "180x120" %>
-          </p>
-          <% end %>
-        </div>
+  <div class="col-md-3 pl-5 offset-md-2 mb-2">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td class="align-middle p-2"><p class="font-weight-bold mb-0">合計金額</p></td>
+          <td class="align-middle p-2"><h5 class="page-title mb-0">¥<%= @sum.to_s(:delimited) %></h5></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class=" col-md-8 offset-md-3 mt-3 mb-4">
+        <%= link_to new_order_path do %>
+        <p class="btnripple">
+        <%= image_tag 'delivery_info.png', class: 'img-fluid', size: "180x120" %>
+        </p>
+        <% end %>
       </div>
     </div>
   </div>
+</div>

@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     get 'customers/quit_confirm' => 'customers#quit_confirm'
     patch 'customers/quit' => 'customers#quit'
     get 'search' => 'products#search'
+    get 'search/price' => 'products#search_price'
   end
 
   # ========= 管理者(admin)のルーティング ================
