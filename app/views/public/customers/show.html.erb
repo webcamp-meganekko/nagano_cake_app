@@ -1,51 +1,55 @@
-<div class="row mb-5" id="mypage">
-  <div class="col-sm-12">
-  	<div class="row">
-  		<div class="col-sm-2 text-center my-4"><h5 class="convex-title py-2 page-title">My Page</h5></div>
-  	  <div class="col-sm-8"></div>
-  	  <div class="col-sm-1 my-4"><%= link_to ' ', edit_customers_path, class: "fas fa-cog fa-2x text-muted p-2 convex" %></div>
-  	</div>
-  	<div class="row justify-content-center">
-  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Name</p></div>
-	  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;<%= full_name(@customer) %></p></div>
-  	</div>
-  	<div class="row justify-content-center">
-  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Furigana</p></div>
-  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;<%= kana_full_name(@customer) %></p></div>
-  	</div>
-  	<div class="row justify-content-center">
-  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Postal Code</p></div>
-  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;〒<%= @customer.postal_code %></p></div>
-  	</div>
-  	<div class="row">
-  		<div class="col-sm-3"></div>
-  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Address</p></div>
-  		<div class="col-sm-6"><p class="concave py-2">&emsp;&emsp;<%= @customer.address %></p></div>
-  	</div>
-  	<div class="row justify-content-center">
-  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Tell</p></div>
-  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;<%= @customer.tell %></p></div>
-  	</div>
-  	<div class="row justify-content-center">
-  		<div class="col-sm-2 text-center"><p class="concave py-2 page-title">Email</p></div>
-  		<div class="col-sm-4"><p class="concave py-2">&emsp;&emsp;<%= @customer.email %></p></div>
-  	</div>
-    <div class="mt-4 mb-3 d-flex">
-      <span class="ml-2 mr-3">配達先</span>
-      <%= link_to  addresses_path, class: "ml-5" do %>
-		    <div class="btnripple">
-          <%= image_tag "list.png", class: 'img-fluid border border-0',size: "45x20"  %>
-        </div>
-      <% end %>
-    </div>
-    <div class="mb-3 d-flex">
-      <span class="ml-2">注文履歴</span>
-	      <%= link_to  orders_path, class: "ml-5" do %>
-			    <div class="btnripple">
-    	      <%= image_tag "histry.png", class: 'img-fluid border border-0',size: "60x30"  %>
-      	  </div>
-      	<% end %>
-    </div>
-
+<div class="row">
+  <div class="col-sm-3 mb-4 page-title">
+    <h1 class="inline-block border-bottom">My page</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-sm-2 page-title"><p>Name</p></div>
+  <div class="col-sm-2"><p><%= full_name(@customer) %></p></div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-sm-2 page-title"><p>Furigana</p></div>
+  <div class="col-sm-2"><p><%= kana_full_name(@customer) %></p></div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-sm-2 page-title"><p>Postal Code</p></div>
+  <div class="col-sm-2"><p>〒<%= @customer.postal_code %></p></div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-sm-2 page-title"><p>Address</p></div>
+  <div class="col-sm-6"><p><%= @customer.address %></p></div>
+</div>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-sm-2 page-title"><p>Tell</p></div>
+  <div class="col-sm-2"><p><%= @customer.tell %></p></div>
+</div>
+<div class="row mb-4">
+  <div class="col-1"></div>
+  <div class="col-sm-2 page-title"><p>Email</p></div>
+  <div class="col-sm-6"><p><%= @customer.email %></p></div>
+</div>
+<div class="row mb-5">
+  <div class="col-1"></div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-2 page-title">Shipping address</div>
+  <div class="col-sm-1">
+    <%= link_to  addresses_path do %>
+      <div class="btnripple">
+        <%= image_tag "list.png", class: 'img-fluid border border-0',size: "45x20"  %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-2 page-title">Order history</div>
+  <div class="col-sm-1">
+    <%= link_to  orders_path do %>
+      <div class="btnripple">
+        <%= image_tag "histry.png", class: 'img-fluid border border-0',size: "60x30"  %>
+      </div>
+    <% end %>
   </div>
 </div>
