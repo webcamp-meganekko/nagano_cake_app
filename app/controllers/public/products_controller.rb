@@ -16,6 +16,11 @@ class Public::ProductsController < ApplicationController
     @products_genre = Product.where(genre_id: @genre)
     @genre_name = @genre.genre_name if @genre
   end
+  
+  def search_price
+    @selection = params[:price]
+    @products = Product.sort(@selection)
+  end
 
   def product_params
 

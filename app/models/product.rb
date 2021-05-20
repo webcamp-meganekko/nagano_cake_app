@@ -37,6 +37,18 @@ class Product < ApplicationRecord
     else
       @search_products = Product.where("product_name LIKE?","%#{word}%")
     end
-
+  end
+  
+  def self.sort(selection)
+    case selection
+    when 'high'
+      return all.order(price: :DESC)
+    when 'low'
+      return all.order(price: :ASC)
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    end
   end
 end
