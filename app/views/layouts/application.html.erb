@@ -12,14 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
   </head>
-
   <body>
-
-    <div id="splash">
-      <div id="splash-logo">loadind...</div>
-    </div>
-    <div class="splashbg"></div>
-    <div id="container">
+    <% if current_page?(root_path) %>
+      <div id="splash">
+      <div id="splash_logo2"><%= image_tag 'nagano_cake_white.png', class: "d-block w-100 " %> </div>
+      <div id="splash_logo"><%= image_tag 'welcome_white.png', class: "d-block w-100 fadeUp"%></div>
+      </div>
+    <% end %>
 
     <% if admin_signed_in? %>
       <%= render "layouts/adomin_heder" %>
@@ -30,13 +29,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class="container">
+    <div class="container" id="container">
       <%= yield %>
     </div>
     <%= render "layouts/footer" %>
-
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script url="app/assets/javascripts/public/application.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXv
+    ZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   </body>
 </html>
