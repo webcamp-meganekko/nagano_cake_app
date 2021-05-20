@@ -77,3 +77,32 @@ opacity: 1;
   transform: translateY(0);
   }
 }
+
+
+// aboutページのCSS
+.about-visual {
+  width: 100%;
+  height: 300px; 
+  background-size: cover;
+  background-position: center;
+}
+
+.about-image1 {
+  background-image:  image-url('2.jpg');
+}
+
+.about-image2 {
+  background-image:  image-url('present.jpg');
+}
+
+.about-image3 {
+  background-image:  image-url('shop.jpg');
+}
+
+.about-visual-content {
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.about-visual-text {
+  color: #fff;
+}
