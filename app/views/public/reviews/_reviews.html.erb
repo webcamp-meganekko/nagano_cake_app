@@ -6,25 +6,33 @@
       <td style="width: 10%">ID: <%= review.customer_id %><td>
       <td style="width: 10%">
         <% if review.customer == current_customer %>
-           <%= link_to "delete", product_review_path(review.product, review), method: :delete, remote: true, class: "review-delete" %>
+           <%= link_to product_review_path(review.product, review), method: :delete, remote: true, class: "review-delete" do %>
+            <div class="btnripple">
+            <%= image_tag 'delete.png', class: 'img-fluid', size: "80x100" %>
+            </div>
+          <% end %>
         <% end %>
       <td>
     </tbody>
   </table>
 <% end %>
-    
+
 <% if customer_signed_in? %>
   <%= form_with(model:[product, review], remote: true) do |f| %>
-      
+
   <div class="row mx-auto w-50">
     <div class="col mb-2 mt-5 text-center">
       <%= f.text_area :review, rows:'1',placeholder: "review", size: "30", class: "form-control" %>
     </div>
   </div>
-  
+
   <div class="row mx-auto w-50">
     <div class="col mb-2 mt- mb-3">
-      <%= f.submit "Post", class: "btn btn-info btn-sm col-3" %>
+      <%= button_tag :method => :get, :class => "btn" do %>
+      <span class= "col btnripple">
+        <%= image_tag "post.png", class: 'img-fluid border border-0',size: "50x100"  %>
+      </span>
+        <% end %>
     </div>
   </div>
 

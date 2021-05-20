@@ -28,7 +28,7 @@
       <div class="col-sm-2">
         <%= button_tag :method => :get, :class => "btn" do %>
         <div class="btnripple">
-          <%= image_tag "new.png", class: 'img-fluid border border-0',size: "50x25"  %>
+          <%= image_tag "new.png", class: 'img-fluid border border-0',size: "60x25"  %>
         </div>
         <% end %>
       </div>
@@ -61,12 +61,12 @@
             <div class="d-flex justify-content-around">
               <%= link_to  edit_address_path(address), method: :delete do %>
               <div class="btnripple">
-                <%= image_tag 'edit.png', class: 'img-fluid', size: "80x40" %>
+                <%= image_tag 'edit.png', class: 'img-fluid mt-2', size: "60x40" %>
               </div>
               <% end %>
               <%= link_to  address_path(address), method: :delete do %>
               <div class="btnripple">
-                <%= image_tag 'delete.png', class: 'img-fluid mt-2', size: "80x40" %>
+                <%= image_tag 'delete.png', class: 'img-fluid my-2 pt-1', size: "75x40" %>
               </div>
               <% end %></div>
             </td>
