@@ -47,8 +47,12 @@
         </div>
      </div>
    <div class="col mx-auto mb-4 text-center">
-      <%= f.submit '新規登録', class:"btn btn-sm btn-success" %>
-      <% end %>
+     <%= button_tag :method => :get, :class => "btn" do %>
+     <span class= "col btnripple">
+       <%= image_tag "new.png", class: 'img-fluid border border-0',size: "60x40"  %>
+     </span>
+     <% end %>
+   <% end %>
    </div>
  </div>
 

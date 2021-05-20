@@ -11,7 +11,11 @@
       <%= f.text_field :genre_name, class: 'form-control genre_name', placeholder: 'ジャンル名' %>
     </div>
     <div class="col-sm-2">
-      <%= f.submit '新規登録', class: 'form-control btn btn-success' %>
+      <%= button_tag :method => :get, :class => "btn py-0 clear-decoration" do %>
+      <span class= "col btnripple ">
+        <%= image_tag "new.png", class: 'img-fluid border border-0',size: "60x40"  %>
+      </span>
+        <% end %>
     </div>
   </div>
   <% end %>
@@ -31,7 +35,11 @@
               <%= genre.genre_name %>
             </td>
             <td class="d-flex justify-content-center">
-              <%= link_to '編集する', edit_admin_genre_path(genre), class: 'btn btn-success btn-sm' %>
+              <%= link_to  edit_admin_genre_path(genre), class: "text-right ml-3" do%>
+                <div class="btnripple">
+                <%= image_tag 'edit.png', class: 'img-fluid ', size: "60x50" %>
+                </div>
+              <% end %>
             </td>
           </tr>
         <% end %>
