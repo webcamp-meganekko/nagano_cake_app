@@ -41,14 +41,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.page(params[:page]).per(10).order(:id)
     @word = params[:word]
-    @search_products = Product.search(@word)
-
+    @search_products = Product.search(@word).page(params[:page]).per(10).order(:id)
     if @search_products.empty?
-      @search_products = Genre.search(@word)
+      @search_products = Genre.search(@word).page(params[:page]).per(10).order(:id)
       if @search_products.empty?
-        @search_products = Product.all
+        @search_products = Product.page(params[:page]).per(10).order(:id)
       end
     end
   end
