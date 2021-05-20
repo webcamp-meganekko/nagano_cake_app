@@ -1,0 +1,9 @@
+<%= form_with model: cart, method: :patch do |f| %>
+  <%= f.select :quantity, (1..20).to_a %>
+  <%= f.hidden_field :id, :value => cart.id %>
+  <%= button_tag :method => :get, :class => "btn" do %>
+  <div class="btnripple">
+    <%= image_tag "edit.png", class: 'img-fluid border border-0',size: "50x25"  %>
+  </div>
+  <% end %>
+<% end %>
