@@ -1,7 +1,7 @@
-<div class="row justify-content-center mt-3">
+<div class="row justify-content-center mt-3 mb-5">
   <div class="col-md-10">
     <h4 class="page-title">Order history list</h4>
-      <table class="table table-hover table-inverse table-bordered">
+      <table class="table table-hover table-inverse table-bordered mb-5">
         <thead class="bg-light">
           <tr>
              <th>注文日</th>
@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <% @orders.each do |order| %>
-            <tr>
+            <tr class="page-title">
               <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
               <td><%= order.address %></td>
               <td>
@@ -22,7 +22,7 @@
                   <%= order_product.product.product_name %><br>
                 <% end %>
               </td>
-              <td><%= order.total_price.to_s(:delimited) %></td>
+              <td>¥<%= order.total_price.to_s(:delimited) %></td>
               <td><%= order.order_status %></td>
               <td><%= link_to '表示する', order_path(order), class: 'btn btn-primary btn-sm' %></td>
             </tr>
