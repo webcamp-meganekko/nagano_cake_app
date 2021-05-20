@@ -1,3 +1,6 @@
+
+<div id="container">
+
 <div class="row">
   <div class="col-sm-10">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -29,7 +32,7 @@
     </div>
     <!--<//%= image_tag 'top-img.jpg', class: 'img-fluid' %>-->
   </div>
-  
+
   <!--ようこそ、ながのCAKEへ！<br>-->
   <!--このサイトは、ケーキ販売のECサイトになります。<br>-->
   <!--会員でない方も商品の閲覧はできますが、<br>-->
@@ -55,7 +58,7 @@
             <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'item-img shadow mb-5 bg-white rounded' %>
           <% end %>
         </div>
-        
+
           <div class="card-body">
             <div class="font-weight-bold">
               <h5 class="page-title"><%= product.product_name %></h5>
@@ -75,3 +78,5 @@
     <% end %>
   </div>
 </div>
+</div>
+</body>
