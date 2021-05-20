@@ -8,15 +8,21 @@
           </br>
           これまでの購入履歴が閲覧できなくなります。
           </br>
-          退会する場合は、「退会する」をクリックしてください。
+          退会する場合は、「Withdrawal」をクリックしてください。
         </p>
       </div>
     </div>
   </div>
-  
+
   <div class="row">
-    <div class="col-lg-12">
-      <%= link_to "退会しない", customer_show_path, class: "btn btn-primary table__button" %>
-      <%= link_to "退会する", customers_quit_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger table__button" %>
+    <div class="col-lg-12 mb-2">
+      <%= link_to  customer_show_path do %>
+        <div class="btnripple">
+          <%= image_tag 'do_not_withdraw.png', class: 'img-fluid', size: "70x40" %>
+        </div><% end %>
+          <%= link_to customers_quit_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"} do %>
+        <div class="btnripple">
+          <%= image_tag 'withdraw.png', class: 'img-fluid', size: "100x40" %>
+        </div><% end %>
     </div>
   </div>
