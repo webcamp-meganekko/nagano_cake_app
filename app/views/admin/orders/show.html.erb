@@ -27,15 +27,7 @@
         <th style="width: 10%">小計</th>
         <th style="width: 30%">製作ステータス</th>
       </tr>
-      <% @order_products.each do |order_product| %>
-        <tr>
-          <td><%= order_product.product.product_name %></td>
-          <td><%= order_product.tax_included_price.floor.to_s(:delimited) %></td>
-          <td><%= order_product.quantity %></td>
-          <td><%= (order_product.price * order_product.quantity * 1.08).floor.to_s(:delimited) %></td>
-          <%= render partial: 'admin/orders/form_order_product', locals: { order_product: order_product} %>
-        </tr>
-      <% end %>
+        <%= render partial: 'admin/orders/form_order_product', locals: { order_products: @order_products} %>
     </table>
   </div>
   <div class="col-2 text-right">
