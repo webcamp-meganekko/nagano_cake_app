@@ -14,7 +14,7 @@ class Order < ApplicationRecord
    price * tax
   end
   
-  #製作ステータスの
+  #製作ステータスの変更
   def change_making_status
     if self.order_status == "入金待ち"
       self.order_products.update_all(making_status: :着手不可)
