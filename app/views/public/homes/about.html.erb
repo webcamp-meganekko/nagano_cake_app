@@ -1,19 +1,37 @@
 <div class="row">  
-  <div class="col-10 mb-2 mx-auto">
-    <%= image_tag 'logo-img.png', class: 'd-block w-50' %>
-  </div>
+
+  <div class="col-8">
   
-  <div class="col-7 mb-5 mx-auto">
-    いつもNagano CAKEをご覧いただき誠にありがとうございます。<br />
-    店頭に並ぶ商品の中から選りすぐりのギフトや、<br />
-    オンラインショップならではの限定商品をご紹介しています。<br />
-    大切な方への贈り物に、ご自宅のご歓談のひと時に、是非ご利用ください。
+    <div class="row">  
+      <div class="col-12 mb-2 mx-auto mt-5">
+        <%= image_tag 'logo-img.png', class: 'd-block w-75  mt-5 ml-2' %>
+      </div>
+      
+      <div class="col-8 mb-5 mt-5 mx-auto" style="font-size: 10pt">
+        いつもNagano CAKEをご覧いただき誠にありがとうございます。<br />
+        店頭に並ぶ商品の中から選りすぐりのギフトや、<br />
+        オンラインショップならではの限定商品をご紹介しています。<br />
+        大切な方への贈り物に、ご自宅のご歓談のひと時に、是非ご利用ください。
+      </div>
+      
+    </div>
+  </div> 
+
+  <div class="col-4 pr-0">
+    <%= image_tag 'about1.png', class: 'd-block w-75 mb-5 float-right' %>
   </div>
-  
-</div> 
+
+</div>
+
+
+<div class="row"> 
+  <div class="col-8 mb-5 mt-5 mx-auto text-right">
+    NaganoCake <%= image_tag 'megane-img.png', size: "40x40" %>
+  </div>
+</div>
   
 <div class="row">
-  <div class="about-visual about-image1 mb-5 w-75 mx-auto">
+  <div class="box fadeUpTrigger about-visual about-image1 mt-5 mb-5 w-75 mx-auto">
     <div class="about-visual-content col-7 p-3 mt-5">
       <div class="about-visual-text pl-3">
         <h5>こだわり</h5>
@@ -29,7 +47,7 @@
  </div> 
 
 <div class="row">
-  <div class="about-visual about-image2 mb-5 w-75 mx-auto">
+  <div class="delay-time02 box fadeUpTrigger about-visual about-image2 mb-5 mt-5 w-75 mx-auto">
     <div class="about-visual-content float-right col-7 p-3 mt-5">
       <div class="about-visual-text pl-3">
         <h5>配送について</h5>
@@ -44,7 +62,7 @@
 </div>
 
 <div class="row">
-  <div class="about-visual about-image3 mb-5 w-75 mx-auto pt-5">
+  <div class="delay-time04 box fadeUpTrigger about-visual about-image3 mt-5 w-75 mx-auto pt-5">
     <div class="about-visual-content col-7 p-3 mx-auto">
       <div class="about-visual-text pl-3">
         <h5>NaganoCake Shop</h5>
@@ -57,3 +75,5 @@
     </div>
   </div>
 </div>
+
+<%= image_tag 'about2.png', class: 'd-block w-25' %>
