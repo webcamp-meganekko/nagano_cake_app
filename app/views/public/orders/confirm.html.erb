@@ -3,7 +3,7 @@
     <h4 class="px-2 pt-2 page-title">Confirm order information</h4>
   </div>
 </div>
-<div class="row">
+<div class="row page-title">
   <div class="col-9">
     <table class="table table-hover table-inverse table-bordered">
       <thead class="bg-light">
@@ -18,13 +18,12 @@
         <% @carts.each do |cart| %>
           <tr class="">
             <td>
-              <%= attachment_image_tag cart.product, :image, :size => '50x50',fallback: "main-visual-image.jpg" %>
-              <span> </span>
+              <%= attachment_image_tag cart.product, :image, :size => '50x50',fallback: "main-visual-image.jpg", style: "object-fit: cover" %>
               <%= cart.product.product_name %>
             </td>
-            <td class="align-middle"><%= (cart.product.price * 1.08).floor.to_s(:delimited) %></td>
+            <td class="align-middle">¥<%= (cart.product.price * 1.08).floor.to_s(:delimited) %></td>
             <td class="align-middle"><%= cart.quantity %></td>
-            <td class="align-middle"><%= (cart.product.price * cart.quantity * 1.08 ).floor.to_s(:delimited) %></td>
+            <td class="align-middle">¥<%= (cart.product.price * cart.quantity * 1.08 ).floor.to_s(:delimited) %></td>
           </tr>
           <% @sum += (cart.product.price * 1.08).floor * cart.quantity %>
         <% end %>
@@ -35,16 +34,16 @@
     <table class="table table-sm table-bordered align-self-end">
       <tbody>
         <tr class="">
-          <td class="bg-light">送料</td>
-          <td><%= @deliverycharge %></td>
+          <td class="bg-light"><strong>送料</strong></td>
+          <td>¥<%= @deliverycharge %></td>
         </tr>
         <tr class="">
-          <td class="bg-light">商品合計</td>
-          <td><%= @sum.to_s(:delimited) %></td>
+          <td class="bg-light"><strong>商品合計</strong></td>
+          <td>¥<%= @sum.to_s(:delimited) %></td>
         </tr>
         <tr class="">
-          <td class="bg-light">請求金額</td>
-          <td><%= (@sum + @deliverycharge).to_s(:delimited) %></td>
+          <td class="bg-light"><strong>請求金額</strong></td>
+          <td>¥<%= (@sum + @deliverycharge).to_s(:delimited) %></td>
         </tr>
       </tbody>
     </table>
@@ -69,8 +68,6 @@
         <%= f.hidden_field :payment_method %>
         <%= f.hidden_field :total_price, :value => (@sum + @deliverycharge) %>
         <%= f.hidden_field :postage, :value => @deliverycharge %>
-        <!--%= link_to "注文情報入力へ戻る", order_path, data: {"turbolinks" => false}, class: "btn btn-info col-xs-3 back" %>-->
-        　　<!--<i class="fas fa-shipping-fast fa-2x"></i>-->
         <%= f.submit "注文を確定する", class: "btn btn-success ml-auto" %>
       <% end %>
     </div>
