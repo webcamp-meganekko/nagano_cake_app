@@ -52,7 +52,7 @@ $(window).on('turbolinks:load',function(){
 $(document).on('turbolinks:load', function() {
   function PageTopAnime() {
   	var scroll = $(window).scrollTop();
-  	if (scroll >= 100){//上から100pxスクロールしたら
+  	if (scroll >= 200){//上から100pxスクロールしたら
   		$('#page-top').removeClass('DownMove');//#page-topについているDownMoveというクラス名を除く
   		$('#page-top').addClass('UpMove');//#page-topについているUpMoveというクラス名を付与
   	}else{
