@@ -21,60 +21,14 @@
     <% products.each do |product| %>
       <div class="card border-0">
         <div class="filter">
-
         <%= link_to product_path(product.id) do %>
         <%= image_tag 'image_huti2.png', class: 'img-fluid card-img-overlay p-0', size: "220x220" %>
         <strong class="page-title"><%= product.genre.genre_name %></strong><span></span>
-          <div class="card-img-top">
+          </div>
+          <div class="card-img-top mr-2">
             <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'shadow bg-white rounded' %>
             <% end %></div>
-          </div>
-        <div class="card-body">
-          <div class="font-weight-bold">
-            <h5 class="page-title"><%= product.product_name %></h5>
-          </div>
-          <div class="page-title">
-            <% if product.is_sale == false %>
-              <p>品切れ中</p>
-            <% else %>
-              <p>￥<%= product.tax_included_price %>
-            (¥<%= product.price.to_s(:delimited) %>)</p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div><!--ジャンル検索フォーム-->
-<div class="col">
-  <%= form_with url: search_path, local: true, method: :get do |f| %>
-    <%= f.label :genre_id, 'Genre', class: 'page-title' %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "----", required: "required" %>
-　　<%= f.submit 'search', class: 'btn btn-outline-secondary btn-sm' %>
-  <% end %>
-</div>
-<!--/ジャンル検索フォーム-->
-<!--価格検索フォーム-->
-<div class="col">
-  <%= form_with url: search_price_path, local: true, method: :get do |f| %>
-    <%= f.label :price, 'Price', class: 'page-title' %>
-    <%= f.select :price, [['High', 'high'],['Low', 'low'],['New', 'new'],['Old', 'old']], prompt: "----" %>
-    <%= f.submit 'search', class: 'btn btn-outline-secondary btn-sm' %>
-  <% end %>
-</div>
-<!--/価格検索フォーム-->
-  </div>
-  <div class="row row-cols-4 mt-5">
-    <% products.each do |product| %>
-      <div class="card border-0">
-        <div class="filter">
 
-        <%= link_to product_path(product.id) do %>
-        <%= image_tag 'image_huti2.png', class: 'img-fluid card-img-overlay p-0', size: "220x220" %>
-        <strong class="page-title"><%= product.genre.genre_name %></strong><span></span>
-          <div class="card-img-top">
-            <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'shadow bg-white rounded' %>
-            <% end %></div>
-          </div>
         <div class="card-body">
           <div class="font-weight-bold">
             <h5 class="page-title"><%= product.product_name %></h5>
