@@ -14,11 +14,11 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row text-center mb-5">
     <div class="col-lg-12 mb-2">
       <%= link_to  customer_show_path do %>
         <div class="btnripple">
-          <%= image_tag 'do_not_withdraw.png', class: 'img-fluid', size: "70x40" %>
+          <%= image_tag 'do_not_withdraw.png', class: 'mr-5 img-fluid', size: "70x40" %>
         </div><% end %>
           <%= link_to customers_quit_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"} do %>
         <div class="btnripple">

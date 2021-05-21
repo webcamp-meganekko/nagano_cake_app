@@ -22,5 +22,4 @@ class Order < ApplicationRecord
       self.order_products.update_all(making_status: :製作待ち)
     end
   end
-  
 end
