@@ -1,17 +1,21 @@
 # Nagano_Cake ECサイト
  
 DMM WebCamp チーム開発課題
+
+<img src="app/assets/images/meganekko-ReadMe.png" width="400" height="100">
  
 # 設計
  
  
 # ER図
- 
-"ER図画像
+<img src="app/assets/images/ER図.png">
  
 # アプリケーション詳細設計
  
- "画像
+ ・会員側
+<img src="app/assets/images/詳細設計.png">
+　・管理者側
+<img src="app/assets/images/admin詳細設計.png">
  
 # 開発環境
  
@@ -31,5 +35,5 @@ Ruby 2.6.3
 ・こっしー
  
 # 開発期間
-2020/5/12/から2020/5/3１まで
+2020/5/12/から2020/5/31まで
  

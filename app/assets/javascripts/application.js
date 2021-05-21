@@ -29,8 +29,8 @@ $(window).on('turbolinks:load',function(){
       $("#splash_logo2").addClass('fadeUp');
   });
 });
+$(window).on('turbolinks:load',function(){
 
-$(function(){
   var time = 300;
 
   var image = $('.filter');
@@ -98,7 +98,7 @@ $('.fadeInUpTrigger').each(function(){
 　　});
 
 $('.fadeInDownTrigger').each(function(){
-　　var elemPos = $(this).offset().top-50; 
+　　var elemPos = $(this).offset().top-50;
 　　var scroll = $(window).scrollTop();
 　　var windowHeight = $(window).height();
 　　if (scroll >= elemPos - windowHeight){
@@ -112,10 +112,10 @@ $('.fadeInDownTrigger').each(function(){
   $(window).scroll(function (){
     fadeAnime();
   });
-  
+
 function fadeAnime(){
 
-  $('.fadeUpTrigger').each(function(){ 
+  $('.fadeUpTrigger').each(function(){
     var elemPos = $(this).offset().top-50;
     var scroll = $(window).scrollTop();
     var windowHeight = $(window).height();
