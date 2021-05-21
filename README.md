@@ -1,11 +1,13 @@
 # Nagano_Cake ECサイト
  
 DMM WebCamp チーム開発課題
+<img src="app/assets/images/meganekko-ReadMe.png">
  
 # 設計
  
  
 # ER図
+<img src="app/assets/images/ER図.png">
  
 "ER図画像
  
