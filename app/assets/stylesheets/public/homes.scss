@@ -89,15 +89,15 @@ opacity: 1;
 }
 
 .about-image1 {
-  background-image:  image-url('2.jpg');
+  background-image: image-url('2.jpg');
 }
 
 .about-image2 {
-  background-image:  image-url('present.jpg');
+  background-image: image-url('present.jpg');
 }
 
 .about-image3 {
-  background-image:  image-url('shop.jpg');
+  background-image: image-url('shop.jpg');
 }
 
 .about-visual-content {
@@ -183,4 +183,8 @@ opacity: 1;
 
 section{
 padding: 500px 0;
+}
+
+.wrapper{
+  overflow: hidden;
 }

@@ -82,3 +82,55 @@ $(document).on('turbolinks:load', function() {
       return false;//リンク自体の無効化
   });
 });
+
+
+function fadeAnime(){
+
+$('.fadeInUpTrigger').each(function(){
+　　var elemPos = $(this).offset().top-50;
+　　var scroll = $(window).scrollTop();
+　　var windowHeight = $(window).height();
+　　if (scroll >= elemPos - windowHeight){
+　　$(this).addClass('fadeIn');
+　　}else{
+　　　$(this).removeClass('fadeIn');
+　　}
+　　});
+
+$('.fadeInDownTrigger').each(function(){
+　　var elemPos = $(this).offset().top-50; 
+　　var scroll = $(window).scrollTop();
+　　var windowHeight = $(window).height();
+　　if (scroll >= elemPos - windowHeight){
+　　$(this).addClass('fadeDown');
+　　}else{
+　　　$(this).removeClass('fadeDown');
+　　}
+　　});
+}
+
+  $(window).scroll(function (){
+    fadeAnime();
+  });
+  
+function fadeAnime(){
+
+  $('.fadeUpTrigger').each(function(){ 
+    var elemPos = $(this).offset().top-50;
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll >= elemPos - windowHeight){
+    $(this).addClass('fadeUp');
+    }else{
+    $(this).removeClass('fadeUp');
+    }
+    });
+}
+
+  $(window).scroll(function (){
+    fadeAnime();
+  });
+
+	$(window).on('load', function(){
+		delayScrollAnime();
+	});
