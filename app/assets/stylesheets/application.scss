@@ -83,3 +83,64 @@ nav a {
   border: none;
 　outline: none;
 }
+
+.btnshine{
+    /*キラッと光る基点とするためrelativeを指定*/
+	position: relative;
+    /*ボタンの形状*/
+	display:inline-block;
+    background: #fff;
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    outline: none;
+    overflow: hidden;
+}
+
+.btnshine::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0 0 15px 15px #fff;
+}
+/*キラッと光る*/
+.btnshine::before {
+	content: '';
+    /*絶対配置でキラッと光るの位置を決める*/
+	position: absolute;
+	top: 0;
+	left: 125%;
+    /*キラッと光る形状*/
+    width: 50%;
+	height: 100%;
+	background: linear-gradient(to left, rgba(240,255,255,.3) 100%,  rgba(255,255,255,.3) 0%);
+	transform: skewX(25deg);
+}
+
+/*hoverした際の移動のアニメーション*/
+.btnshine:hover::before {
+	animation: shine 1s;
+}
+
+@keyframes shine {
+	100% {
+		left: -75%;
+	}
+}
+
+.header_icon:hover{
+  animation: key1 1s ease  alternate;
+}
+
+@keyframes key1{
+  0% {transform: translateY(0px);}
+  25% {transform: translateY(-10px);}
+  35% {transform: translateY(0px);}
+  75% {transform: translateY(-15px);}
+  80% {transform: translateY(0px);}
+}
+
+

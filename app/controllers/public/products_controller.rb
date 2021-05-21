@@ -19,8 +19,9 @@ class Public::ProductsController < ApplicationController
 
   def search_price
     @selection = params[:price]
-    @products = Product.sort(@selection)
+    @products = Product.sort(@selection,params[:page])
   end
+
 
   def product_params
 

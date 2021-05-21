@@ -7,7 +7,12 @@
     <%= form_with model: order_product, url: admin_order_product_path(order_product), method: :patch, local: true do |f| %>
       <td id="form-order_product" class="d-flex flex-row">
         <%= f.select :making_status, OrderProduct.making_statuses.keys, class: 'form-control' %>
-        <%= f.submit '更新', class: 'btn btn-success btn-sm ml-3', id: 'order_product_button' %>
+
+         <%= button_tag :method => :get, :class => "btn py-0 clear-decoration", :id => "order_product_button",:onfocus => "this.blur();" do %>
+      <span class= "col btnripple ">
+        <%= image_tag "update.png", class: 'img-fluid border border-0',size: "60x40" %>
+      </span>
+        <% end %>
       </td>
     <% end %>
   </tr>

@@ -43,7 +43,7 @@
               <h5>¥<%= (@total=(cart.product.price * 1.08).to_i.floor * cart.quantity).to_s(:delimited) %></h5>
             </td>
             <td>
-              <%= link_to  destroy_cart_path(cart.id), method: :delete do %>
+              <%= link_to  destroy_cart_path(cart.id), remote: true, method: :delete do %>
                 <div class="btnripple">
                 <%= image_tag 'delete.png', class: 'img-fluid', size: "80x40" %>
                 </div>
