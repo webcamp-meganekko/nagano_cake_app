@@ -29,3 +29,20 @@ $(window).on('turbolinks:load',function(){
       $("#splash_logo2").addClass('fadeUp');
   });
 });
+
+$(function(){
+  var time = 300;
+
+  var image = $('.filter');
+  image.filter(':nth-child(1)')
+  .on('mouseover',function(){
+    $(this).find('strong, span').stop(true).animate({
+      opacity:'1'
+    },time);
+  })
+  .on('mouseout', function(){
+    $(this).find('strong, span').stop(true).animate({
+      opacity:0
+    },time);
+  });
+});

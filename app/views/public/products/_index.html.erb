@@ -20,11 +20,14 @@
   <div class="row row-cols-4 mt-5">
     <% products.each do |product| %>
       <div class="card border-0">
+        <div class="filter">
+
         <%= link_to product_path(product.id) do %>
         <%= image_tag 'image_huti2.png', class: 'img-fluid card-img-overlay p-0', size: "220x220" %>
+        <strong class="page-title"><%= product.genre.genre_name %></strong><span></span>
           <div class="card-img-top">
-            <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'shadow mb-5 bg-white rounded' %>
-            <% end %>
+            <%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg' , size: "200x200" , fallback: "main-visual-image.jpg", class: 'shadow bg-white rounded' %>
+            <% end %></div>
           </div>
         <div class="card-body">
           <div class="font-weight-bold">
