@@ -76,17 +76,20 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.save
-    @carts = current_customer.carts.all
-      @carts.each do |cart|
-        @order_products = @order.order_products.new
-        @order_products.product_id = cart.product.id
-        @order_products.price = cart.product.price
-        @order_products.quantity = cart.quantity
-        @order_products.save
-        current_customer.carts.destroy_all
-      end
-    redirect_to orders_complete_path
+    if @order.save
+      @carts = current_customer.carts.all
+        @carts.each do |cart|
+          @order_products = @order.order_products.new
+          @order_products.product_id = cart.product.id
+          @order_products.price = cart.product.price
+          @order_products.quantity = cart.quantity
+          @order_products.save
+          current_customer.carts.destroy_all
+        end
+      redirect_to orders_complete_path
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def complete
