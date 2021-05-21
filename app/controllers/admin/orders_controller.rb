@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-  
+
   def top
     @customer = params[:customer_id]
     if @customer
@@ -8,7 +8,7 @@ class Admin::OrdersController < ApplicationController
      @orders = Order.page(params[:page]).per(10)
     end
   end
-  
+
   def show
     @deliverycharge = 800 # 配送料
     @order = Order.find_by(id: params[:id])
@@ -19,7 +19,7 @@ class Admin::OrdersController < ApplicationController
       redirect_to admin_customer_path(params[:id])
     end
   end
-  
+
   def update
     @order = Order.find(params[:id])
     @order_products = @order.order_products
@@ -31,9 +31,9 @@ class Admin::OrdersController < ApplicationController
       render 'show'
     end
   end
-  
+
   private
-  
+
   def order_params
     params.require(:order).permit(:order_status)
   end

@@ -83,7 +83,7 @@ opacity: 1;
 // aboutページのCSS
 .about-visual {
   width: 100%;
-  height: 300px; 
+  height: 300px;
   background-size: cover;
   background-position: center;
 }
@@ -101,11 +101,90 @@ opacity: 1;
 }
 
 .about-visual-content {
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .about-visual-text {
   color: #fff;
+}
+
+/*========= ページトップのためのCSS ===============*/
+/*リンクを右下に固定*/
+#page-top {
+	position: fixed;
+	right: 20px;
+	bottom: 10px;
+	z-index: 2;
+	opacity: 0;
+	transform: translateY(70px);
+}
+
+/*　上に上がる動き　*/
+#page-top.UpMove{
+	animation: UpAnime 0.5s forwards;
+
+}
+
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+#page-top.DownMove{
+	animation: DownAnime 0.35s forwards;
+}
+
+@keyframes DownAnime{
+  from {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+  	opacity: 0;
+	transform: translateY(0);
+  }
+}
+
+/*画像の切り替えと動き*/
+#page-top a {
+    /*aタグの形状*/
+	display: block;
+	width: 70px;
+	height: 70px;
+    /*背景画像の指定*/
+  background: image-url('top_cake/top_cake')  no-repeat center;
+	background-size: contain;
+}
+
+#page-top.floatAnime a{
+  margin-right: 10px;
+	width: 50px;
+	height: 150px;
+    /*背景画像の指定*/
+ background: image-url('top_cake/cap_cake3')  no-repeat center;
+	background-size: contain;
+    /*アニメーションの指定*/
+	animation: floatAnime 3s linear infinite;
+	opacity: 0;
+}
+
+@keyframes floatAnime {
+  0% { transform: translateY(100px); opacity: 1; }
+  25% { transform: translateY(65px);}
+  50% { transform: translateY(28px);}
+  70% {transform: translateY(-11px);}
+  100% { transform: translateX(0px); transform: translateY(-50px); opacity: 0;}
+}
+
+section{
+padding: 500px 0;
 }
 
 .wrapper{

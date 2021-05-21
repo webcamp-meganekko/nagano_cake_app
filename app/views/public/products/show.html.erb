@@ -1,4 +1,4 @@
-<div class="row offset-md-2">
+<div class="row offset-md-2 page-title">
     <div class="card border border-0">
       <%= image_tag 'image_huti.png', class: 'img-fluid card-img-overlay p-0', size: "400x150" %>
     <div class="md-5 text-center mb-4 mt-6 card-img">
@@ -36,7 +36,7 @@
               <%= f.hidden_field :customer_id, value: current_customer.id %>
               <%= button_tag :method => :get, class: "btn", onfocus: "this.blur();" do %>
               <span class= "col btnripple">
-                <%= image_tag "add_cart.png", class: 'img-fluid border border-0',size: "60x40"  %>
+                <%= image_tag "add_cart.png", class: 'img-fluid border border-0',size: "70x50"  %>
               </span>
                 <% end %>
               <% end %>
