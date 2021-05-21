@@ -113,15 +113,16 @@ opacity: 1;
 #page-top {
 	position: fixed;
 	right: 20px;
-	bottom: 20px;
+	bottom: 10px;
 	z-index: 2;
 	opacity: 0;
-	transform: translateY(100px);
+	transform: translateY(70px);
 }
 
 /*　上に上がる動き　*/
 #page-top.UpMove{
 	animation: UpAnime 0.5s forwards;
+
 }
 
 @keyframes UpAnime{
@@ -137,7 +138,7 @@ opacity: 1;
 
 /*　下に下がる動き　*/
 #page-top.DownMove{
-	animation: DownAnime 0.5s forwards;
+	animation: DownAnime 0.35s forwards;
 }
 
 @keyframes DownAnime{
@@ -163,22 +164,23 @@ opacity: 1;
 }
 
 #page-top.floatAnime a{
+  margin-right: 10px;
 	width: 50px;
 	height: 150px;
     /*背景画像の指定*/
  background: image-url('top_cake/cap_cake3')  no-repeat center;
 	background-size: contain;
     /*アニメーションの指定*/
-	animation: floatAnime 2s linear infinite;
+	animation: floatAnime 3s linear infinite;
 	opacity: 0;
 }
 
 @keyframes floatAnime {
-  0% { transform: translateX(0); transform: translateY(200px); opacity: 1; }
-  25% { transform: translateX(-6px); transform: translateY(140px);}
-  50% { transform: translateX(0); transform: translateY(80px);}
-  70% { transform: translateX(6); transform: translateY(30px);}
-  100% { transform: translateX(0px); transform: translateY(0px);}
+  0% { transform: translateY(100px); opacity: 1; }
+  25% { transform: translateY(65px);}
+  50% { transform: translateY(28px);}
+  70% {transform: translateY(-11px);}
+  100% { transform: translateX(0px); transform: translateY(-50px); opacity: 0;}
 }
 
 section{
