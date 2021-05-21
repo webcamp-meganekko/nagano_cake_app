@@ -130,3 +130,17 @@ nav a {
 		left: -75%;
 	}
 }
+
+.header_icon:hover{
+  animation: key1 1s ease  alternate;
+}
+
+@keyframes key1{
+  0% {transform: translateY(0px);}
+  25% {transform: translateY(-10px);}
+  35% {transform: translateY(0px);}
+  75% {transform: translateY(-15px);}
+  80% {transform: translateY(0px);}
+}
+
+
