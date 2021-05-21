@@ -1,7 +1,8 @@
 # Nagano_Cake ECサイト
  
 DMM WebCamp チーム開発課題
-<img src="app/assets/images/meganekko-ReadMe.png">
+
+<img src="app/assets/images/meganekko-ReadMe.png" width="400" height="100">
  
 # 設計
  
