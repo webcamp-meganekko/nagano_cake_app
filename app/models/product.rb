@@ -39,16 +39,19 @@ class Product < ApplicationRecord
     end
   end
   
-  def self.sort(selection)
+  def self.sort(selection,page)
     case selection
     when 'high'
-      return all.order(price: :DESC)
+      return page(page).per(10).order(price: :DESC)
     when 'low'
-      return all.order(price: :ASC)
+      return page(page).per(10).order(price: :ASC)
     when 'new'
-      return all.order(created_at: :DESC)
+      return page(page).per(10).order(created_at: :DESC)
     when 'old'
-      return all.order(created_at: :ASC)
+      return page(page).per(10).order(created_at: :ASC)
+    else
+      all.page(page).per(10)
     end
   end
+  
 end
