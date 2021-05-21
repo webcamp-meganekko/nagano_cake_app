@@ -68,7 +68,11 @@
         <%= f.hidden_field :payment_method %>
         <%= f.hidden_field :total_price, :value => (@sum + @deliverycharge) %>
         <%= f.hidden_field :postage, :value => @deliverycharge %>
-        <%= f.submit "注文を確定する", class: "btn btn-success ml-auto" %>
+        <%= button_tag :method => :post, :class => "btn clear-decoration" do %>
+          <span class= "col btnripple">
+            <%= image_tag "get-logo2.jpg", class: 'img-fluid border border-0',size: "70x70"  %>
+          </span>
+        <% end %>
       <% end %>
     </div>
 </div>
