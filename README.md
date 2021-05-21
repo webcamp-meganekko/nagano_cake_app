@@ -9,11 +9,12 @@ DMM WebCamp チーム開発課題
 # ER図
 <img src="app/assets/images/ER図.png">
  
-"ER図画像
- 
 # アプリケーション詳細設計
  
- "画像
+ ・会員側
+<img src="app/assets/images/詳細設計.png">
+　・管理者側
+<img src="app/assets/images/admin詳細設計.png">
  
 # 開発環境
  
