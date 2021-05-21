@@ -4,19 +4,19 @@
     </div>
   </div>
 
-<div class="float-left col-12 pt-3 ml-4">
+<div class="float-left col-12 pt-3 ml-4 page-title">
 
   会員の方はこちらから
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field row col-12 pt-5 ml-3">
-      <%= f.label :email, "Email", class: "col-2 page-title" %>
+      <%= f.label :email, "Email", class: "col-2" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "col-4" %>
     </div>
 
     <div class="field row col-12 pt-3 ml-3">
-      <%= f.label :password, "Password", class: "col-2 page-title" %>
+      <%= f.label :password, "Password", class: "col-2" %>
       <%= f.password_field :password, autocomplete: "current-password", class: "col-4" %>
     </div>
 
@@ -34,7 +34,7 @@
 
 
   <div class="row">
-    <div class="col mt-5 mb-4">
+    <div class="col mt-5 mb-4  page-title">
       <h4 class="d-inline bg-gray pr-4 pl-4">会員登録がお済でない方</h4>
     </div>
   </div>
@@ -46,12 +46,12 @@
         <%= image_tag "new.png", class: 'img-fluid border border-0', size: "60x40"  %>
       </span>
         <% end %>
-  </div>
     </div>
+  </div>
 
       <%= link_to  new_customer_registration_path, class: "text-right ml-3" do%>
                 <div class="btnripple">
-                <%= image_tag 'add_capcake.png', class: 'img-fluid mb-1 ', size: "60x50" %>
-                </div><% end %><span>から新規登録を⾏ってください</span>
+                <%= image_tag 'add_capcake.png', class: 'img-fluid mb', size: "60x50" %>
+                </div><% end %><span class="page-title">から新規登録を⾏ってください</span>
 
 
