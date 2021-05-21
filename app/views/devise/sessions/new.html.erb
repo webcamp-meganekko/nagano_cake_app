@@ -4,45 +4,42 @@
     </div>
   </div>
 
-<div class="float-left col-12 pt-3 ml-4">
+<div class="float-left col-12 pt-3 ml-4 page-title">
 
   会員の方はこちらから
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field row col-12 pt-5 ml-3">
-      <%= f.label :email, "Email", class: "col-2 page-title" %>
+      <%= f.label :email, "Email", class: "col-2" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "col-4" %>
     </div>
 
     <div class="field row col-12 pt-3 ml-3">
-      <%= f.label :password, "Password", class: "col-2 page-title" %>
+      <%= f.label :password, "Password", class: "col-2" %>
       <%= f.password_field :password, autocomplete: "current-password", class: "col-4" %>
     </div>
 
     <div class="actions row col-12 pt-3 ml-3 mt-3">
 
-      <%= button_tag :method => :get, :class => "btn py-0 clear-decoration" do %>
+      <%= button_tag :method => :get, :class => "btn py-0 clear-decoration", onfocus: "this.blur();" do %>
       <span class= "col btnripple ">
         <%= image_tag "log_in.png", class: 'img-fluid border border-0',size: "60x40" %>
       </span>
         <% end %>
     </div>
   <% end %>
-
 </div>
 
 
   <div class="row">
-    <div class="col mt-5 mb-4">
+    <div class="col mt-5 mb-4  page-title">
       <h4 class="d-inline bg-gray pr-4 pl-4">会員登録がお済でない方</h4>
     </div>
   </div>
 
-    <div class="pt-2 px-5 mb-5">
-      <%= link_to  new_customer_registration_path, class: "text-right ml-3" do%>
-        <div class="btnripple">
-          <%= image_tag 'add_capcake.png', class: 'img-fluid ', size: "50x40" %>
-        </div><% end %><span>から新規登録を⾏ってください</span>
-
-
+  <div class="pt-2 px-5 mb-5">
+    <%= link_to  new_customer_registration_path, class: "text-right ml-3" do%>
+      <div class="btnripple">
+        <%= image_tag 'add_capcake.png', class: 'img-fluid ', size: "50x40" %>
+      </div><% end %><span>から新規登録を⾏ってください</span>

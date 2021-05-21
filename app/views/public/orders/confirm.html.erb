@@ -49,7 +49,7 @@
     </table>
   </div>
 </div>
-<div class="row mt-5">
+<div class="row mt-5 page-title">
   <div class="offset-2 col-6">
     <div class="row mt-3">
       <strong class="">　支払い方法　</strong>
@@ -68,7 +68,7 @@
         <%= f.hidden_field :payment_method %>
         <%= f.hidden_field :total_price, :value => (@sum + @deliverycharge) %>
         <%= f.hidden_field :postage, :value => @deliverycharge %>
-        <%= button_tag :method => :post, :class => "btn clear-decoration" do %>
+        <%= button_tag :method => :post, :class => "btn clear-decoration", onfocus: "this.blur();" do %>
           <span class= "col btnripple">
             <%= image_tag "get-logo2.jpg", class: 'img-fluid border border-0',size: "70x70"  %>
           </span>

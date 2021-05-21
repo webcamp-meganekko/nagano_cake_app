@@ -11,7 +11,7 @@
       <%= f.text_field :genre_name, class: 'form-control genre_name', placeholder: 'ジャンル名' %>
     </div>
     <div class="col-sm-2">
-      <%= button_tag :method => :get, :class => "btn py-0 clear-decoration" do %>
+      <%= button_tag :method => :get, :class => "btn py-0 clear-decoration", onfocus: "this.blur();" do %>
       <span class= "col btnripple ">
         <%= image_tag "new.png", class: 'img-fluid border border-0',size: "60x40"  %>
       </span>
@@ -37,7 +37,7 @@
             <td class="d-flex justify-content-center">
               <%= link_to  edit_admin_genre_path(genre), class: "text-right ml-3" do%>
                 <div class="btnripple">
-                <%= image_tag 'edit.png', class: 'img-fluid ', size: "60x50" %>
+                <%= image_tag 'edit.png', class: 'img-fluid', size: "60x50" %>
                 </div>
               <% end %>
             </td>
