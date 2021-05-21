@@ -34,7 +34,7 @@
                 </span>
               <%= f.hidden_field :product_id, value: @product.id %>
               <%= f.hidden_field :customer_id, value: current_customer.id %>
-              <%= button_tag :method => :get, :class => "btn" do %>
+              <%= button_tag :method => :get, class: "btn", onfocus: "this.blur();" do %>
               <span class= "col btnripple">
                 <%= image_tag "add_cart.png", class: 'img-fluid border border-0',size: "60x40"  %>
               </span>

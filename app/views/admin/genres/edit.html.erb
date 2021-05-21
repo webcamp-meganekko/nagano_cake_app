@@ -11,7 +11,7 @@
       <%= f.text_field :genre_name, class: 'form-control genre_name', placeholder: 'ジャンル名' %>
     </div>
     <div class="col-sm-2">
-      <%= button_tag :method => :get, :class => "btn py-0 clear-decoration" do %>
+      <%= button_tag :method => :get, :class => "btn py-0 clear-decoration", onfocus: "this.blur();" do %>
       <span class= "col btnripple ">
         <%= image_tag "save_changes.png", class: 'img-fluid border border-0',size: "60x40"  %>
       </span>

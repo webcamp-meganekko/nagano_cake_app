@@ -50,7 +50,7 @@
   </div>
 
   <div class="actions pt-3 col-xs-12">
-   　<%= button_tag :method => :get, :class => "btn" do %>
+   　<%= button_tag :method => :get, class: "btn", onfocus: "this.blur();" do %>
     <span class= "col btnripple">
       <%= image_tag "new_registration.png", class: 'img-fluid border border-0',size: "80x50"  %>
     </span>
