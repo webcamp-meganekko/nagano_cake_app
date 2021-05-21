@@ -23,7 +23,7 @@
       <br>
       &emsp;<%= '〒' + current_customer.postal_code + " " + current_customer.address %><br>
       &emsp;<%= full_name(current_customer) %><br>
-      
+
       <% if @addresses != [] %>
         <%= f.radio_button :address_option, 1 %>
         <%= f.label :address_option, '登録済住所から選択', value: 1 %>
@@ -31,7 +31,7 @@
         <%= f.select :address_id, current_customer.addresses.map{|a| ["〒" + a.postal_code + "  " + a.street_address + "  " + a.receve_name , a.id]},
                                                                 {prompt: "選択してください"}, class: "form-control col-sm-6" %>
       <% end %>
-      
+
     <div class="row">
       <div class="col">
         <%= f.radio_button :address_option, 2 %>
@@ -52,7 +52,11 @@
     </div>
     <div class="row">
       <div class="col-sm-2"></div>
-        <%= f.submit "確認画面へ進む", class: 'btn btn-primary btn-sm' %>
+      <%= button_tag :method => :get, :class => "btn" do %>
+        <span class= "col btnripple">
+          <%= image_tag "confirmation.png", class: 'img-fluid border border-0',size: "60x40"  %>
+        </span>
+        <% end %>
     </div>
   </div>
 <% end %>
