@@ -38,7 +38,7 @@ class Product < ApplicationRecord
       @search_products = Product.where("product_name LIKE?","%#{word}%")
     end
   end
-  
+
   def self.sort(selection,page)
     case selection
     when 'high'
@@ -53,5 +53,5 @@ class Product < ApplicationRecord
       all.page(page).per(8)
     end
   end
-  
+
 end
