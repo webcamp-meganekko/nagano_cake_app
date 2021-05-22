@@ -1,9 +1,9 @@
 <div class="row m-4">
   <div class="col">
-    <h5 class="d-inline bg-gray pr-3 pl-3">注文履歴一覧</h5>
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Order history list</h5>
   </div>
 </div>
-<div class="row">
+<div class="row page-title">
   <div class="col-sm-10 m-auto">
     <table class="table">
       <thead>
@@ -17,18 +17,10 @@
       <tbody>
         <% @orders.each do |order| %>
           <tr>
-            <td>
-              <%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order) %>
-            </td>
-            <td>
-              <%= order.customer.last_name + order.customer.first_name %>
-            </td>
-            <td>
-              <%= order.order_products.sum(:quantity) %>
-            </td>
-            <td>
-              <%= order.order_status %>
-            </td>
+            <td><%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order) %></td>
+            <td><%= order.customer.last_name + order.customer.first_name %></td>
+            <td><%= order.order_products.sum(:quantity) %></td>
+            <td><%= order.order_status %></td>
           </tr>
         <% end %>
       </tbody>

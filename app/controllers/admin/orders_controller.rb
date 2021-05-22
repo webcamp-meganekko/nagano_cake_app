@@ -15,7 +15,6 @@ class Admin::OrdersController < ApplicationController
     if @order
       @order_products = OrderProduct.where(order_id: @order.id)
     else
-      flash[:notice] = "注文履歴がありません"
       redirect_to admin_customer_path(params[:id])
     end
   end
