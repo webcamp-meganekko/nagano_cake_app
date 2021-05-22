@@ -1,0 +1,2 @@
+$("#review_form").html("<%= j(render partial: 'public/reviews/reviews', locals: {product: @product, review: @review}) %>");
+$("textarea").val('')
