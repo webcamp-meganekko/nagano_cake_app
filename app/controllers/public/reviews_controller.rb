@@ -5,7 +5,6 @@ class Public::ReviewsController < ApplicationController
     @review = @product.reviews.new(review_params)
     @review.customer_id = current_customer.id
     @review.save
-    render :reviews
   end
 
   def index
@@ -17,7 +16,7 @@ class Public::ReviewsController < ApplicationController
     @product = Product.find(params[:product_id])
     @review = Review.find(params[:id])
     @review.destroy
-    render :reviews
+    render :create
   end
   
   private
