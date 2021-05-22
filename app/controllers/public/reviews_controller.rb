@@ -1,10 +1,11 @@
 class Public::ReviewsController < ApplicationController
-  
+
   def create
     @product = Product.find(params[:product_id])
-    @review = @product.reviews.new(review_params)
-    @review.customer_id = current_customer.id
-    @review.save
+    @review = Review.new
+    review = @product.reviews.new(review_params)
+    review.customer_id = current_customer.id
+    review.save
   end
 
   def index
@@ -18,11 +19,11 @@ class Public::ReviewsController < ApplicationController
     @review.destroy
     render :create
   end
-  
+
   private
 
   def review_params
     params.require(:review).permit(:review)
   end
-  
+
 end
