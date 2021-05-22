@@ -64,7 +64,9 @@
   <div class="form-group row page-title">
     <div class="col-sm-3"></div>
     <div class="col-sm-3">
-      <%= f.submit '変更を保存', class: 'form-control btn btn-success btn-sm', onfocus: "this.blur();" %>
+      <%= button_tag :method => :save, :class => "btn", onfocus: "this.blur();" do %>
+        <%= image_tag "save_changes.png", class: 'img-fluid border border-0',size: "70x50"  %>
+      <% end %>
     </div>
   </div>
 <% end %>
