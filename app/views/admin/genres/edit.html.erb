@@ -8,7 +8,7 @@
   <div class="form-group row page-title">
       <%= f.label :genre_name, 'ジャンル名',  class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-3">
-      <%= f.text_field :genre_name, class: 'form-control genre_name', placeholder: 'ジャンル名' %>
+      <%= f.text_field :genre_name, class: 'form-control genre_name form-control:focus', placeholder: 'ジャンル名' %>
     </div>
     <div class="col-sm-2">
       <%= button_tag :method => :get, :class => "btn py-0 clear-decoration", onfocus: "this.blur();" do %>
