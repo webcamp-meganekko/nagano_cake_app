@@ -1,4 +1,4 @@
-<%= form_with model: address do |f| %>
+<%= form_with model: @address do |f| %>
   <%= render 'shaerd/error_messages', object: f.object %>
   <%= f.hidden_field :customer_id, value: current_customer.id %>
   <div class="form-group row">
@@ -29,3 +29,40 @@
     </div>
   </div>
 <% end %>
+  <div class="row mb-5">
+    <div class="col-sm-8">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="bg-gray">
+            <th style="width: 15%">郵便番号</th>
+            <th style="width: 30%">住所</th>
+            <th style="width: 15%">宛名</th>
+            <th style="width: 30%"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% current_customer.addresses.each do |address| %>
+              <tr>
+                <td><%= address.postal_code %></td>
+                <td><%= address.street_address %></td>
+                <td><%= address.receve_name %></td>
+                <td>
+                  <div class="d-flex justify-content-around">
+                    <%= link_to  edit_address_path(address) do %>
+                      <div class="btnripple">
+                        <%= image_tag 'edit.png', class: 'img-fluid mt-2', size: "60x40" %>
+                      </div>
+                    <% end %>
+                    <%= link_to  address_path(address), method: :delete, remote: true do %>
+                      <div class="btnripple">
+                        <%= image_tag 'delete.png', class: 'img-fluid my-2 pt-1', size: "75x40" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

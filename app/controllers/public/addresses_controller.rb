@@ -8,9 +8,10 @@ class Public::AddressesController < ApplicationController
   
   def create
     @address = Address.new(address_params)
+    @address.customer_id = current_customer.id
     if @address.save
       flash[:notice] = "配送先を登録しました。"
-      redirect_to addresses_path
+      render :index
     else
       @addresses = current_customer.addresses.all
       render 'index'
@@ -32,10 +33,10 @@ class Public::AddressesController < ApplicationController
   end
   
   def destroy
-    address = Address.find(params[:id])
-    address.destroy
+    @address = Address.find(params[:id])
+    @address.destroy
     flash[:notice] = "配送先を削除しました。"
-    redirect_to addresses_path
+    render :index
   end
   
   private

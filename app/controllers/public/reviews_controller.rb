@@ -1,11 +1,11 @@
 class Public::ReviewsController < ApplicationController
   
   def create
-    product = Product.find(params[:product_id])
-    review = current_customer.reviews.new(review_params)
-    review.product_id = product.id
-    review.save
-    redirect_to product_reviews_path(params[:product_id])
+    @product = Product.find(params[:product_id])
+    @review = @product.reviews.new(review_params)
+    @review.customer_id = current_customer.id
+    @review.save
+    render :reviews
   end
 
   def index
@@ -14,8 +14,10 @@ class Public::ReviewsController < ApplicationController
   end
 
   def destroy
-    Review.find_by(id: params[:id], product_id: params[:product_id]).destroy
-    redirect_to product_reviews_path(params[:product_id])
+    @product = Product.find(params[:product_id])
+    @review = Review.find(params[:id])
+    @review.destroy
+    render :reviews
   end
   
   private
