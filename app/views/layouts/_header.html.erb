@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
-            <li class="text-success mr-3">logged in</li>
+            <li class="text-success mr-3 mt-2 page-title">logged in</li>
             <li><%= link_to '', customer_show_path, class: 'fas fa-user nav-link text-muted header_icon' %></li>
             <li><%= link_to '', products_path, class: 'fas fa-cheese nav-link text-muted header_icon' %></li>
             <li><%= link_to '', carts_path, class: 'fas fa-shopping-cart nav-link text-muted header_icon' %>

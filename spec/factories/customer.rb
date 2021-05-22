@@ -1,7 +1,3 @@
-# frozen_string_literal: true
-
-require 'rails_helper'
-
 FactoryBot.define do
   factory :customer do
     email { Faker::Internet.free_email }

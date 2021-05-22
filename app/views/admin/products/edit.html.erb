@@ -1,13 +1,13 @@
   <div class="row">
     <div class="col-md-6 offset-md-2">
-      <h5 class="d-inline bg-gray pr-3 pl-3">商品編集</h5>
+      <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Product editing</h5>
     </div>
   </div>
 
 
 <%= form_with model: [:admin, @product], local:true do |f| %>
 <%= render 'shaerd/error_messages', object: f.object %>
-   <div class="row">
+  <div class="row page-title">
      <div class="col-md-8 offset-md-3 mt-4 pl-5">
        <div class="form-group form-inline pl-3">
          <div>商品画像</div>
@@ -46,8 +46,11 @@
        </div>
      </div>
    <div class="col mx-auto mb-4 text-center">
-      <%= f.submit '変更を保存', class:"btn btn-sm btn-success" %>
+      <%= button_tag :method => :get, :class => "btn", onfocus: "this.blur();" do %>
+        <span class= "col btnripple">
+          <%= image_tag "edit.png", class: 'img-fluid border border-0',size: "70x50"  %>
+        </span>
       <% end %>
    </div>
  </div>
-
+<% end %> 
