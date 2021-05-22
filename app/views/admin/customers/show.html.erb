@@ -1,37 +1,37 @@
 <div class="row m-4">
   <div class="col">
-    <h5 class="d-inline bg-gray pr-3 pl-3"><%= full_name(@customer) %>さんの会員詳細</h5>
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Customer Details</h5>
   </div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-2">会員ID</div>
   <div class="col-sm-2"><%= @customer.id %></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-2">氏名</div>
   <div class="col"><%= @customer.last_name %> <%= @customer.first_name %></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-2">フリガナ</div>
   <div class="col"><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-2">郵便番号</div>
   <div class="col"><%= @customer.postal_code %></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-2">住所</div>
   <div class="col"><%= @customer.address %></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-2">電話番号</div>
   <div class="col"><%= @customer.tell %></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-2">メールアドレス</div>
   <div class="col"><%= @customer.email %></div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-2">会員ステータス</div>
   <div class="col">
     <% if @customer.is_valid == true %>
@@ -43,10 +43,14 @@
 </div>
 <div class="row">
   <div class="col-sm-2"></div>
-  <div class="col-sm-2">
-    <%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn btn-success btn-sm" %>
+  <div class="col-sm-2 page-title">
+    <%= link_to edit_admin_customer_path(@customer) do %>
+      <%= image_tag "edit.png", class: 'img-fluid border border-0', size: "60x40" %>
+    <%end  %>
   </div>
-  <div class="col-sm-3">
-    <%= link_to '注文履歴一覧を見る', admin_top_path(customer_id: @customer.id), class: "btn btn-primary btn-sm" %>
+  <div class="col-sm-3 page-title">
+    <%= link_to admin_top_path(customer_id: @customer.id) do %>
+      <%= image_tag "back_to_index", class: 'img-fluid border border-0', size: "60x40" %>
+    <% end %>
   </div>
 </div>

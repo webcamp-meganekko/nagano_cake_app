@@ -31,21 +31,21 @@
         <% if cart.customer_id == current_customer.id %>
           <tr class="page-title">
             <td>
-              <h3><%= cart.product.product_name %></h3>
+              <h3 class="pt-3"><%= cart.product.product_name %></h3>
             </td>
             <td>
-              <h5>¥<%= cart.product.tax_included_price %></h5>
+              <h5 class="pt-3">¥<%= cart.product.tax_included_price %></h5>
             </td>
             <td>
               <%= render 'public/carts/form', cart: cart %>
             </td>
             <td>
-              <h5>¥<%= (@total=(cart.product.price * 1.08).to_i.floor * cart.quantity).to_s(:delimited) %></h5>
+              <h5 class="pt-3">¥<%= (@total=(cart.product.price * 1.08).to_i.floor * cart.quantity).to_s(:delimited) %></h5>
             </td>
             <td>
               <%= link_to  destroy_cart_path(cart.id), remote: true, method: :delete do %>
                 <div class="btnripple">
-                <%= image_tag 'delete.png', class: 'img-fluid', size: "80x40" %>
+                <%= image_tag 'delete.png', class: 'img-fluid pt-2', size: "80x40" %>
                 </div>
               <% end %>
             </td>

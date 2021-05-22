@@ -1,11 +1,12 @@
 <div class="row m-4">
   <div class="col">
-    <h5 class="d-inline bg-gray pr-3 pl-3">注文履歴詳細</h5>
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Order history details</h5>
   </div>
 </div>
-<div class="row">
+<div class="row page-title">
   <div class="col-sm-2">購入者</div>
-  <%= link_to full_name(@order.customer), admin_customer_path(@order.customer), class: 'col-sm-10' %>
+  <%= link_to full_name(@order.customer), admin_customer_path(@order.customer), class: 'col-sm-2' %>
+  <div class="col-sm-8"></div>
   <div class="col-sm-2">注文日</div>
   <div class="col-sm-10"><%= @order.created_at.strftime('%Y/%m/%d') %></div>
   <div class="col-sm-2">配送先</div>
@@ -15,20 +16,15 @@
   <div class="col-sm-2">支払い方法</div>
   <div class="col-sm-10"><%= @order.payment_method %></div>
   <div class="col-sm-2">注文ステータス</div>
-  <%= render partial: 'admin/orders/form_order', locals: { order: @order} %>
+  <div id="form_order">
+    <%= render partial: 'admin/orders/form_order', locals: { order: @order} %>
+  </div>
 </div>
-<div class="row pt-3">
+<div class="row pt-3 page-title">
   <div class="col-8">
-    <table class="table table-inverse table-bordered">
-      <tr class="bg-light">
-        <th style="width: 30%">商品</th>
-        <th style="width: 20%">単価（税込）</th>
-        <th style="width: 10%">数量</th>
-        <th style="width: 10%">小計</th>
-        <th style="width: 30%">製作ステータス</th>
-      </tr>
-        <%= render partial: 'admin/orders/form_order_product', locals: { order_products: @order_products} %>
-    </table>
+    <div id="form_order_product">
+      <%= render partial: 'admin/order_products/form_order_product', locals: { order_products: @order_products} %>
+    </div>
   </div>
   <div class="col-2 text-right">
     <p>商品合計</p>
@@ -36,8 +32,8 @@
     <p>請求金額合計</p>
   </div>
   <div class="col-1 text-right">
-    <p><%= @order.total_price.to_s(:delimited) %>円</p>
-    <p><%= @deliverycharge %>円</p>
-    <p><%= (@order.total_price + @deliverycharge).to_s(:delimited) %>円</p>
+    <p>¥<%= @order.total_price.to_s(:delimited) %></p>
+    <p>¥<%= @deliverycharge %></p>
+    <p>¥<%= (@order.total_price + @deliverycharge).to_s(:delimited) %></p>
   </div>
 </div>

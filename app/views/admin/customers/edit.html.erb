@@ -1,58 +1,58 @@
 <div class="row m-4">
   <div class="col">
-    <h5 class="d-inline bg-gray pr-3 pl-3"><%= full_name(@customer) %>さんの会員情報編集</h5>
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Customer Details Edith</5>
   </div>
 </div>
-<div class="row mb-3">
+<div class="row mb-3 page-title">
   <div class="col-sm-3">会員ID</div>
   <div class="col"><%= @customer.id %></div>
 </div>
 <%= form_with model: @customer, url: admin_customer_path, local:true do |f| %>
 <%= render 'shaerd/error_messages', object: f.object %>
-  <div class="form-group row">
+  <div class="form-group row page-title">
       <%= f.label :name, '氏名', class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-3">
-      <%= f.text_field :last_name, class: 'form-control first_name' %>
+      <%= f.text_field :last_name, class: 'form-control first_name form-control:focus' %>
     </div>
     <div class="col-sm-3">
-      <%= f.text_field :first_name, class: 'form-control last_name' %>
+      <%= f.text_field :first_name, class: 'form-control last_name form-control:focus' %>
     </div>
   </div>
 
-  <div class="form-group row">
+  <div class="form-group row page-title">
       <%= f.label :name_kana, 'フリガナ', class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-3">
-      <%= f.text_field :last_name_kana, class: 'form-control first_name_kana' %>
+      <%= f.text_field :last_name_kana, class: 'form-control first_name_kana form-control:focus' %>
     </div>
     <div class="col-sm-3">
-      <%= f.text_field :first_name_kana, class: 'form-control last_name_kana' %>
+      <%= f.text_field :first_name_kana, class: 'form-control last_name_kana form-control:focus' %>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row page-title">
       <%= f.label :postal_code, '郵便番号', class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-3">
-      <%= f.text_field :postal_code, class: 'form-control postal_code' %>
+      <%= f.text_field :postal_code, class: 'form-control postal_code form-control:focus' %>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row page-title">
       <%= f.label :address, '住所', class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-6">
-      <%= f.text_field :address, class: 'form-control address' %>
+      <%= f.text_field :address, class: 'form-control address form-control:focus' %>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row page-title">
       <%= f.label :tell, '電話番号', class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-3">
-      <%= f.text_field :tell, class: 'form-control tell' %>
+      <%= f.text_field :tell, class: 'form-control tell form-control:focus' %>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row page-title">
       <%= f.label :email, 'メールアドレス', class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-3">
-      <%= f.text_field :email, class: 'form-control email' %>
+      <%= f.text_field :email, class: 'form-control email form-control:focus' %>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row page-title">
       <%= f.label :is_valid, '会員ステータス', class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-3">
       <%= f.radio_button :is_valid, :true %>
@@ -61,10 +61,12 @@
       <%= f.label :is_valid, '無効', value: :false %>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row page-title">
     <div class="col-sm-3"></div>
     <div class="col-sm-3">
-      <%= f.submit '変更を保存', class: 'form-control btn btn-success btn-sm' %>
+      <%= button_tag :method => :save, :class => "btn", onfocus: "this.blur();" do %>
+        <%= image_tag "save_changes.png", class: 'img-fluid border border-0',size: "70x50"  %>
+      <% end %>
     </div>
   </div>
 <% end %>

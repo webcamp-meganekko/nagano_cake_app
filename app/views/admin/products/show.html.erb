@@ -1,11 +1,11 @@
 
-  <div class="row">
-   <div class="col-md-6 offset-md-2">
-      <h5 class="d-inline bg-gray pr-3 pl-3">商品詳細</h5>
+<div class="row">
+  <div class="col-md-6 offset-md-2">
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Product Details</h5>
   </div>
 </div>
 
-<div class="row mt-5 offset-md-2">
+<div class="row mt-5 offset-md-2 page-title">
     <div class="col-md-5 text-center">
       <%= attachment_image_tag @product, :image, :fill, 300, 300, format: 'jpeg', size: "300x300" , fallback: "main-visual-image.jpg"%>
     </div>
@@ -49,7 +49,13 @@
 
   <div class="row">
     <div class="col-md-6 mt-3 text-center offset-md-4">
-      <div class=" mt-2 mb-4"><%= link_to "編集する",  edit_admin_product_path(@product.id), class: "text-white btn btn-success" %></div>
+      <div class=" mt-2 mb-4">
+        <%= link_to edit_admin_product_path(@product.id) do %>
+          <div class="btnripple">
+            <%= image_tag 'edit.png', class: 'img-fluid mt-2', size: "60x40" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
