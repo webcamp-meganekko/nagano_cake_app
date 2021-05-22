@@ -1,6 +1,8 @@
 # Nagano_Cake ECサイト
  
 DMM WebCamp チーム開発課題
+![readme_complete](https://user-images.githubusercontent.com/79825084/119214082-ef0d0700-bafe-11eb-8c10-f85c1216742a.gif)
+
 
 <img src="app/assets/images/meganekko-ReadMe.png" width="400" height="100">
  
