@@ -89,9 +89,10 @@ nav a {
   border-color: #d8dce1;
   box-shadow: none;
 }
-
+// カスタマー関連のテキストフィールドの高さ調整
 .customre-form {
-  height: 24px;
+  height: 30px;
+  font-size: 1rem;
 }
 
 .btnshine{
@@ -152,5 +153,3 @@ nav a {
   75% {transform: translateY(-15px);}
   80% {transform: translateY(0px);}
 }
-
-

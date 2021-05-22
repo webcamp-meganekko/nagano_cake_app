@@ -12,12 +12,14 @@
 
     <div class="field row col-12 pt-5 ml-3">
       <%= f.label :email, "Email", class: "col-2" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "col-4" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com",
+      class: "col-4 form-control customre-form" %>
     </div>
 
     <div class="field row col-12 pt-3 ml-3">
       <%= f.label :password, "Password", class: "col-2" %>
-      <%= f.password_field :password, autocomplete: "current-password", class: "col-4" %>
+      <%= f.password_field :password, autocomplete: "current-password",
+      class: "col-4 form-control customre-form" %>
     </div>
 
     <div class="actions row col-12 pt-3 ml-3 mt-3">
