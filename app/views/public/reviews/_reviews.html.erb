@@ -28,7 +28,7 @@
 
   <div class="row mx-auto w-50">
     <div class="col mb-2 mt- mb-3">
-      <%= button_tag :method => :get, :class => "btn" do %>
+      <%= button_tag :method => :get, :class => "btn", onfocus: "this.blur();" do %>
       <span class= "col btnripple">
         <%= image_tag "post.png", class: 'img-fluid border border-0',size: "50x100"  %>
       </span>
