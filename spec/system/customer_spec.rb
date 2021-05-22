@@ -50,13 +50,27 @@ describe '登録〜注文のテスト' do
       end
     end
       
-    # context 'ヘッダーロゴのテスト' do
-    # it 'ヘッダーロゴを押下してトップ画面に遷移することができる' do
-
-    #   end
-    # end
-      
+    context 'ヘッダーロゴのテスト' do
+      it 'ヘッダーロゴを押下してトップ画面に遷移することができる' do
+        find(".btnshine").click
+        expect(current_path).to eq root_path
+      end
+    end
     
+    context 'トップ画面のテスト' do
+      
+      let!(:genre) { create(:genre) }
+      let!(:product1) { create(:product) }
+      let!(:product2) { create(:product) }
+    
+      it '商品画像を押下して該当商品の詳細画面に遷移する' do
+        visit root_path
+        find('a[href="/product/1"]').click
+        expect(current_path).to eq product_path(1)
+      end
     
   end
+end
+  
+  
 end
