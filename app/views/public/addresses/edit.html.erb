@@ -3,29 +3,4 @@
     <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Address edit</h5>
   </div>
 </div>
-  <%= form_with model: @address,local:true do |f| %>
-  <%= render 'shaerd/error_messages', object: f.object %>
-    <div class="form-group row">
-        <%= f.label :postal_code, '郵便番号（ハイフンなし）',  class: 'col-sm-3 col-form-label' %>
-      <div class="col-sm-3">
-        <%= f.text_field :postal_code, class: 'form-control address_postal_code' %>
-      </div>
-    </div>
-    <div class="form-group row">
-        <%= f.label :street_address, '住所', class: 'col-sm-3 col-form-label' %>
-      <div class="col-sm-4">
-        <%= f.text_field :street_address, class: 'form-control address_street_address' %>
-      </div>
-    </div>
-    <div class="form-group row">
-        <%= f.label :receve_name, '宛名', class: 'col-sm-3 col-form-label' %>
-      <div class="col-sm-3">
-        <%= f.text_field :receve_name, class: 'form-control address_receve_name' %>
-      </div>
-      <div class="col-sm-1">
-      </div>
-      <div class="col-sm-2">
-        <%= f.submit '変更内容を保存', class: 'form-control btn btn-success btn-sm' %>
-      </div>
-    </div>
-  <% end %>
+<%= render 'public/addresses/form_edit', address: @address %>

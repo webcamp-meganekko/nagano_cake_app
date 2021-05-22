@@ -1,3 +1,2 @@
-$("#review_form").html("<%= j(render 'public/reviews/reviews', product: @product, review: @review) %>");
+$("#review_form").html("<%= j(render partial: 'public/reviews/reviews', locals: {product: @product, review: @review}) %>");
 $("textarea").val('')
-$(".reviews_count").html("<%= @product.reviews.count %>件");

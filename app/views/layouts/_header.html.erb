@@ -3,7 +3,7 @@
     <div class="container">
       <p class="navbar-brand" href="/">
         <a href="/" class="btnshine"><%= image_tag 'logo-img.png', size: "260x60" %></a>
-        
+
       </p>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -12,15 +12,15 @@
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
             <li class="text-success mr-3">logged in</li>
-            <li><%= link_to '', customer_show_path, class: 'fas fa-user nav-link text-muted' %></li>
-            <li><%= link_to '', products_path, class: 'fas fa-cheese nav-link text-muted' %></li>
-            <li><%= link_to '', carts_path, class: 'fas fa-shopping-cart nav-link text-muted' %>
-            <li><%= link_to '', destroy_customer_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-muted' %></li>
+            <li><%= link_to '', customer_show_path, class: 'fas fa-user nav-link text-muted header_icon' %></li>
+            <li><%= link_to '', products_path, class: 'fas fa-cheese nav-link text-muted header_icon' %></li>
+            <li><%= link_to '', carts_path, class: 'fas fa-shopping-cart nav-link text-muted header_icon' %>
+            <li><%= link_to '', destroy_customer_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-muted header_icon' %></li>
           <% else %>
-            <li><%= link_to '', about_path, class: 'fas fa-info-circle nav-link text-muted' %></li>
-            <li><%= link_to '', products_path, class: 'fas fa-cheese nav-link text-muted' %></li>
-            <li><%= link_to '', new_customer_registration_path, class: 'fas fa-user-plus nav-link text-muted' %></li>
-            <li><%= link_to '', new_customer_session_path, class: 'fas fa-sign-in-alt nav-link text-muted' %></li>
+            <li><%= link_to '', about_path, class: 'fas fa-info-circle nav-link text-muted header_icon' %></li>
+            <li><%= link_to '', products_path, class: 'fas fa-cheese nav-link text-muted header_icon' %></li>
+            <li><%= link_to '', new_customer_registration_path, class: 'fas fa-user-plus nav-link text-muted header_icon' %></li>
+            <li><%= link_to '', new_customer_session_path, class: 'fas fa-sign-in-alt nav-link text-muted header_icon' %></li>
           <% end %>
         </ul>
       </div>
