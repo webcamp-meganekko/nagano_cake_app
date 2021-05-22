@@ -6,20 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Customer.create!(email: "test@test.com", first_name: "名前", last_name: "名前", postal_code: "1234567",
-first_name_kana: "ナマエ", last_name_kana: "ナマエ", password: "1234567", address: "北見市", tell: "09011112222")
+Customer.create!(email: "test@test.com", first_name: "結衣", last_name: "星野", postal_code: "1234567",
+first_name_kana: "ユイ", last_name_kana: "ホシノ", password: "1234567", address: "東京都渋谷区", tell: "09011112222")
 
 Admin.create!(email: "test@test.com", password: "aaaaaa")
 
-99.times do |n|
-  first_name = "田中"
-  last_name  = "太郎"
-  first_name_kana = "タナカ"
-  last_name_kana = "タロウ"
+5.times do |n|
+  first_name = "源"
+  last_name  = "新垣"
+  first_name_kana = "ゲン"
+  last_name_kana = "アラガキ"
   email = "sample#{n+1}@test.com"
   password = "password"
   postal_code = "1234567"
-  address = "札幌市"
+  address = "東京都足立区"
   tell = "08011112222"
   Customer.create!(first_name:           first_name,
                   last_name:             last_name,

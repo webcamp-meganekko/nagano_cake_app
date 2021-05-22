@@ -1,14 +1,14 @@
 <div class="row m-4">
   <div class="col">
-    <h5 class="d-inline bg-gray pr-3 pl-3">ジャンル編集</h5>
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Genre Edit</h5>
   </div>
 </div>
   <%= form_with model: @genre, url: admin_genre_path, local:true do |f| %>
   <%= render 'shaerd/error_messages', object: f.object %>
-  <div class="form-group row">
+  <div class="form-group row page-title">
       <%= f.label :genre_name, 'ジャンル名',  class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-3">
-      <%= f.text_field :genre_name, class: 'form-control genre_name', placeholder: 'ジャンル名' %>
+      <%= f.text_field :genre_name, class: 'form-control genre_name form-control:focus', placeholder: 'ジャンル名' %>
     </div>
     <div class="col-sm-2">
       <%= button_tag :method => :get, :class => "btn py-0 clear-decoration", onfocus: "this.blur();" do %>

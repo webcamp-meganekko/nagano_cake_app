@@ -1,1 +1,0 @@
-$("#cart-quantity").html("<%= j(render 'public/carts/form', cart: cart) %>");
