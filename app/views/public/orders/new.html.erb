@@ -6,52 +6,52 @@
 <%= form_with model: @order, url: orders_confirm_path, method: :post, local:true do |f| %>
   <div class="form-group">
     <div class="row">
-      <%= f.label :payment_method, '支払い方法' %>
+      <%= f.label :payment_method, '支払い方法', class: "page-title" %>
     </div>
       <%= f.radio_button :payment_method, :クレジットカード, checked: true %>
-      <%= f.label :payment_method, 'クレジットカード', value: :クレジットカード %><br>
+      <%= f.label :payment_method, 'クレジットカード', value: :クレジットカード, class: "page-title" %><br>
       <%= f.radio_button :payment_method, :銀行振込 %>
-      <%= f.label :payment_method, '銀行振込', value: :銀行振込 %>
+      <%= f.label :payment_method, '銀行振込', value: :銀行振込, class: "page-title" %>
   </div>
   <div class="form-group">
     <div class="row">
-      <%= f.label :address_option, 'お届け先' %>
+      <%= f.label :address_option, 'お届け先', class: "page-title" %>
     </div>
       <%= f.radio_button :address_option, 0, checked: true %>
-      <%= f.label :address_option, 'ご自身の住所', value: 0 %>
+      <%= f.label :address_option, 'ご自身の住所', value: 0, class: "page-title" %>
       <br>
       &emsp;<%= '〒' + current_customer.postal_code + " " + current_customer.address %><br>
       &emsp;<%= full_name(current_customer) %><br>
 
       <% if @addresses != [] %>
         <%= f.radio_button :address_option, 1 %>
-        <%= f.label :address_option, '登録済住所から選択', value: 1 %>
+        <%= f.label :address_option, '登録済住所から選択', value: 1, class: "page-title" %>
         <br>
         <%= f.select :address_id, current_customer.addresses.map{|a| ["〒" + a.postal_code + "  " + a.street_address + "  " + a.receve_name , a.id]},
-                                                                {prompt: "選択してください"}, class: "form-control col-sm-6" %>
+                                                                {prompt: "選択してください"}, class: "form-control col-sm-6 page-title" %>
       <% end %>
 
     <div class="row">
       <div class="col">
         <%= f.radio_button :address_option, 2 %>
-        <%= f.label :address_option, '新しいお届け先', value: 2 %>
+        <%= f.label :address_option, '新しいお届け先', value: 2, class: "page-title" %>
       </div>
     </div>
     <div class="row mb-2">
-      <%= f.label :postal_code, '郵便番号（ハイフンなし）', class: 'col-sm-3' %>
-      <%= f.text_field :postal_code, placeholder: '0000000', class: 'form-control col-sm-3' %>
+      <%= f.label :postal_code, '郵便番号（ハイフンなし）', class: 'col-sm-3', class: "page-title" %>
+      <%= f.text_field :postal_code, placeholder: '0000000', class: 'form-control col-sm-3 page-title' %>
     </div>
     <div class="row mb-2">
-      <%= f.label :address, '住所', class: 'col-sm-3' %>
-      <%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0', class: 'form-control col-sm-4' %>
+      <%= f.label :address, '住所', class: 'col-sm-3', class: "page-title" %>
+      <%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0', class: 'form-control col-sm-4 page-title' %>
     </div>
     <div class="row mb-2">
-      <%= f.label :receve_name, '宛名', class: 'col-sm-3' %>
-      <%= f.text_field :receve_name, placeholder: '令和道子', class: 'form-control col-sm-3' %>
+      <%= f.label :receve_name, '宛名', class: 'col-sm-3', class: "page-title" %>
+      <%= f.text_field :receve_name, placeholder: '令和道子', class: 'form-control col-sm-3 page-title' %>
     </div>
     <div class="row">
       <div class="col-sm-2"></div>
-      <%= button_tag :method => :get, :class => "btn" do %>
+      <%= button_tag :method => :get, :class => "btn", onfocus: "this.blur();" do %>
         <span class= "col btnripple">
           <%= image_tag "confirmation.png", class: 'img-fluid border border-0',size: "60x40"  %>
         </span>

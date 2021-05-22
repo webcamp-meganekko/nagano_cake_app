@@ -7,46 +7,46 @@
 <%= form_with(model:@customer, url:customer_path, local: true, method: :put) do |f| %>
   <%= render 'shaerd/error_messages', object: f.object %>
   <div class="form-group row">
-      <%= f.label :name, '氏名', class: 'col-sm-3 col-form-label' %>
+      <%= f.label :name, '氏名', class: 'col-sm-3 col-form-label page-title ' %>
     <div class="col-sm-3">
-      <%= f.text_field :last_name, class: 'form-control first_name' %>
+      <%= f.text_field :last_name, class: 'form-control first_name page-title' %>
     </div>
     <div class="col-sm-3">
-      <%= f.text_field :first_name, class: 'form-control last_name' %>
+      <%= f.text_field :first_name, class: 'form-control last_name page-title' %>
     </div>
   </div>
 
   <div class="form-group row">
-      <%= f.label :name_kana, 'フリガナ', class: 'col-sm-3 col-form-label' %>
+      <%= f.label :name_kana, 'フリガナ', class: 'col-sm-3 col-form-label page-title' %>
     <div class="col-sm-3">
-      <%= f.text_field :last_name_kana, class: 'form-control first_name_kana' %>
+      <%= f.text_field :last_name_kana, class: 'form-control first_name_kana page-title' %>
     </div>
     <div class="col-sm-3">
-      <%= f.text_field :first_name_kana, class: 'form-control last_name_kana' %>
-    </div>
-  </div>
-  <div class="form-group row">
-      <%= f.label :postal_code, '郵便番号', class: 'col-sm-3 col-form-label' %>
-    <div class="col-sm-3">
-      <%= f.text_field :postal_code, class: 'form-control postal_code' %>
+      <%= f.text_field :first_name_kana, class: 'form-control last_name_kana page-title' %>
     </div>
   </div>
   <div class="form-group row">
-      <%= f.label :address, '住所', class: 'col-sm-3 col-form-label' %>
+      <%= f.label :postal_code, '郵便番号', class: 'col-sm-3 col-form-label page-title' %>
+    <div class="col-sm-3">
+      <%= f.text_field :postal_code, class: 'form-control postal_code page-title' %>
+    </div>
+  </div>
+  <div class="form-group row">
+      <%= f.label :address, '住所', class: 'col-sm-3 col-form-label page-title' %>
     <div class="col-sm-6">
-      <%= f.text_field :address, class: 'form-control address' %>
+      <%= f.text_field :address, class: 'form-control address page-title' %>
     </div>
   </div>
   <div class="form-group row">
-      <%= f.label :tell, '電話番号', class: 'col-sm-3 col-form-label' %>
+      <%= f.label :tell, '電話番号', class: 'col-sm-3 col-form-label page-title' %>
     <div class="col-sm-3">
-      <%= f.text_field :tell, class: 'form-control tell' %>
+      <%= f.text_field :tell, class: 'form-control tell page-title' %>
     </div>
   </div>
   <div class="form-group row">
-      <%= f.label :email, 'メールアドレス', class: 'col-sm-3 col-form-label' %>
+      <%= f.label :email, 'メールアドレス', class: 'col-sm-3 col-form-label page-title' %>
     <div class="col-sm-3">
-      <%= f.text_field :email, class: 'form-control email' %>
+      <%= f.text_field :email, class: 'form-control email page-title' %>
     </div>
   </div>
 
