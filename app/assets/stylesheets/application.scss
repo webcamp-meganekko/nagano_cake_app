@@ -84,6 +84,12 @@ nav a {
 　outline: none;
 }
 
+
+.form-control:focus {
+  border-color: #d8dce1;
+  box-shadow: none;
+}
+
 .btnshine{
     /*キラッと光る基点とするためrelativeを指定*/
 	position: relative;
