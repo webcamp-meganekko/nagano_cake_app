@@ -2,8 +2,8 @@
 <div class="col">
   <%= form_with url: search_path, local: true, method: :get do |f| %>
     <%= f.label :genre_id, 'Genre', class: 'page-title' %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "----", required: "required" %>
-　　<%= f.submit 'search', class: 'btn btn-outline-secondary btn-sm' %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "----", required: "required", class: 'page-title' %>
+　　<%= f.submit 'search', class: 'btn btn-outline-secondary btn-sm page-title' %>
   <% end %>
 </div>
 <!--/ジャンル検索フォーム-->
@@ -11,8 +11,8 @@
 <div class="col">
   <%= form_with url: search_price_path, local: true, method: :get do |f| %>
     <%= f.label :price, 'Price', class: 'page-title' %>
-    <%= f.select :price, [['High', 'high'],['Low', 'low'],['New', 'new'],['Old', 'old']], prompt: "----" %>
-    <%= f.submit 'search', class: 'btn btn-outline-secondary btn-sm ml-4' %>
+    <%= f.select :price, [['High', 'high'],['Low', 'low'],['New', 'new'],['Old', 'old']], prompt: "----" , class: 'page-title' %>
+    <%= f.submit 'search', class: 'btn btn-outline-secondary btn-sm ml-4 page-title' %>
   <% end %>
 </div>
 <!--/価格検索フォーム-->
