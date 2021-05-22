@@ -10,7 +10,6 @@ class Public::AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
-      flash[:notice] = "配送先を登録しました。"
       render :index
     else
       @addresses = current_customer.addresses.all
@@ -35,7 +34,6 @@ class Public::AddressesController < ApplicationController
   def destroy
     @address = Address.find(params[:id])
     @address.destroy
-    flash[:notice] = "配送先を削除しました。"
     render :index
   end
   
