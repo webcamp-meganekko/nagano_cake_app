@@ -1,41 +1,52 @@
-<% product.reviews.each do |review| %>
-  <table class="table table-sm">
-    <tbody>
-      <td style="width: 20%" class="text-cente" ><%= review.created_at.strftime('%Y/%m/%d') %></td>
-      <td style="width: 60%"><%= review.review %></td>
-      <td style="width: 10%">ID: <%= review.customer_id %><td>
-      <td style="width: 10%">
-        <% if review.customer == current_customer %>
-           <%= link_to product_review_path(review.product, review), method: :delete, remote: true, class: "review-delete" do %>
-            <div class="btnripple">
-            <%= image_tag 'delete.png', class: 'img-fluid', size: "80x100" %>
-            </div>
-          <% end %>
-        <% end %>
-      <td>
-    </tbody>
-  </table>
-<% end %>
-
-<% if customer_signed_in? %>
-  <%= form_with(model:[product, review]) do |f| %>
-
-  <div class="row mx-auto w-50">
-    <div class="col mb-2 mt-5 text-center">
-      <%= f.text_area :review, rows:'1',placeholder: "review", size: "30", class: "form-control" %>
-    </div>
+<div class="row mx-auto w-75 page-title">
+  <div class="col mb-2 mt-5 text-center">
+      <h2 class="border-bottom d-inline-block">Review</h2>
+       <p class="reviews_count"><%= product.reviews.count %>件</p>
   </div>
+</div>
 
-  <div class="row mx-auto w-50 ml-3">
-    <div class="col mb-2 mt- mb-3">
-      <%= button_tag :method => :get, :class => "btn", onfocus: "this.blur();" do %>
-      <span class= "col btnripple">
-        <%= image_tag "post.png", class: 'img-fluid border border-0',size: "50x100"  %>
-      </span>
-        <% end %>
-    </div>
-  </div>
+<div class="row mx-auto w-75 page-title">
+  <div class="col mb-2 mt-5">
 
+    <% product.reviews.each do |review| %>
+      <table class="table table-sm">
+        <tbody>
+          <td style="width: 20%" class="text-cente" ><%= review.created_at.strftime('%Y/%m/%d') %></td>
+          <td style="width: 60%"><%= review.review %></td>
+          <td style="width: 10%">ID: <%= review.customer_id %><td>
+          <td style="width: 10%">
+            <% if review.customer == current_customer %>
+               <%= link_to product_review_path(review.product, review), method: :delete, remote: true, class: "review-delete" do %>
+                <div class="btnripple">
+                <%= image_tag 'delete.png', class: 'img-fluid', size: "80x100" %>
+                </div>
+              <% end %>
+            <% end %>
+          <td>
+        </tbody>
+      </table>
     <% end %>
-  <% end %>
+    
+    <% if customer_signed_in? %>
+      <%= form_with(model:[product, review]) do |f| %>
+    
+      <div class="row mx-auto w-50">
+        <div class="col mb-2 mt-5 text-center">
+          <%= f.text_area :review, rows:'1',placeholder: "review", size: "30", class: "form-control" %>
+        </div>
+      </div>
+    
+      <div class="row mx-auto w-50 ml-3">
+        <div class="col mb-2 mt- mb-3">
+          <%= button_tag :method => :get, :class => "btn", onfocus: "this.blur();" do %>
+          <span class= "col btnripple">
+            <%= image_tag "post.png", class: 'img-fluid border border-0',size: "50x100"  %>
+          </span>
+            <% end %>
+        </div>
+      </div>
 
+      <% end %>
+    <% end %>
+  </div>
+</div>
