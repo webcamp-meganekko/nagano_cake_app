@@ -1,6 +1,7 @@
 class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_customer, only: [:show, :edit, :update]
+  before_action :set_q, only: [:index, :search]
   
   def index
     @customers = Customer.page(params[:page]).per(10)
@@ -21,6 +22,10 @@ class Admin::CustomersController < ApplicationController
     end
   end
   
+  def search
+    @results = @q.result
+  end
+  
   private
   def customer_params
      params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana,
@@ -29,5 +34,9 @@ class Admin::CustomersController < ApplicationController
   
   def set_customer
     @customer = Customer.find(params[:id])
+  end
+  
+  def set_q
+    @q = Customer.ransack(params[:q])
   end
 end

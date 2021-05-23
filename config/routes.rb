@@ -52,7 +52,11 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      collection do
+        get 'search'
+      end
+    end
     resources :genres, only: [:index, :create, :edit, :update]
     resources :products, only: [:index, :show, :new, :create, :edit, :update]
     resources :orders, only: [:show, :update]
