@@ -50,7 +50,7 @@
   </div>
 
   <div class="row row-cols-4 mt-4 mb-5">
-    <% @products.first(4).each do |product| %>
+    <% @products.last(4).each do |product| %>
       <div class="card border-0">
         <div class="card-img-topr product-img">
           <%= link_to product_path(product.id) do %>
