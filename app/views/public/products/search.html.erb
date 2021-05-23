@@ -1,14 +1,7 @@
-
-  <div class="row">
-    <div class="col md-5 mb-2 d-flex">
-      <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Search..."<%= @genre_name %>"</h5>
-      <h5 class="mb-2  ml-3 page-title">"<%= @products_genre.count %>" Hit</h5>
-    </div>
-
- <%= render partial: "index", locals: {products: @products_genre}  %>
-
- <div class="row">
-    <div class="col-md-4 offset-md-5 pl-5 mt-3 page-title">
-      <%= paginate @products %>
-    </div>
+<div class="row">
+  <div class="col md-5 mb-2 d-flex">
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Search..."<%= @genre_name %>"</h5>
+    <h5 class="mb-2  ml-3 page-title">"<%= @products_genre.count %>" Hit</h5>
   </div>
+  <%= render partial: "index", locals: {products: @products_genre}  %>
+</div>
