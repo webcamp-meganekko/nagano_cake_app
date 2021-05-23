@@ -45,12 +45,12 @@
   <div class="col-sm-2"></div>
   <div class="col-sm-2 page-title">
     <%= link_to edit_admin_customer_path(@customer) do %>
-      <%= image_tag "edit.png", class: 'img-fluid border border-0', size: "60x40" %>
+      <span class="btnripple"><%= image_tag "edit.png", class: 'img-fluid border border-0', size: "60x40" %></span>
     <%end  %>
   </div>
   <div class="col-sm-3 page-title">
     <%= link_to admin_top_path(customer_id: @customer.id) do %>
-      <%= image_tag "back_to_index", class: 'img-fluid border border-0', size: "60x40" %>
+      <span class="btnripple"><%= image_tag "order_history_list.png", class: 'img-fluid border border-0', size: "60x40" %></span>
     <% end %>
   </div>
 </div>
