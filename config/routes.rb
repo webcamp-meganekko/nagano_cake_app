@@ -1,20 +1,6 @@
 Rails.application.routes.draw do
   devise_for :customers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-    # path: '',
-    # path_names: {
-    #   sign_up: '',
-    #   sign_in: 'login',
-    #   sign_out: 'logout',
-    #   registration: "signup",
-    # },
-    # controllers: {
-    #   sessions:      'customers/sessions',
-    #   passwords:     'customers/passwords',
-    #   registrations: 'customers/registrations'
-    # }
-
   # ========= ユーザー(public)のルーティング ================
   scope module: :public do
     root to: 'homes#top'

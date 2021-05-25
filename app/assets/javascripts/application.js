@@ -131,6 +131,6 @@ function fadeAnime(){
     fadeAnime();
   });
 
-	$(window).on('load', function(){
+	$(window).on('lturbolinks:load', function(){
 		delayScrollAnime();
 	});
