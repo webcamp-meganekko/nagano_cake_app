@@ -60,7 +60,7 @@
 
  <div class="row">
     <div class="col-md-2 offset-md-1 mt-3">
-      <%= link_to   root_path do %>
+      <%= link_to root_path, class: 'to_top' do %>
       <div class="btnripple">
       <%= image_tag 'continue_shopping.png', class: 'img-fluid btn_click', size: "80x60" %>
       </div>
@@ -79,7 +79,7 @@
     </table>
     <div class="row">
       <div class=" col-md-8 offset-md-3 mt-3 mb-4">
-        <%= link_to new_order_path do %>
+        <%= link_to new_order_path, class: 'to_order' do %>
         <p class="btnripple">
         <%= image_tag 'delivery_info.png', class: 'img-fluid', size: "180x120" %>
         </p>
