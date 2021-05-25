@@ -68,9 +68,6 @@ describe '登録〜注文のテスト' do
         find('a[href="/product/1"]').click
         expect(current_path).to eq product_path(1)
       end
-    
+    end
   end
-end
-  
-  
 end

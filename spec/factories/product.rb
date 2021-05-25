@@ -1,9 +1,14 @@
 FactoryBot.define do
   factory :product do
     genre_id { 1 }
-    name { Faker::Food.fruits }
-    image_id { Faker::Lorem.characters(number:10) }
-    caption { Faker::Lorem.characters(number:10) }
-    price { Faker::Number.number(digits: 4) }
+    product_name { 'ケーキ' }
+    introduction { 'いちごのショートケーキ' }
+    price { 300 }
+  end
+  factory :product2, class: Product do
+    genre_id { 2 }
+    product_name { 'マカロン' }
+    introduction { 'カラフルなおかし' }
+    price { 200 }
   end
 end

@@ -4,4 +4,6 @@ class Admin < ApplicationRecord
   
   devise :database_authenticatable, #:registerable,⇦自動ログインを防ぐ
          :recoverable, :rememberable, :validatable
+  
+  validates :email, presence: true
 end
