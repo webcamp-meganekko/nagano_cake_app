@@ -21,7 +21,7 @@
               <%= customer.id %>
             </td>
             <td>
-              <%= link_to full_name(customer), admin_customer_path(customer) %>
+              <%= link_to full_name(customer), admin_customer_path(customer), class: 'customer' %>
             </td>
             <td>
               <%= customer.email %>
